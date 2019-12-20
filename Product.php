@@ -5,7 +5,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 ?>
 <html>
@@ -51,7 +51,7 @@ if(isset($_POST['Delete']))
     'product_id' => $id
  ));
 
-header("Location: http://training.local/Stock.php");
+header("Location: http://fridge.local/Stock.php");
 exit;
 }
 

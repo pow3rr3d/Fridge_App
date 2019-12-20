@@ -5,7 +5,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 
 $dns = 'mysql:dbname=training;host=127.0.0.1';
@@ -42,7 +42,7 @@ while($donnees = $req->fetch())
 
 if($total > 0)
 {
-    header("Location: http://training.local/Stock.php");
+    header("Location: http://fridge.local/Stock.php");
     exit;
 }
 
@@ -56,7 +56,7 @@ $requete->execute(array(
     'image' => '',
     ));
 
-    header("Location: http://training.local/Stock.php");
+    header("Location: http://fridge.local/Stock.php");
     exit;
 
 

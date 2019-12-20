@@ -43,7 +43,7 @@ if(isset($_POST['Name_user']) && isset($_POST['Surname_user']) && isset($_POST['
             'Password' => password_hash($_POST['Password'], PASSWORD_ARGON2I),
             'Avatar' => '',
         ));
-        header("Location: http://training.local/Index.php");
+        header("Location: http://fridge.local/Index.php");
         exit;
 
 

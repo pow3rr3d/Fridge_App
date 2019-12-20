@@ -4,7 +4,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 ?>
 

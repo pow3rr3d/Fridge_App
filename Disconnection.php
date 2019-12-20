@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("Location: http://training.local/Main_menu.php");
+header("Location: http://fridge.local/Main_menu.php");
 ?>

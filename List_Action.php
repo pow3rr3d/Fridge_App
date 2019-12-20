@@ -5,7 +5,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 
 $dns = 'mysql:dbname=training;host=127.0.0.1';
@@ -87,7 +87,7 @@ function increment($stock_bdd, $inputed_nb )
         'incre' => $incre
         ));
 
-        header("Location: http://training.local/List.php");
+        header("Location: http://fridge.local/List.php");
     
     
 }

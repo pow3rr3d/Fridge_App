@@ -5,7 +5,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 
 $dns = 'mysql:dbname=training;host=127.0.0.1';
@@ -127,7 +127,7 @@ else
 
 }
 
-header("Location: http://training.local/Conso.php");
+header("Location: http://fridge.local/Conso.php");
 exit;
 
 ?>

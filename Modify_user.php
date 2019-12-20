@@ -5,7 +5,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 
 $dns = 'mysql:dbname=training;host=127.0.0.1';
@@ -40,7 +40,7 @@ if(isset($_POST['id']) && $nw_password == $nw_confirm_password)
            'Email' => $nw_email_user,
            'password' => $nw_password
         ));
-        header("Location: http://training.local/User_Account.php");
+        header("Location: http://fridge.local/User_Account.php");
         exit;
     }
     else
@@ -52,7 +52,7 @@ if(isset($_POST['id']) && $nw_password == $nw_confirm_password)
            'Prenom' => $nw_surname_user,
            'Email' => $nw_email_user,
         ));
-        header("Location: http://training.local/User_Account.php");
+        header("Location: http://fridge.local/User_Account.php");
         exit;
     }
 

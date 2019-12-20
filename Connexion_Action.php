@@ -38,7 +38,7 @@ if(!empty($_POST['Email']) && !empty($_POST['Password']))
         $_SESSION['nom'] = $name_user;
         $_SESSION['email'] = $email_user;
         echo 'connexion ok' ;
-        header("Location: http://training.local/Main_menu.php");
+        header("Location: http://fridge.local/Main_menu.php");
         exit;
     }
         echo 'Les informations de connexion saisie sont incorrects! <br>';

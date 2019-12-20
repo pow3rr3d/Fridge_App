@@ -5,7 +5,7 @@ if(!isset($_SESSION['nom']))
 
 {
     echo'pas de session';
-    header("Location: http://training.local/Index.php");
+    header("Location: http://fridge.local/Index.php");
 }
 
 $dns = 'mysql:dbname=training;host=127.0.0.1';
@@ -43,7 +43,7 @@ if(isset($_POST['id']) && isset($_POST['Product_Name']) && isset($_POST['Stock_O
           'produit' => $nw_product,
           'stock_optimal' => $nw_stock_optimal
        ));
-       header("Location: http://training.local/Stock.php");
+       header("Location: http://fridge.local/Stock.php");
        exit;
 }
 else
