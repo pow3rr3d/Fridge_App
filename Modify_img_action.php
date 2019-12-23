@@ -58,7 +58,7 @@ if (isset($_FILES['userfile']) AND $_FILES['userfile']['error'] == 0)
             $uploadfile = $uploaddir;
             $uploadfile .= $produit;
             $uploadfile .= "_";
-            $uploadfile .= $id;
+            $uploadfile .= $user_id;
             $uploadfile .= ".";
             $uploadfile .= $infosfichier['extension'] ;
             $extensions_agree = array('jpg', 'jpeg', 'png', 'PNG','JPEG','JPG' );

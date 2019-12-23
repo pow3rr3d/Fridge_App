@@ -73,9 +73,21 @@ if(!isset($_SESSION['nom']))
         $produit = $donnees['PRODUIT'] ;
         $stock_reel = $donnees['PRODUIT_STOCK_REEL'] ;
         $stock_optimal = $donnees['PRODUIT_STOCK_OPTIMAL'];
+        $user_img = $donnees['PRODUIT_IMG'];
+        
+        if(empty($user_img))
+        {
+            $req_img = $bdd->query('SELECT * FROM produit WHERE ID ='.$id.'');
+    
+     while ($donnees = $req_img->fetch())
+        {
+        $user_img = $donnees['IMAGE'];
+        }   
+    
+        }
 
 
-        echo '<div id="product_div">';
+        echo '<div id="product_div" style="background-image:url('.$user_img.')">';
         echo '<h2>';
         echo $produit.' ('.$stock_reel.')';
         echo '</h2>';
