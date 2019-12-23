@@ -10,7 +10,7 @@ if(!isset($_SESSION['nom']))
 $dns = 'mysql:dbname=training;host=127.0.0.1';
 $user = 'root';
 $password = '';
-$id= '1';
+$id= $_SESSION['id'];
 ?>
 <html>
     <header>

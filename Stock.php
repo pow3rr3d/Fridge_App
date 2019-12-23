@@ -11,7 +11,7 @@ if(!isset($_SESSION['nom']))
 <html>
     <header>
         <title>
-            App Frigo - PRODUIT_STOCK_REEL
+            App Frigo - Stock
         </title>
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
