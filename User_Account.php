@@ -29,7 +29,7 @@ if(!isset($_SESSION['nom']))
 $dns = 'mysql:dbname=training;host=127.0.0.1';
 $user = 'root';
 $password = '';
-$id = '1'; //A modifier avec $_SESSION['ID']
+$id = $_SESSION['id']; 
 
 try 
 {
@@ -47,10 +47,13 @@ while ($donnees = $requete->fetch())
     $name_user = $donnees['NOM'];
     $surname_user = $donnees['PRENOM'];
     $email_user = $donnees['EMAIL'];
+    $avatar_user = $donnees['AVATAR'];
 
 }
-
-echo '<form action="Modify_user.php" method="post" name="Modify_form">';
+echo '<div id="cercle" style="background-image:url('.$avatar_user.')"></div><br>';
+echo '<a href="Modify_avatar.php"> Modifier Avatar';
+echo '</a>';
+echo '<form enctype="multipart/form-data" action="Modify_user.php" method="post" name="Modify_form">';
 echo '<label>';
 echo 'ID: ';
 echo '</label>';

@@ -103,6 +103,8 @@ catch (Exception $e)
         echo '<td>';
         echo '<input class="button" type="hidden" value="'.$t[0].'" name="id"/>';
         echo '<input class="Delete_Input" type="submit" value="" name="Delete"/>';
+        echo '<input class="Modify_Input" type="submit" value="" name="Modify"/>';
+        
         echo '</td>';
         echo '</form>'; 
         echo '</tr>';

@@ -20,7 +20,7 @@ if(!isset($_SESSION['nom']))
     <a href = "Stock.php"> retour </a>
 
     <section class="Title">
-        <h1> Mes Produits </h1>
+        <h1> Mon produit </h1>
     </section>
     <section class="Corpus">
 
@@ -66,10 +66,25 @@ elseif(isset($_POST['Modify']))
     $produit = $donnees['PRODUIT'];
     $stock_reel = $donnees['PRODUIT_STOCK_REEL'];
     $stock_optimal = $donnees['PRODUIT_STOCK_OPTIMAL'];
-
+    $user_img = $donnees['PRODUIT_IMG'];
     }   
 
-    echo '<form action="Modify_Action.php" method="post" name="Modify_form">';
+    if(empty($user_img))
+    {
+        $req_img = $bdd->query('SELECT * FROM produit WHERE ID ='.$id.'');
+
+ while ($donnees = $req_img->fetch())
+    {
+    $user_img = $donnees['IMAGE'];
+    }   
+
+    }
+    echo '<form enctype="multipart/form-data" action="Modify_img_product.php" method="post" name="Modify_form">';
+    echo '<div id="cercle" style="background-image:url('.$user_img.')"></div><br>';
+    echo '<input class="button" type="hidden" value="'.$id.'" name="id">';
+    echo '<input class="Modify_img_submit" type="submit" value="Modifier image" name="Modify_submit">';
+    echo '</form>';
+    echo '<form enctype="multipart/form-data" action="Modify_Action.php" method="post" name="Modify_form">';
     echo '<label>';
     echo 'ID: ';
     echo '</label>';
@@ -77,7 +92,7 @@ elseif(isset($_POST['Modify']))
     echo '<label>';
     echo 'Produit: ';
     echo '</label>';
-    echo '<input class="Product_input" type="text" value="'.$produit.'" name="Product_Name" required/> <br>';
+    echo $produit .'<br>';
     echo '<label>';
     echo 'Stock Réel: ';
     echo '</label>';

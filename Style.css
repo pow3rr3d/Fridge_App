@@ -70,7 +70,7 @@ td
    width: 5%;
    filter: invert(50%);
 }
-.Modidy_Input
+.Modify_Input
 {
    height: 20px;
    width: 20px;
@@ -112,12 +112,7 @@ label
    display: inline-block;
    margin-right: 50px;;
  }
-.Corpus
-{
-   display: flex;
-   justify-content: center;
-   margin-top: 150px;
-}
+
 .Nw_productlink
 {
    right: 10px;
@@ -128,4 +123,18 @@ label
 }.Nb_input
 {
    width: 50px;
+}
+#cercle 
+{
+   width: 200px;
+   height: 200px;
+   border-radius: 100px;
+
+   background-position: center; 
+   background-repeat: no-repeat;
+   background-size: cover; 
+}
+.Modify_img_submit
+{
+   border: none;
 }
