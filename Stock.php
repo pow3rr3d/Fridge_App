@@ -24,7 +24,7 @@ if(!isset($_SESSION['nom']))
     </section>
     
     <section class="PRODUIT_STOCK_REEL_Array">
-    <?php
+<?php
 
     echo '<a class="Nw_productlink" href="New_Product.php">';
     echo 'Ajouter un produit';

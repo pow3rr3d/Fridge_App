@@ -13,6 +13,10 @@ text-decoration: none;
 {
     font-size: 1.5em;
 }
+.Graph
+{
+   font-size: 1.5em; 
+}
 .return_button
  {
     align-items: flex-start;
@@ -81,6 +85,7 @@ td
    background-color: transparent;
    filter: invert(50%);
    cursor: pointer;
+   margin-left: 5px;
 }
 .Delete_Input
 {
@@ -93,6 +98,20 @@ td
    background-color: transparent;
    filter: invert(50%);
    cursor: pointer;
+   margin-left: 5px;
+}
+.Save_Input
+{
+   height: 20px;
+   width: 20px;
+   background-size: 20px 20px;
+   background-image: url('/media/Save_icon.png');
+   background-repeat: no-repeat;
+   border: none;
+   background-color: transparent;
+   filter: invert(50%);
+   cursor: pointer;
+   margin-left: 5px;
 }
 .Validate_Input
 {
@@ -105,6 +124,7 @@ td
    background-color: transparent;
    filter: invert(50%);
    cursor: pointer;
+   margin-left: 5px;
 }
 label 
 {
@@ -144,4 +164,12 @@ label
    background-repeat: no-repeat;
    background-size: cover; 
    color: black;
+}
+#product_div_admin
+{
+   width: 100px;
+   height: 100px;
+   background-position: center; 
+   background-repeat: no-repeat;
+   background-size: cover; 
 }
