@@ -35,7 +35,7 @@ if (isset($_FILES['userfile']) AND $_FILES['userfile']['error'] == 0 AND isset($
                 {
                         // On peut valider le fichier et le stocker définitivement
                         move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
-                        $req = $bdd->prepare('INSERT INTO produit (ID, PRODUIT, IMAGE) VALUES (NULL, :produit, :image)'); //INSERT INTO `produit`(`ID`, `PRODUIT`, `IMAGE`) VALUES ([value-1],[value-2],[value-3])
+                        $req = $bdd->prepare('INSERT INTO produit (ID, PRODUIT, IMAGE) VALUES (NULL, :produit, :image)'); 
                         $req->execute(array(
                             'produit' => $produit, 
                             'image' => $uploadfile

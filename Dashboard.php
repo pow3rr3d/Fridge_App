@@ -6,7 +6,8 @@ if($_SESSION['type'] != "Admin" )
     echo'pas de session';
     header("Location: http://fridge.local/Index.php");
 }
-
+include_once('Top_produit.php');
+include_once('Less_produit.php');
 ?>
 <html>
     <header>
@@ -24,8 +25,13 @@ if($_SESSION['type'] != "Admin" )
     </section>
 
     <section class="Graph">
-        <h2> Statistiques </h2>
-
+        <h2 class='h2_graph'> Statistiques </h2>
+        <div class='div_graph'>
+ <?php  
+ Top_produit(); 
+ Less_produit();
+ ?>
+        </div>
     </section>
 
     <section class="Summary">

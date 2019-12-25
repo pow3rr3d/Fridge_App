@@ -16,7 +16,7 @@ catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
-$req = $bdd->query('SELECT PRODUIT_ID, PRODUIT,COUNT(*) AS resultat FROM user_produit RIGHT JOIN produit ON user_produit.PRODUIT_ID = produit.ID GROUP BY PRODUIT_ID ORDER BY resultat DESC');
+$req = $bdd->query('SELECT PRODUIT_ID, PRODUIT,COUNT(*) AS resultat FROM user_produit RIGHT JOIN produit ON user_produit.PRODUIT_ID = produit.ID GROUP BY PRODUIT_ID ORDER BY resultat DESC LIMIT 3');
 
  while ($donnees = $req->fetch())
     {
@@ -28,7 +28,8 @@ $req = $bdd->query('SELECT PRODUIT_ID, PRODUIT,COUNT(*) AS resultat FROM user_pr
             ];
     } 
 
-    echo '<table>';
+    echo '<table class="table_top">';
+    echo '<caption>TOP PRODUIT</caption>';
     echo '<tr>';
     echo '<td>PRODUIT</td>';
     echo '<td>NB D\'UTILISATION</td>';
@@ -43,5 +44,4 @@ $req = $bdd->query('SELECT PRODUIT_ID, PRODUIT,COUNT(*) AS resultat FROM user_pr
     }
     echo '</table>';
 }
-Top_produit();
-?>
+?> 

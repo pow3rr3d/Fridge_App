@@ -178,3 +178,8 @@ label
  {
     padding: 10 60 10 60;
  }
+
+ .div_graph
+ {
+   display: flex;
+ }
