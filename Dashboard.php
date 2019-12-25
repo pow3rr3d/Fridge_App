@@ -32,7 +32,7 @@ if($_SESSION['type'] != "Admin" )
         <h2> Sommaire </h2>
         <ul>
             <li> <a href="Admin_product.php"> Gestion Produits </a> </li> 
-            <li> <a href="#"> Gestion Utilisateurs </a> </li>
+            <li> <a href="Admin_user.php"> Gestion Utilisateurs </a> </li>
             <li> <a href="#"> ### </a> </li> 
         </ul>
     </section>

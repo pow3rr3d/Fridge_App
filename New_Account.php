@@ -8,7 +8,7 @@
     </header>
     <body>
     
-    <a href = "Main_menu.php"> retour </a>
+    <a href = "Index.php"> retour </a>
 
     <section class="Title">
         <h1> Inscription </h1>

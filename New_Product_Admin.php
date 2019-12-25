@@ -23,6 +23,7 @@ if(!isset($_SESSION['id'])  && $_SESSION['id'] != 'Admin' )
         <section class="Title">
             <h1> Nouveau Produit </h1>
         </section>
+        <section class="corpus">
 <?php
 
 echo '<form enctype="multipart/form-data" action="Add_product_admin.php" method="post" name="Add_form">';
@@ -39,7 +40,7 @@ echo '<input class="Modify_submit" type="submit" value="Envoyer" name="Modify_su
 echo '</form>';
 
 ?>
-        <section>
+
         </section>
     </body>
  </html>

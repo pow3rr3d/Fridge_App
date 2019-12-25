@@ -173,3 +173,8 @@ label
    background-repeat: no-repeat;
    background-size: cover; 
 }
+
+.td_table_admin_user
+ {
+    padding: 10 60 10 60;
+ }
