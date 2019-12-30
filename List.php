@@ -16,7 +16,7 @@ if(!isset($_SESSION['nom']))
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Main_menu.php"> retour </a>
 
     <section class="Title">
@@ -26,22 +26,20 @@ if(!isset($_SESSION['nom']))
     <section>
 <?php
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $user_id = $_SESSION['id'];
-try 
+try
 {
   $bdd = new PDO($dns, $user, $password);
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   echo "";
   $requete = $bdd->query('SELECT * FROM user_produit RIGHT JOIN produit ON user_produit.PRODUIT_ID = produit.ID WHERE USER_ID = '.$user_id.' ');
 
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
   echo 'Échec lors de la connexion : ' . $e->getMessage();
-  
+
 }
 while ($donnees = $requete->fetch())
 {
@@ -55,15 +53,15 @@ while ($donnees = $requete->fetch())
 
   {
           $level = "OK";
-  } 
+  }
 
   $id = $donnees['ID'];
   $produit = $donnees['PRODUIT'];
   $PRODUIT_STOCK_REEL_reel = $donnees['PRODUIT_STOCK_REEL'];
   $PRODUIT_STOCK_OPTIMAL = $donnees['PRODUIT_STOCK_OPTIMAL'];
-  $qt_buy = $PRODUIT_STOCK_OPTIMAL - $PRODUIT_STOCK_REEL_reel; 
+  $qt_buy = $PRODUIT_STOCK_OPTIMAL - $PRODUIT_STOCK_REEL_reel;
   $echo_qt= '<input class="Nb_input" type="number" min="0" values=" '.$qt_buy.' " name="inputed_nb">';
-  $validate = '<input class="Validate_Input" type="submit" value="" name="Validate"/>'; 
+  $validate = '<input class="Validate_Input" type="submit" value="" name="Validate"/>';
 
   $tab[] = [
       $id,
@@ -93,7 +91,7 @@ while ($donnees = $requete->fetch())
     echo '</td>';
     echo '</tr>';
 
- foreach($tab as $t) 
+ foreach($tab as $t)
  {
     echo '<tr>';
     echo '<form action="List_Action.php" method="post" name="List_form">';
@@ -113,9 +111,9 @@ while ($donnees = $requete->fetch())
      echo '<td>';
      echo $validate;
      echo $hidden_id;
-     echo '</td>'; 
+     echo '</td>';
     }
-     echo '</form>'; 
+     echo '</form>';
      echo '</tr>';
 }
     echo '<table>';

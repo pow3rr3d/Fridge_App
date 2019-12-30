@@ -8,19 +8,17 @@ if(!isset($_SESSION['id'])  && $_SESSION['id'] != 'Admin' )
     header("Location: http://fridge.local/Index.php");
 }
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id= $_POST['id'];
 $avatar = $_POST['Avatar'];
 $email = $_POST['Email'];
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM produit');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }

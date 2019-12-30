@@ -16,13 +16,13 @@ if(!isset($_SESSION['nom']))
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Main_menu.php"> retour </a>
 
     <section class="Title">
         <h1> Mes Produits </h1>
     </section>
-    
+
     <section class="PRODUIT_STOCK_REEL_Array">
 <?php
 
@@ -31,23 +31,21 @@ if(!isset($_SESSION['nom']))
     echo '</a>';
 
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $user_id = $_SESSION['id'];
 
-try 
+try
 {
   $bdd = new PDO($dns, $user, $password);
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   echo "";
   $requete = $bdd->query('SELECT * FROM user_produit RIGHT JOIN produit ON user_produit.PRODUIT_ID = produit.ID WHERE USER_ID = '.$user_id.' ');
 
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
   echo 'Échec lors de la connexion : ' . $e->getMessage();
-  
+
 }
   $id = '';
   $produit = '';
@@ -67,7 +65,7 @@ catch (Exception $e)
 
     {
             $level = "OK";
-    } 
+    }
 
     $id = $donnees['ID'];
     $produit = $donnees['PRODUIT'];
@@ -82,8 +80,8 @@ catch (Exception $e)
         $level
     ];
 
-   }   
- 
+   }
+
 
     echo '<table>';
     echo '<tr>';
@@ -104,14 +102,14 @@ catch (Exception $e)
         echo '<input class="button" type="hidden" value="'.$t[0].'" name="id"/>';
         echo '<input class="Delete_Input" type="submit" value="" name="Delete"/>';
         echo '<input class="Modify_Input" type="submit" value="" name="Modify"/>';
-        
+
         echo '</td>';
-        echo '</form>'; 
+        echo '</form>';
         echo '</tr>';
-        
+
     }
     echo '</table>';
-    
+
 
     $requete->closeCursor();
 

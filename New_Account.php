@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Index.php"> retour </a>
 
     <section class="Title">
@@ -17,17 +17,15 @@
     <section class="Corpus">
 <?php
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }

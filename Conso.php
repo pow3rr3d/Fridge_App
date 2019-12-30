@@ -17,20 +17,18 @@ if(!isset($_SESSION['nom']))
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Main_menu.php"> retour </a>
 
     <section class="Title">
         <h1> Ma Consommation </h1>
     </section>
-    
+
     <section class="Conso_Array">
 <?php
 
 // Déclaration Variables
-    $dns = 'mysql:dbname=training;host=127.0.0.1';
-    $user = 'root';
-    $password = '';
+    include_once 'includes/connexion.php';
     $id = '';
     $produit = '';
     $stock_reel = '';
@@ -44,17 +42,17 @@ if(!isset($_SESSION['nom']))
     $inputed_nb ='';
     $user_id = $_SESSION['id'];
 
-    try 
+    try
     {
      $bdd = new PDO($dns, $user, $password);
      $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
      $requete = $bdd->query('SELECT * FROM user_produit RIGHT JOIN produit ON user_produit.PRODUIT_ID = produit.ID WHERE USER_ID = '.$user_id.' ');
-    } 
-    catch (Exception $e) 
+    }
+    catch (Exception $e)
     {
      echo 'Échec lors de la connexion : ' . $e->getMessage();
     }
-    
+
     while ($donnees = $requete->fetch())
     {
         if($donnees['PRODUIT_STOCK_REEL'] < $donnees['PRODUIT_STOCK_OPTIMAL'])
@@ -62,28 +60,28 @@ if(!isset($_SESSION['nom']))
         {
                 $level = "Critique";
         }
-    
+
         else
-    
+
         {
                 $level = "OK";
-        } 
+        }
 
         $id = $donnees['ID'] ;
         $produit = $donnees['PRODUIT'] ;
         $stock_reel = $donnees['PRODUIT_STOCK_REEL'] ;
         $stock_optimal = $donnees['PRODUIT_STOCK_OPTIMAL'];
         $user_img = $donnees['PRODUIT_IMG'];
-        
+
         if(empty($user_img))
         {
             $req_img = $bdd->query('SELECT * FROM produit WHERE ID ='.$id.'');
-    
+
      while ($donnees = $req_img->fetch())
         {
         $user_img = $donnees['IMAGE'];
-        }   
-    
+        }
+
         }
 
 
@@ -101,12 +99,12 @@ if(!isset($_SESSION['nom']))
         echo '</div>';
         echo '<div id="decrement_div">' ;
         echo '<input class="button_deduct" type="submit" value="-" name="sub">';
-        echo '</form>'; 
+        echo '</form>';
         echo '</div>';
         echo '</div>';
 
    }
- 
+
     $requete->closeCursor();
 ?>
 

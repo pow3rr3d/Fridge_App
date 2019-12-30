@@ -16,7 +16,7 @@ if(!isset($_SESSION['nom']))
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Stock.php"> retour </a>
 
     <section class="Title">
@@ -26,19 +26,17 @@ if(!isset($_SESSION['nom']))
 
 <?php
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id = $_POST['id'];
 $user_id = $_SESSION['id'];
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM produit');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -62,12 +60,12 @@ elseif(isset($_POST['Modify']))
 
  while ($donnees = $req_stock->fetch())
     {
-  
+
     $produit = $donnees['PRODUIT'];
     $stock_reel = $donnees['PRODUIT_STOCK_REEL'];
     $stock_optimal = $donnees['PRODUIT_STOCK_OPTIMAL'];
     $user_img = $donnees['PRODUIT_IMG'];
-    }   
+    }
 
     if(empty($user_img))
     {
@@ -76,7 +74,7 @@ elseif(isset($_POST['Modify']))
  while ($donnees = $req_img->fetch())
     {
     $user_img = $donnees['IMAGE'];
-    }   
+    }
 
     }
     echo '<form enctype="multipart/form-data" action="Modify_img_product.php" method="post" name="Modify_form">';

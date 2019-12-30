@@ -3,14 +3,12 @@
 if(!empty($_POST['Email']) && !empty($_POST['Password']))
 {
 
-    $dns = 'mysql:dbname=training;host=127.0.0.1';
-    $user = 'root';
-    $password = '';
+    include_once 'includes/connexion.php';
     $input_password = password_hash($_POST['Password'], PASSWORD_ARGON2I);
     $connexion_admin = $_POST['Connexion_submit_admin'];
     $connexion_user = $_POST['Connexion_submit'];
 
-    try 
+    try
     {
      $bdd = new PDO($dns, $user, $password);
      $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,8 +16,8 @@ if(!empty($_POST['Email']) && !empty($_POST['Password']))
      $requete -> execute(array(
         'Email' =>  $_POST['Email']
      ));
-    } 
-    catch (Exception $e) 
+    }
+    catch (Exception $e)
     {
      echo 'Échec lors de la connexion : ' . $e->getMessage();
     }
@@ -58,7 +56,7 @@ if(!empty($_POST['Email']) && !empty($_POST['Password']))
             $_SESSION['type'] = $type_user;
             echo 'connexion ok' ;
             header("Location: http://fridge.local/Dashboard.php");
-            exit; 
+            exit;
         }
         elseif($type_user == 'Admin' && $connexion_user == 'Connexion')
         {
@@ -70,14 +68,14 @@ if(!empty($_POST['Email']) && !empty($_POST['Password']))
             $_SESSION['type'] = $type_user;
             echo 'connexion ok' ;
             header("Location: http://fridge.local/Main_menu.php");
-            exit; 
+            exit;
         }
-        else 
+        else
         {
             header("Location: http://fridge.local/Index.php");
-            exit;     
+            exit;
         }
-        
+
     }
         echo 'Les informations de connexion saisie sont incorrects! <br>';
         echo '<a href ="Index.php"> retour </a>';

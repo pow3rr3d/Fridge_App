@@ -7,9 +7,7 @@ if(!isset($_SESSION['nom']))
     header("Location: http://fridge.local/Index.php");
 }
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id= $_POST['id'];
 $user_id = $_SESSION['id'];
 
@@ -22,7 +20,7 @@ $user_id = $_SESSION['id'];
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Stock.php"> retour </a>
 
     <section class="Title">
@@ -34,13 +32,13 @@ $user_id = $_SESSION['id'];
 
 
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM user_produit WHERE USER_ID ='.$user_id.' AND PRODUIT_ID ='.$id.'');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -57,7 +55,7 @@ if(empty($product_img))
         {
         $product_img = $donnees['IMAGE'];
         $produit = $donnees['PRODUIT'];
-        }   
+        }
 
     }
 echo '<div id="cercle" style="background-image:url('.$product_img.')"></div><br>';
