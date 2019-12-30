@@ -13,10 +13,7 @@ text-decoration: none;
 {
     font-size: 1.5em;
 }
-.Graph
-{
-   font-size: 1.5em; 
-}
+
 .return_button
  {
     align-items: flex-start;
@@ -182,4 +179,9 @@ label
  .div_graph
  {
    display: flex;
+   flex-wrap: wrap;
+ }
+ .list
+ {
+display: block;
  }

@@ -8,6 +8,7 @@ if($_SESSION['type'] != "Admin" )
 }
 include_once('Top_produit.php');
 include_once('Less_produit.php');
+include_once('Unused_produit.php');
 ?>
 <html>
     <header>
@@ -30,6 +31,7 @@ include_once('Less_produit.php');
  <?php  
  Top_produit(); 
  Less_produit();
+ Unused_produit();
  ?>
         </div>
     </section>
