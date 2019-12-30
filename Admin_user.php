@@ -17,7 +17,7 @@ if(!isset($_SESSION['id'])  && $_SESSION['id'] != 'Admin' )
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Dashboard.php"> retour </a>
 
     <section class="Title">
@@ -33,20 +33,18 @@ echo 'Créer un utilisateur';
 echo '</a>';
 
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $user_id = $_SESSION['id'];
 
-try 
+try
 {
 $bdd = new PDO($dns, $user, $password);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 echo "";
 $requete = $bdd->query('SELECT * FROM user');
 
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
 echo 'Échec lors de la connexion : ' . $e->getMessage();
 
@@ -80,7 +78,7 @@ $tab[] = [
     $apercu
 ];
 
-}   
+}
 
 
 echo '<table class="table_admin_user">';
@@ -104,11 +102,11 @@ foreach($tab as $t) {
     echo '<input class="button" type="hidden" value="'.$t[0].'" name="id"/>';
     echo '<input class="Delete_Input" type="submit" value="" name="Delete"/>';
     echo '<input class="Save_Input" type="submit" value="" name="Save"/>';
-    
+
     echo '</td>';
-    echo '</form>'; 
+    echo '</form>';
     echo '</tr>';
-    
+
 }
 echo '</table>';
 

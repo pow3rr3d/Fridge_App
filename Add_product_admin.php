@@ -8,17 +8,15 @@ if(!isset($_SESSION['id'])  && $_SESSION['id'] != 'Admin' )
     header("Location: http://fridge.local/Index.php");
 }
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id= $_SESSION['id'];
 $produit = $_POST['Name'];
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -35,9 +33,9 @@ if (isset($_FILES['userfile']) AND $_FILES['userfile']['error'] == 0 AND isset($
                 {
                         // On peut valider le fichier et le stocker définitivement
                         move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
-                        $req = $bdd->prepare('INSERT INTO produit (ID, PRODUIT, IMAGE) VALUES (NULL, :produit, :image)'); 
+                        $req = $bdd->prepare('INSERT INTO produit (ID, PRODUIT, IMAGE) VALUES (NULL, :produit, :image)');
                         $req->execute(array(
-                            'produit' => $produit, 
+                            'produit' => $produit,
                             'image' => $uploadfile
                              ));
                              header("Location: http://fridge.local/Admin_Product.php");

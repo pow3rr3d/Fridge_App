@@ -7,9 +7,7 @@ if(!isset($_SESSION['nom']))
     header("Location: http://fridge.local/Index.php");
 }
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id= $_SESSION['id'];
 ?>
 <html>
@@ -20,7 +18,7 @@ $id= $_SESSION['id'];
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "User_Account.php"> retour </a>
 
     <section class="Title">
@@ -30,13 +28,13 @@ $id= $_SESSION['id'];
     <section class="Corpus">
 <?php
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM user WHERE id LIKE '.$id.'');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }

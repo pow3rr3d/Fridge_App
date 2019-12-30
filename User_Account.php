@@ -16,7 +16,7 @@ if(!isset($_SESSION['nom']))
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Main_menu.php"> retour </a>
 
     <section class="Title">
@@ -26,18 +26,16 @@ if(!isset($_SESSION['nom']))
     <section class="Corpus">
 <?php
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
-$id = $_SESSION['id']; 
+include_once 'includes/connexion.php';
+$id = $_SESSION['id'];
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM user WHERE id LIKE '.$id.'');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }

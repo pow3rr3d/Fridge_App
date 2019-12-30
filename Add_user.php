@@ -1,7 +1,5 @@
 <?php
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $nw_name_user = $_POST['Name_user'];
 $nw_surname_user = $_POST['Surname_user'];
 $nw_email_user = $_POST['Email_user'];
@@ -9,12 +7,12 @@ $nw_password = $_POST['Password'];
 $nw_confirm_password = $_POST['Confirm_password'];
 $hash_pass = password_hash($_POST['Password'], PASSWORD_ARGON2I);
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -32,7 +30,7 @@ if($total > 0 )
     exit;
 }
 if(isset($_POST['Name_user']) && isset($_POST['Surname_user']) && isset($_POST['Email_user']) && $nw_password == $nw_confirm_password)
-{  
+{
         $req_add = $bdd->prepare('INSERT INTO `user` (`ID`, `NOM`, `PRENOM`, `EMAIL`, `EMAIL_CONFIRM`, `PASSWORD`, `AVATAR`, `TYPE`)
         VALUES (NULL, :Nom, :Prenom, :Email, :Email_Confirm, :Password, :Avatar, :Type)');
         $req_add->execute(array(

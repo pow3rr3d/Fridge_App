@@ -8,27 +8,25 @@ if(!isset($_SESSION['nom']))
     header("Location: http://fridge.local/Index.php");
 }
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id= $_POST['Product_id'];
 $nwproduct = '';
 $nw_stock_optimal = $_POST['Stock_Optimal'];
 if(!empty($_POST['Stock_Reel']))
 {
     $nw_stock_reel = $_POST['Stock_Reel'];
-} 
+}
 else{
     $nw_stock_reel = "0";
 };
 $user_id = $_SESSION['id'];
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }

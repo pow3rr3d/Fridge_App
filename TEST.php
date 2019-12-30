@@ -3,16 +3,14 @@ function Top_produit()
 {
 
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
-try 
+include_once 'includes/connexion.php';
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM produit');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -26,7 +24,7 @@ $req = $bdd->query('SELECT PRODUIT_ID, PRODUIT,COUNT(*) AS resultat FROM user_pr
                 $produit,
                 $resultat
             ];
-    } 
+    }
 
     echo '<table>';
     echo '<tr>';
@@ -39,7 +37,7 @@ $req = $bdd->query('SELECT PRODUIT_ID, PRODUIT,COUNT(*) AS resultat FROM user_pr
             echo '<td>' . $t1 . '</td>';
         }
         echo '</tr>';
-        
+
     }
     echo '</table>';
 }

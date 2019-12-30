@@ -16,30 +16,28 @@ if(!isset($_SESSION['nom']))
         <link rel="stylesheet" type="text/css" href="Style.css">
     </header>
     <body>
-    
+
     <a href = "Stock.php"> retour </a>
 
         <section class="Title">
             <h1> Nouveau Produit </h1>
         </section>
 <?php
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $user_id = $_SESSION['id'];
 
-try 
+try
 {
   $bdd = new PDO($dns, $user, $password);
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   echo "";
   $requete = $bdd->query('SELECT PRODUIT, ID FROM produit');
 
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
   echo 'Échec lors de la connexion : ' . $e->getMessage();
-  
+
 }
 while($donnees = $requete->fetch())
 {
@@ -59,7 +57,7 @@ echo 'Produit: ';
 echo '</label>';
 echo '<select name="Product_id">';
 foreach($tab as $t) {
-    echo '<option name="Product_choice" value="'.$t[0].'">'; 
+    echo '<option name="Product_choice" value="'.$t[0].'">';
     foreach($t as $t1) {
         echo  $t[1];
         echo '</option>';

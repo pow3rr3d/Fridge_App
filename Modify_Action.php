@@ -8,20 +8,18 @@ if(!isset($_SESSION['nom']))
     header("Location: http://fridge.local/Index.php");
 }
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
+include_once 'includes/connexion.php';
 $id= $_POST['id'];
 $nw_product = $_POST['Product_Name'];
 $nw_stock_optimal = $_POST['Stock_Optimal'];
 
-try 
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM produit');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -35,7 +33,7 @@ if(isset($_POST['id']) && isset($_POST['Product_Name']) && isset($_POST['Stock_O
        $produit = $donnees['PRODUIT'];
        $stock_reel = $donnees['STOCK'];
        $stock_optimal = $donnees['STOCK_OPTIMAL'];
-       }    
+       }
 
        $req_modify_injec = $bdd->prepare('UPDATE produit SET PRODUIT = :produit, STOCK_OPTIMAL = :stock_optimal WHERE ID = :id');
        $req_modify_injec->execute(array(

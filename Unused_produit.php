@@ -3,16 +3,14 @@ function Unused_produit()
 {
 
 
-$dns = 'mysql:dbname=training;host=127.0.0.1';
-$user = 'root';
-$password = '';
-try 
+include_once 'includes/connexion.php';
+try
 {
  $bdd = new PDO($dns, $user, $password);
  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $requete = $bdd->query('SELECT * FROM produit');
-} 
-catch (Exception $e) 
+}
+catch (Exception $e)
 {
  echo 'Échec lors de la connexion : ' . $e->getMessage();
 }
@@ -25,7 +23,7 @@ $req = $bdd->query('SELECT ID, PRODUIT FROM produit WHERE ID NOT IN (SELECT PROD
         $tab[] = [
                 $produit,
             ];
-    } 
+    }
     echo '<div class="list">';
     echo '<p>';
     echo 'TOP PRODUIT';
@@ -37,9 +35,9 @@ $req = $bdd->query('SELECT ID, PRODUIT FROM produit WHERE ID NOT IN (SELECT PROD
             echo $t1;
         }
         echo '</li>';
-        
+
     }
     echo '</ul>';
     echo '</div>';
 }
-?> 
+?>
