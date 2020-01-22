@@ -3,7 +3,12 @@
 
 namespace App\Controller;
 
+
 session_start();
+if($_SESSION['id'] === null)
+{
+    header('location: /dislog');
+}
 
 use \App\Classes\Product;
 use \App\Classes\Bdd;
