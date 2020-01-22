@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 20 déc. 2019 à 10:06
+-- Généré le :  mer. 22 jan. 2020 à 16:16
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.3.5
 
@@ -30,20 +30,20 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `produit`;
 CREATE TABLE IF NOT EXISTS `produit` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `PRODUIT` varchar(255) NOT NULL,
-  `IMAGE` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `produit` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`ID`, `PRODUIT`, `IMAGE`) VALUES
-(5, 'Fromage', ''),
-(8, 'Oeuf', ''),
-(29, 'Jambon', ''),
+INSERT INTO `produit` (`id`, `produit`, `image`) VALUES
+(5, 'Fromage', 'Media/fromage.jpg'),
+(40, 'Oeuf', 'Media/Oeuf.jpg'),
+(29, 'Jambon', 'Media/Jambon.png'),
 (28, 'Beurre', ''),
 (30, 'Lait', ''),
 (34, 'Steack', ''),
@@ -53,7 +53,7 @@ INSERT INTO `produit` (`ID`, `PRODUIT`, `IMAGE`) VALUES
 (35, 'Sel', ''),
 (36, 'Poivre', ''),
 (37, 'Coca', ''),
-(38, 'Pâtes', ''),
+(38, 'Pates', ''),
 (39, 'Riz', '');
 
 -- --------------------------------------------------------
@@ -64,24 +64,25 @@ INSERT INTO `produit` (`ID`, `PRODUIT`, `IMAGE`) VALUES
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NOM` varchar(255) NOT NULL,
-  `PRENOM` varchar(255) NOT NULL,
-  `EMAIL` varchar(255) NOT NULL,
-  `EMAIL_CONFIRM` varchar(3) NOT NULL,
-  `PASSWORD` varchar(255) NOT NULL,
-  `AVATAR` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `emailConfirm` varchar(3) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `privileges` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`ID`, `NOM`, `PRENOM`, `EMAIL`, `EMAIL_CONFIRM`, `PASSWORD`, `AVATAR`) VALUES
-(1, 'Messager-diaz', 'Adrien', 'powerred@gmail.com', 'Yes', '$argon2i$v=19$m=1024,t=2,p=2$b1d1UUc5cXM5RXF1ZkZyMg$wZPB57MlzfMmAhdvFP/DCN9Ai8R8CAFKhRfFWioXvgg', ''),
-(3, 'test', 'test', 'test@test.com', 'Yes', '$argon2i$v=19$m=1024,t=2,p=2$N2VTVGV2dmFxaXNtekU0ZA$oBqiIW9uXPFbt6PW4OyELV5s2MUsTGGeJhTVrT4iYfg', ''),
-(5, 'test', 'test', 'email@email.fr', 'Yes', '$argon2i$v=19$m=1024,t=2,p=2$M0JRWEdHVktTQ210MmtqaA$BZdehD4JoOLr/obE2oKv26vDPoOZIUoJlSInXWcSs3c', '');
+INSERT INTO `user` (`id`, `name`, `surname`, `email`, `emailConfirm`, `password`, `avatar`, `privileges`) VALUES
+(1, 'ADN', 'Powerred', 'powerred@gmail.com', 'Yes', '$argon2i$v=19$m=1024,t=2,p=2$bUhHcDYuWHhoOVNlWW1sWA$L9Cv/GKRgePvsDgMgWliCayPY1Ba18TcyQgiPcEaqv0', 'media/uploads/avatar_1.jpg', 'Admin'),
+(3, 'test', 'test', 'test@test.com', 'Yes', '$argon2i$v=19$m=1024,t=2,p=2$N2VTVGV2dmFxaXNtekU0ZA$oBqiIW9uXPFbt6PW4OyELV5s2MUsTGGeJhTVrT4iYfg', 'Media/Uploads/Avatar_3.PNG', 'User'),
+(7, 'test', 'test', 'email@email.com', 'Yes', '$argon2i$v=19$m=1024,t=2,p=2$Zkd2SGx2UDUxNzhXYWUwWA$wyHYDmOF9mRuSxpACFfyIKWfjjeie6cEezVQHn6qopg', '', 'User');
 
 -- --------------------------------------------------------
 
@@ -91,35 +92,36 @@ INSERT INTO `user` (`ID`, `NOM`, `PRENOM`, `EMAIL`, `EMAIL_CONFIRM`, `PASSWORD`,
 
 DROP TABLE IF EXISTS `user_produit`;
 CREATE TABLE IF NOT EXISTS `user_produit` (
-  `JOINED_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `USER_ID` int(11) NOT NULL,
-  `PRODUIT_ID` int(11) NOT NULL,
-  `PRODUIT_STOCK_REEL` int(11) NOT NULL,
-  `PRODUIT_STOCK_OPTIMAL` int(11) NOT NULL,
-  `PRODUIT_IMG` varchar(255) NOT NULL,
-  PRIMARY KEY (`JOINED_ID`),
-  KEY `FK_USER_ID` (`USER_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+  `joined_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `produit_id` int(11) NOT NULL,
+  `produit_stock_reel` int(11) NOT NULL,
+  `produit_stock_opti` int(11) NOT NULL,
+  `produit_img` varchar(255) NOT NULL,
+  PRIMARY KEY (`joined_id`),
+  KEY `FK_USER_ID` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user_produit`
 --
 
-INSERT INTO `user_produit` (`JOINED_ID`, `USER_ID`, `PRODUIT_ID`, `PRODUIT_STOCK_REEL`, `PRODUIT_STOCK_OPTIMAL`, `PRODUIT_IMG`) VALUES
-(1, 1, 5, 5, 5, ''),
-(2, 1, 8, 0, 5, ''),
-(19, 1, 29, 1, 5, ''),
-(34, 1, 39, 1, 1, ''),
-(33, 1, 38, 1, 1, ''),
-(32, 1, 37, 5, 6, ''),
-(31, 1, 36, 1, 1, ''),
-(30, 1, 35, 1, 1, ''),
-(29, 1, 31, 1, 2, ''),
-(28, 1, 32, 1, 1, ''),
-(27, 1, 33, 1, 2, ''),
-(26, 1, 34, 5, 10, ''),
-(25, 1, 30, 2, 6, ''),
-(23, 1, 28, 0, 2, '');
+INSERT INTO `user_produit` (`joined_id`, `user_id`, `produit_id`, `produit_stock_reel`, `produit_stock_opti`, `produit_img`) VALUES
+(1, 1, 5, 0, 5, 'media/uploads/Fromage_1.jpg'),
+(35, 1, 8, 4, 4, ''),
+(19, 1, 29, 2, 5, ''),
+(59, 1, 33, 1, 2, ''),
+(66, 1, 38, 1, 2, ''),
+(45, 1, 30, 2, 2, 'media/uploads/Lait_1.jpg'),
+(57, 1, 35, 1, 2, 'media/uploads/Sel_1.jpg'),
+(36, 3, 5, 4, 2, ''),
+(37, 3, 40, 4, 2, ''),
+(38, 1, 40, 3, 3, ''),
+(39, 7, 5, 4, 2, ''),
+(40, 7, 34, 4, 2, ''),
+(60, 1, 37, 2, 2, ''),
+(68, 1, 34, 5, 10, ''),
+(67, 1, 39, 2, 2, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

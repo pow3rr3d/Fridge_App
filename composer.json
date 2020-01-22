@@ -1,0 +1,12 @@
+{
+    "name": "powerred/the-ultimate-code",
+    "require": {
+        "twig/twig": "^2.0",
+        "altorouter/altorouter": "^2.0"
+    },
+    "autoload": {
+        "App\\": "",
+        "App\\Classes\\" : "Classes",
+        "App\\Controller\\": "controller"
+    }
+}
