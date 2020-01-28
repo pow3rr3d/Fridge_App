@@ -1,0 +1,142 @@
+{% extends "admin.twig" %}
+
+{% block head %}
+	<title>
+		Admin Dashboard
+	</title>
+{% endblock %}
+
+{% block body %}
+	<p class="h1 text-center">Dashboard
+	</p>
+	<input type="text" class="form-control" id="search" aria-describedby="helpId" placeholder="Research">
+	<br>
+	<p class="h2 text-center">
+		Produit
+	</p>
+	<br>
+	<div class="d-flex justify-content-around">
+		<div id="dashboardTable">
+			<p class="h3 text-center">
+				Top produit
+			</p>
+			<table name="table" class="table table-hover table-borderless table-light text-center">
+				<thead class="thead-inverse">
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Nb de lien</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for t in tab %}
+						<tr>
+							<td scope="row">
+								{{t.id}}
+							</td>
+							<td scope="row">
+								{{t.produit}}
+							</td>
+							<td scope="row">
+								{{t.liens}}
+							</td>
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="dashboardTable">
+			<p class="h3 text-center">
+				Less produit
+			</p>
+			<table name="table" class="table table-hover table-borderless table-light text-center">
+				<thead class="thead-inverse">
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Nb de lien</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for t2 in tab2 %}
+						<tr>
+							<td scope="row">
+								{{t2.id}}
+							</td>
+							<td scope="row">
+								{{t2.produit}}
+							</td>
+							<td scope="row">
+								{{t2.liens}}
+							</td>
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="dashboardTable">
+			<p class="h3 text-center">
+				Unsued produit
+			</p>
+			<table name="table" class="table table-hover table-borderless table-light text-center">
+				<thead class="thead-inverse">
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for t3 in tab3 %}
+						<tr>
+							<td scope="row">
+								{{t3.id}}
+							</td>
+							<td scope="row">
+								{{t3.produit}}
+							</td>
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<p class="h2 text-center">
+		Utilisateurs
+	</p>
+	<br>
+	<div class="d-flex justify-content-around">
+		<div>
+			<p class="h3 text-center">
+				Table d'utilisateur</p>
+			<table name="table" class="table table-hover table-borderless table-light text-center">
+				<thead class="thead-inverse">
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in tabUsers %}
+						{% for u in user %}
+							<tr>
+								<td scope="row">
+									{{u.id}}
+								</td>
+								<td scope="row">
+									{{u.fullname}}
+								</td>
+							{% endfor %}
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<p class="h3 text-center">
+				AUTRES</p>
+		</div>
+	</div>
+	<script src="/js/research.js"> </script>
+{% endblock %}
+{% block footer %}{% endblock %}

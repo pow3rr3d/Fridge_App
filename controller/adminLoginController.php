@@ -38,14 +38,17 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $surname = $donnees['surname'];
         $email = $donnees['email'];
         $password = $donnees['password'];
+        $privileges = $donnees['privileges'];
     }
-    if (password_verify($_POST['password'], $password)) {
+    if (password_verify($_POST['password'], $password) && $privileges === 'Admin') {
         session_start();
         $_SESSION['id'] =  $id;
         $_SESSION['prenom'] =  $surname;
         $_SESSION['nom'] = $name;
         $_SESSION['email'] = $email;
-        header("Location: /home");
+        $_SESSION['privileges'] = $privileges;
+        header("Location: /admin/dashboard");
+        exit;
     } else {
         $resultat = 'Les informations fournies ne sont pas correct veuillez recommencer';
         exit;
@@ -54,6 +57,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $resultat = '';
 }
 
-echo $twig->render('connexion.twig', [
+echo $twig->render('adminConnexion.twig', [
     'resultat' => $resultat
 ]);
+exit;

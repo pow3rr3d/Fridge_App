@@ -20,9 +20,11 @@ $router->map('GET', '/conso', 'consoController');
 $router->map('POST', '/consoSub/[i:id]', 'consoController');
 $router->map('GET', '/account', 'userController');
 $router->map('POST', '/updateUser', 'userController');
-$router->map('GET', '/test', function() {
-    echo 'test';
-});
+$router->map('GET', '/admin', 'adminConnexionController');
+$router->map('POST', '/admin/login', 'adminLoginController');
+$router->map('GET', '/admin/dashboard', 'adminDashboardController');
+$router->map('GET', '/admin/product', 'adminProductController');
+
 
 $match = $router->match();
 if (is_array($match)) {

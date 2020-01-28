@@ -3,6 +3,9 @@ var menu = document.getElementById('navbar');
 var body = document.getElementById('container');
 var footer = document.getElementById('containerFooter');
 
+
+
+
 var toogleEvent = function () {
     menu.classList.contains('hidden') ? menu.classList.remove('hidden') : menu.classList.add('hidden');
     menu.classList.contains('hidden') ? body.classList.add('col-11') : body.classList.remove('col-11');
