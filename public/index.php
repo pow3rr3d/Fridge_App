@@ -24,6 +24,11 @@ $router->map('GET', '/admin', 'adminConnexionController');
 $router->map('POST', '/admin/login', 'adminLoginController');
 $router->map('GET', '/admin/dashboard', 'adminDashboardController');
 $router->map('GET', '/admin/product', 'adminProductController');
+$router->map('GET', '/admin/deleteProduct/[i:id]', 'adminDeleteProductController');
+$router->map('GET', '/admin/modifyProduct/[i:id]', 'adminModifyProductController');
+$router->map('POST', '/admin/modifyProductSub/[i:id]', 'adminModifyProductController');
+$router->map('GET', '/admin/addProduct', 'adminAddProductController');
+$router->map('POST', '/admin/addProductSub', 'adminAddProductController');
 
 
 $match = $router->match();
