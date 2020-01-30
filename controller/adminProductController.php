@@ -28,7 +28,7 @@ $twig = new Environment($load, [
 ]);
 
 $bdd = new Bdd($dns, $user, $password);
-$req = $bdd->query('SELECT * FROM produit');
+$req = $bdd->query('SELECT * FROM produit ORDER BY id');
 while($donnees = $req->fetch())
 {
     $p = new Product; 

@@ -15,7 +15,7 @@ require_once '../Classes/Bdd.php';
 require_once '../Classes/Product.php';
 require_once '../Classes/User.php';
 require_once '../includes/connexion.php';
-// , produit_img = '.$_POST['image'].'
+
 // envoie du template twig 
 $load = new FilesystemLoader('../templates');
 $twig = new Environment($load, [
