@@ -29,6 +29,7 @@ $router->map('GET', '/admin/modifyProduct/[i:id]', 'adminModifyProductController
 $router->map('POST', '/admin/modifyProductSub/[i:id]', 'adminModifyProductController');
 $router->map('GET', '/admin/addProduct', 'adminAddProductController');
 $router->map('POST', '/admin/addProductSub', 'adminAddProductController');
+$router->map('GET', '/404', '404');
 
 
 $match = $router->match();
