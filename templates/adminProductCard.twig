@@ -1,0 +1,65 @@
+{% extends "admin.twig" %}
+
+{% block head %}
+	<title>
+		Product list
+	</title>
+{% endblock %}
+{% block body %}
+	<div id="returnButton" class="float-right">
+		<span>
+			<a href="/admin/product">Return</a>
+		</span>
+	</div>
+	<div class="table-responsive-lg text-center">
+		<h1>
+			<b>{{produit.name}}</b>
+		</h1>
+		<br>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<img id="imgCard" class="img-fluid img-thumbnail" src="/{{produit.image}}" alt="image pour {{produit.name}}">
+		</div>
+		<div class="col-6">
+			<p>
+				<b>Id du produit:</b>
+				{{produit.id}}
+			</p>
+			<p>
+				<b>Chemin de l'image:</b>
+				{{produit.image}}
+			</p>
+			<p>
+				<b>Catégorie de produit :</b>
+				{{produit.categorie}}
+			</p>
+		</div>
+	</div>
+
+	<div id="divFooterCard" class="row">
+		<div class="col-6">
+			<p>Description:</p>
+			<div class="text-justify">
+				Lorem ipsum dolor sit amet, 
+				                consectetur adipiscing elit. 
+				                Integer pharetra tempus mi. 
+				                In hac habitasse platea dictumst. 
+				                Aenean vulputate euismod dolor sed ornare. 
+				                Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+				                Quisque id mauris mattis, 
+				                convallis lacus nec, rhoncus orci. 
+				                Sed non rutrum mauris. Phasellus a venenatis metus, 
+				                ut imperdiet nulla. Integer gravida elit in nisi pharetra accumsan. 
+				                Nam blandit vel dui id consequat.
+			</div>
+		</div>
+		<div class="col-6">
+			<p>Nutri-score:</p>
+			<div class="text-justify">
+				<img id="Nutri-score" class="img-fluid img-thumbnail" src="/media/Nutri-score-A.png" alt="Nutri-Score pour {{produit.name}}">
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "admin.twig" %}
+
+{% block head %}
+	<title>
+		Add a Product
+	</title>
+{% endblock %}
+
+{% block body %}
+	<div class="form-group">
+    <h1 class="text-center">Nouveau produit</h1><br>
+		<div class="d-flex justify-content-center">
+			<form enctype="multipart/form-data" action="/admin/addProductSub" method="post" >
+				<label for="product">Id</label>
+				<p class="form-control">Automatique</p>
+				<label for="product">Produit</label>
+				<input type="texte" name="name" class="form-control">
+				<label for="image">Image</label>
+				<input name="image" class="form-control" type="file" aria-describedby="inputGroupFileAddon01">
+				<br>
+				<input name="envoyer" id="" class="btn btn-primary" type="submit" value="envoyer">
+			</form>
+		</div></div>
+	{% endblock %}
+	{% block footer %}{% endblock %}
