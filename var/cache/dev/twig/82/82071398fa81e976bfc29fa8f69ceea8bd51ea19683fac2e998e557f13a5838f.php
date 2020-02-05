@@ -92,14 +92,16 @@ class __TwigTemplate_90376bc5d46a70822061d6d399449801422e695651734ef5662328dd378
         <br>
         <div class=\"row h-100\">
             <div class=\"col-md-12 my-auto\">
-            <form class=\"form-signin\">
-                <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-                <label for=\"inputEmail\" class=\"sr-only\">Email address</label>
-                <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus><br>
-                <label for=\"inputPassword\" class=\"sr-only\">Password</label>
-                <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required><br>
-                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>
-            </form></div>
+                <form class=\"form-signin\">
+                    <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
+                    <label for=\"inputEmail\" class=\"sr-only\">Email address</label>
+                    <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required
+                           autofocus><br>
+                    <label for=\"inputPassword\" class=\"sr-only\">Password</label>
+                    <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required><br>
+                    <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>
+                </form>
+            </div>
         </div>
     </div>
 ";
@@ -140,14 +142,16 @@ class __TwigTemplate_90376bc5d46a70822061d6d399449801422e695651734ef5662328dd378
         <br>
         <div class=\"row h-100\">
             <div class=\"col-md-12 my-auto\">
-            <form class=\"form-signin\">
-                <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-                <label for=\"inputEmail\" class=\"sr-only\">Email address</label>
-                <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus><br>
-                <label for=\"inputPassword\" class=\"sr-only\">Password</label>
-                <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required><br>
-                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>
-            </form></div>
+                <form class=\"form-signin\">
+                    <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
+                    <label for=\"inputEmail\" class=\"sr-only\">Email address</label>
+                    <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required
+                           autofocus><br>
+                    <label for=\"inputPassword\" class=\"sr-only\">Password</label>
+                    <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required><br>
+                    <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Product List
+{% endblock %}
+
+{% block body %}
+    <div class="div container text-center">
+        <h1> Product list </h1>
+        <div class="container mt-4">
+            <div class="text-right">
+                <a href="{{ path('admin.product.new') }}" class="btn btn-primary"> Create Product</a>
+            </div>
+            <br>
+            {% for message in app.flashes('success') %}
+                <div class="div alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th> Product</th>
+                    <th> Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>
+                            {{ product.name }}
+                        </td>
+                        <td>
+                            <a href="{{ path('admin.product.edit', {id: product.id }) }}" class="btn btn-secondary">
+                                Editer</a>
+                            <form method="post" action="{{ path("admin.product.delete", {id: product.id}) }}"
+                                  style="display: inline-block">
+                                <input type="hidden" name="_method" value="Delete">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(products) }}
+        </div>
+    </div>
+
+{% endblock %}

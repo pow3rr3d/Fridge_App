@@ -15,5 +15,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'admin.dashboard.index' => [[], ['_controller' => 'App\\Controller\\admin\\adminDashboardController::index'], [], [['text', '/admin/dashboard']], [], []],
+    'admin.product.index' => [[], ['_controller' => 'App\\Controller\\admin\\adminProductController::index'], [], [['text', '/admin/product']], [], []],
+    'admin.product.new' => [[], ['_controller' => 'App\\Controller\\admin\\adminProductController::new'], [], [['text', '/admin/product/create']], [], []],
+    'admin.product.edit' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminProductController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/product/edit']], [], []],
+    'admin.product.delete' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminProductController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/product/delete']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\homeController::index'], [], [['text', '/']], [], []],
+    'login' => [[], ['_controller' => 'App\\Controller\\securityController::login'], [], [['text', '/login']], [], []],
 ];

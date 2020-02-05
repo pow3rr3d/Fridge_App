@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+    {% block body %}
+        <p class="h1 text-center">Dashboard</p>
+
+        <nav class="nav flex-column" id="navbar">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/dashboard">
+                    <i class="fas fa-home"></i>
+                    <span class="spanMenu">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/product">
+                    <i class="fas fa-carrot"></i>
+                    <span class="spanMenu">Products</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="spanMenu">Déconnexion</span>
+                </a>
+            </li>
+            <li class="nav-item" id="toogleButton">
+                <a class="nav-link" href="#">
+                    <i id="arrow" class="fas fa-arrow-left"></i>
+                    <span class="spanMenu">Toggle Menu</span>
+                </a>
+            </li>
+        </nav>
+
+    {% endblock %}
