@@ -18,6 +18,7 @@ return [
         '/admin/product/create' => [[['_route' => 'admin.product.new', '_controller' => 'App\\Controller\\admin\\adminProductController::new'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\homeController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\securityController::login'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

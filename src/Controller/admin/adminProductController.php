@@ -3,6 +3,8 @@
 namespace App\Controller\admin;
 
 use App\Entity\Product;
+use App\Entity\ProductSearch;
+use App\Form\ProductSearchType;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -40,14 +42,19 @@ class adminProductController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
+        $search = new ProductSearch();
+        $form = $this->createForm(ProductSearchType::class, $search);
+        $form->handleRequest($request);
 
         $products = $paginator->paginate(
-            $this->repository->fetchAllQuery(),
+            $this->getDoctrine()->getManager()->getRepository(Product::class)->getAllQuery($search),
             $request->query->getInt('page', 1),
             12
         );
         return $this->render('admin/product/index.html.twig', [
-            'products' => $products
+            'products' => $products,
+            'pagination' => $paginator,
+            'form' =>$form->createView()
         ]);
     }
 

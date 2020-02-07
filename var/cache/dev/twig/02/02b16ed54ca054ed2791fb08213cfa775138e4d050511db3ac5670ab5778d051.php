@@ -102,13 +102,23 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
                     <span class=\"spanMenu\">Products</span>
                 </a>
             </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"/logout\">
-                    <i class=\"fas fa-sign-out-alt\"></i>
-                    <span class=\"spanMenu\">Déconnexion</span>
-                </a>
-            </li>
-            <li class=\"nav-item\" id=\"toogleButton\">
+            ";
+        // line 23
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23)) {
+            // line 24
+            echo "                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"";
+            // line 25
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\">
+                        <i class=\"fas fa-sign-out-alt\"></i>
+                        <span class=\"spanMenu\">Déconnexion</span>
+                    </a>
+                </li>
+            ";
+        }
+        // line 31
+        echo "            <li class=\"nav-item\" id=\"toogleButton\">
                 <a class=\"nav-link\" href=\"#\">
                     <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>
                     <span class=\"spanMenu\">Toggle Menu</span>
@@ -137,7 +147,7 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
 
     public function getDebugInfo()
     {
-        return array (  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  121 => 31,  112 => 25,  109 => 24,  107 => 23,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -164,12 +174,14 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
                     <span class=\"spanMenu\">Products</span>
                 </a>
             </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"/logout\">
-                    <i class=\"fas fa-sign-out-alt\"></i>
-                    <span class=\"spanMenu\">Déconnexion</span>
-                </a>
-            </li>
+            {% if app.user %}
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"{{path(\"logout\")}}\">
+                        <i class=\"fas fa-sign-out-alt\"></i>
+                        <span class=\"spanMenu\">Déconnexion</span>
+                    </a>
+                </li>
+            {% endif %}
             <li class=\"nav-item\" id=\"toogleButton\">
                 <a class=\"nav-link\" href=\"#\">
                     <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>

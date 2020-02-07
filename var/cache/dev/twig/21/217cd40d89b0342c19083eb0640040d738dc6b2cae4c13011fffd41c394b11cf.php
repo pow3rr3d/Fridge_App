@@ -112,7 +112,7 @@ class __TwigTemplate_dea1ed45181e00b55a608ffbf9bd404e2f16bcfc6c6f0f2ca5d38617932
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\">
                     <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-                    <label for=\"inputEmail\" class=\"sr-only\">Email address</label>
+                    <label for=\"inputEmail\" class=\"sr-only\">Username</label>
                     <input type=\"text\" id=\"text\" name=\"_username\" class=\"form-control\" placeholder=\"Pseudo\" value=\"";
         // line 23
         echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 23, $this->source); })()), "html", null, true);
@@ -172,7 +172,7 @@ class __TwigTemplate_dea1ed45181e00b55a608ffbf9bd404e2f16bcfc6c6f0f2ca5d38617932
 
                 <form method=\"post\" name=\"form_login\" class=\"form-signin\" action=\"{{ path('login') }}\">
                     <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-                    <label for=\"inputEmail\" class=\"sr-only\">Email address</label>
+                    <label for=\"inputEmail\" class=\"sr-only\">Username</label>
                     <input type=\"text\" id=\"text\" name=\"_username\" class=\"form-control\" placeholder=\"Pseudo\" value=\"{{ last_username }}\" required
                            autofocus><br>
                     <label for=\"inputPassword\" class=\"sr-only\">Password</label>

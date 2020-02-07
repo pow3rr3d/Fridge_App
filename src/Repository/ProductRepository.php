@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Entity\ProductSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
@@ -21,11 +22,18 @@ class ProductRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param ProductSearch $search
      * @return Query
      */
-    public function fetchAllQuery(): Query
+    public function getAllQuery(ProductSearch $search): Query
     {
-        return $this->fetchAllQuery()->getQuery();
+        $qb = $this->createQueryBuilder('p');
+        if($search->getName())
+        {
+            $qb = $qb->where("p.name LIKE :name");
+            $qb->setParameter(":name" , '%'.$search->getName().'%');
+        }
+        return $qb->getQuery();
     }
 
     // /**

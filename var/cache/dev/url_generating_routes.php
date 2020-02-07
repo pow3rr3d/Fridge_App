@@ -22,4 +22,5 @@ return [
     'admin.product.delete' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminProductController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/product/delete']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\homeController::index'], [], [['text', '/']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\securityController::login'], [], [['text', '/login']], [], []],
+    'logout' => [[], [], [], [['text', '/logout']], [], []],
 ];

@@ -7,8 +7,10 @@
 {% block body %}
     <div class="container mt-4">
         <h1 class="text-center"> Edit Product </h1>
-
-{{ include ('admin/product/_form.html.twig', {form: form, button: 'Edit'}) }}
+        <div class="row justify-content-center">
+            <img id="cercle" src="{{ product.image }}" alt="">
+        </div>
+        {{ include ('admin/product/_form.html.twig', {form: form, button: 'Edit'}) }}
     </div>
 
 {% endblock %}

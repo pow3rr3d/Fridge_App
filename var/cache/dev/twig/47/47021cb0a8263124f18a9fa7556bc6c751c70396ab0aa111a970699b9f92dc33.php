@@ -89,10 +89,15 @@ class __TwigTemplate_a14391956b10e0318fab95ae929549e1fa4b5f753b59613d9118621d7cd
         // line 8
         echo "    <div class=\"container mt-4\">
         <h1 class=\"text-center\"> Edit Product </h1>
-
-";
+        <div class=\"row justify-content-center\">
+            <img id=\"cercle\" src=\"";
         // line 11
-        echo twig_include($this->env, $context, "admin/product/_form.html.twig", ["form" => (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), "button" => "Edit"]);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 11, $this->source); })()), "image", [], "any", false, false, false, 11), "html", null, true);
+        echo "\" alt=\"\">
+        </div>
+        ";
+        // line 13
+        echo twig_include($this->env, $context, "admin/product/_form.html.twig", ["form" => (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "button" => "Edit"]);
         echo "
     </div>
 
@@ -117,7 +122,7 @@ class __TwigTemplate_a14391956b10e0318fab95ae929549e1fa4b5f753b59613d9118621d7cd
 
     public function getDebugInfo()
     {
-        return array (  95 => 11,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  100 => 13,  95 => 11,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -131,8 +136,10 @@ class __TwigTemplate_a14391956b10e0318fab95ae929549e1fa4b5f753b59613d9118621d7cd
 {% block body %}
     <div class=\"container mt-4\">
         <h1 class=\"text-center\"> Edit Product </h1>
-
-{{ include ('admin/product/_form.html.twig', {form: form, button: 'Edit'}) }}
+        <div class=\"row justify-content-center\">
+            <img id=\"cercle\" src=\"{{ product.image }}\" alt=\"\">
+        </div>
+        {{ include ('admin/product/_form.html.twig', {form: form, button: 'Edit'}) }}
     </div>
 
 {% endblock %}", "admin/product/edit.html.twig", "/var/www/html/Fridge_App/templates/admin/product/edit.html.twig");
