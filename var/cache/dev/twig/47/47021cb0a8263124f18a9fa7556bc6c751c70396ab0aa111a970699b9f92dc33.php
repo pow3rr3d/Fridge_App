@@ -33,7 +33,7 @@ class __TwigTemplate_a14391956b10e0318fab95ae929549e1fa4b5f753b59613d9118621d7cd
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "admin.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_a14391956b10e0318fab95ae929549e1fa4b5f753b59613d9118621d7cd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/product/edit.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "admin/product/edit.html.twig", 1);
+        $this->parent = $this->loadTemplate("admin.html.twig", "admin/product/edit.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -127,7 +127,7 @@ class __TwigTemplate_a14391956b10e0318fab95ae929549e1fa4b5f753b59613d9118621d7cd
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'admin.html.twig' %}
 
 {% block title %}
     Edit Product

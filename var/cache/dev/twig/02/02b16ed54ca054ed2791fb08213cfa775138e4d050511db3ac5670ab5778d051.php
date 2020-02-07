@@ -33,7 +33,7 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "admin.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/dashboard/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "admin/dashboard/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("admin.html.twig", "admin/dashboard/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -87,44 +87,7 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "        <p class=\"h1 text-center\">Dashboard</p>
-
-        <nav class=\"nav flex-column\" id=\"navbar\">
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"/admin/dashboard\">
-                    <i class=\"fas fa-home\"></i>
-                    <span class=\"spanMenu\">Dashboard</span>
-                </a>
-            </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"/admin/product\">
-                    <i class=\"fas fa-carrot\"></i>
-                    <span class=\"spanMenu\">Products</span>
-                </a>
-            </li>
-            ";
-        // line 23
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23)) {
-            // line 24
-            echo "                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"";
-            // line 25
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-            echo "\">
-                        <i class=\"fas fa-sign-out-alt\"></i>
-                        <span class=\"spanMenu\">Déconnexion</span>
-                    </a>
-                </li>
-            ";
-        }
-        // line 31
-        echo "            <li class=\"nav-item\" id=\"toogleButton\">
-                <a class=\"nav-link\" href=\"#\">
-                    <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>
-                    <span class=\"spanMenu\">Toggle Menu</span>
-                </a>
-            </li>
-        </nav>
+        echo "
 
     ";
         
@@ -147,48 +110,19 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
 
     public function getDebugInfo()
     {
-        return array (  121 => 31,  112 => 25,  109 => 24,  107 => 23,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'admin.html.twig' %}
 
 {% block title %}
     Dashboard
 {% endblock %}
 
     {% block body %}
-        <p class=\"h1 text-center\">Dashboard</p>
 
-        <nav class=\"nav flex-column\" id=\"navbar\">
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"/admin/dashboard\">
-                    <i class=\"fas fa-home\"></i>
-                    <span class=\"spanMenu\">Dashboard</span>
-                </a>
-            </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"/admin/product\">
-                    <i class=\"fas fa-carrot\"></i>
-                    <span class=\"spanMenu\">Products</span>
-                </a>
-            </li>
-            {% if app.user %}
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{path(\"logout\")}}\">
-                        <i class=\"fas fa-sign-out-alt\"></i>
-                        <span class=\"spanMenu\">Déconnexion</span>
-                    </a>
-                </li>
-            {% endif %}
-            <li class=\"nav-item\" id=\"toogleButton\">
-                <a class=\"nav-link\" href=\"#\">
-                    <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>
-                    <span class=\"spanMenu\">Toggle Menu</span>
-                </a>
-            </li>
-        </nav>
 
     {% endblock %}
 ", "admin/dashboard/index.html.twig", "/var/www/html/Fridge_App/templates/admin/dashboard/index.html.twig");
