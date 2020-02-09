@@ -67,45 +67,29 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
 ";
         // line 15
         $this->displayBlock('navbar', $context, $blocks);
-        // line 16
+        // line 45
         echo "
-<div class=\"container\">
 
     ";
-        // line 19
+        // line 47
         $this->displayBlock('body', $context, $blocks);
-        // line 20
-        echo "</div>
+        // line 49
+        echo "    <div class=\"footer fixed-bottom font-small bg-secondary text-white\">
+        <footer class=\"page-footer\">
+            <!-- Copyright -->
+            <div class=\"footer-copyright text-center py-1 bg-dark text-muted\">
+                <span>Powered by Symfony 5</span>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+</div>
 ";
-        // line 21
+        // line 59
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 22
-        echo "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"
-        integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\"
-        integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\"
-        integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://kit.fontawesome.com/7bae4d8b24.js\" crossorigin=\"anonymous\"></script>
-<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>
-<script type=\"text/javascript\"
-        src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js\"></script>
-<script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\"
-        integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\"
-        integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"
-        integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\"
-        crossorigin=\"anonymous\"></script>
+        // line 83
+        echo "
 </body>
-</html>
-</body>
-
 </html>
 ";
         
@@ -164,7 +148,36 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
 
-        echo " ";
+        // line 16
+        echo "    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\"
+                aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+            <ul class=\"nav navbar-nav\">
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/home\">Home</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/contact\">Contact</a>
+                </li>
+            </ul>
+            <ul class=\"nav navbar-nav ml-auto mr-3\">
+                <li class=\"nav-item dropdown mr-5\">
+                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbardrop\" data-toggle=\"dropdown\">
+                        Account
+                    </a>
+                    <div class=\"dropdown-menu bg-secondary \">
+                        <a class=\"nav-link text-white\" href=\"#\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
+                        <a class=\"nav-link text-white\" href=\"/user/dashboard\"><i class=\"fas fa-sign-in-alt\"></i>
+                            Login</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -173,7 +186,7 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
 
     }
 
-    // line 19
+    // line 47
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -183,6 +196,8 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 48
+        echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -191,7 +206,7 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
 
     }
 
-    // line 21
+    // line 59
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -201,6 +216,30 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 60
+        echo "    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"
+            integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\"
+            integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\"
+            integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://kit.fontawesome.com/7bae4d8b24.js\" crossorigin=\"anonymous\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>
+    <script type=\"text/javascript\"
+            src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js\"></script>
+    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\"
+            integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\"
+            integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"
+            integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\"
+            crossorigin=\"anonymous\"></script>
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -216,7 +255,7 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
 
     public function getDebugInfo()
     {
-        return array (  195 => 21,  177 => 19,  158 => 15,  140 => 12,  120 => 9,  83 => 22,  81 => 21,  78 => 20,  76 => 19,  71 => 16,  69 => 15,  65 => 13,  63 => 12,  60 => 11,  58 => 9,  48 => 1,);
+        return array (  220 => 60,  210 => 59,  200 => 48,  190 => 47,  152 => 16,  142 => 15,  124 => 12,  104 => 9,  91 => 83,  89 => 59,  77 => 49,  75 => 47,  71 => 45,  69 => 15,  65 => 13,  63 => 12,  60 => 11,  58 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -235,39 +274,76 @@ class __TwigTemplate_f81d371b1188270a27b19f5bb72f70ce01e8428329809a0ac40d2b3c367
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-{% block navbar %} {% endblock %}
+{% block navbar %}
+    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\"
+                aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+            <ul class=\"nav navbar-nav\">
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/home\">Home</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/contact\">Contact</a>
+                </li>
+            </ul>
+            <ul class=\"nav navbar-nav ml-auto mr-3\">
+                <li class=\"nav-item dropdown mr-5\">
+                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbardrop\" data-toggle=\"dropdown\">
+                        Account
+                    </a>
+                    <div class=\"dropdown-menu bg-secondary \">
+                        <a class=\"nav-link text-white\" href=\"#\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
+                        <a class=\"nav-link text-white\" href=\"/user/dashboard\"><i class=\"fas fa-sign-in-alt\"></i>
+                            Login</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
 
-<div class=\"container\">
 
-    {% block body %}{% endblock %}
+    {% block body %}
+    {% endblock %}
+    <div class=\"footer fixed-bottom font-small bg-secondary text-white\">
+        <footer class=\"page-footer\">
+            <!-- Copyright -->
+            <div class=\"footer-copyright text-center py-1 bg-dark text-muted\">
+                <span>Powered by Symfony 5</span>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
 </div>
-{% block javascripts %}{% endblock %}
-<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"
-        integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\"
-        integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\"
-        integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://kit.fontawesome.com/7bae4d8b24.js\" crossorigin=\"anonymous\"></script>
-<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>
-<script type=\"text/javascript\"
-        src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js\"></script>
-<script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\"
-        integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\"
-        integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\"
-        crossorigin=\"anonymous\"></script>
-<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"
-        integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\"
-        crossorigin=\"anonymous\"></script>
-</body>
-</html>
-</body>
+{% block javascripts %}
+    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"
+            integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\"
+            integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\"
+            integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://kit.fontawesome.com/7bae4d8b24.js\" crossorigin=\"anonymous\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>
+    <script type=\"text/javascript\"
+            src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js\"></script>
+    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\"
+            integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\"
+            integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\"
+            crossorigin=\"anonymous\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"
+            integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\"
+            crossorigin=\"anonymous\"></script>
+{% endblock %}
 
+</body>
 </html>
 ", "base.html.twig", "/var/www/html/Fridge_App/templates/base.html.twig");
     }

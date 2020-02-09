@@ -21,7 +21,8 @@ class ProductSearchType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Product Name'
                 ]
-            ]);
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

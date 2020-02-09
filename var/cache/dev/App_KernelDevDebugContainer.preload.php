@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerUqnxZDj/App_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerIoSzrOs/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'App\Kernel';
@@ -32,6 +32,10 @@ $classes[] = 'Symfony\Component\Cache\Marshaller\DefaultMarshaller';
 $classes[] = 'Symfony\Component\Cache\Adapter\AbstractAdapter';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\SessionListener';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
+$classes[] = 'Symfony\Component\Asset\Packages';
+$classes[] = 'Symfony\Component\Asset\PathPackage';
+$classes[] = 'Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy';
+$classes[] = 'Symfony\Component\Asset\Context\RequestStackContext';
 $classes[] = 'Symfony\Component\Mailer\EventListener\MessageLoggerListener';
 $classes[] = 'Symfony\Component\Validator\Validation';
 $classes[] = 'Symfony\Component\Validator\ContainerConstraintValidatorFactory';
@@ -57,6 +61,7 @@ $classes[] = 'Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector'
 $classes[] = 'Symfony\Bridge\Twig\DataCollector\TwigDataCollector';
 $classes[] = 'Symfony\Component\HttpClient\DataCollector\HttpClientDataCollector';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector';
+$classes[] = 'Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector';
 $classes[] = 'Symfony\Component\Mailer\DataCollector\MessageDataCollector';
 $classes[] = 'Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\ProfilerListener';
@@ -80,10 +85,6 @@ $classes[] = 'Symfony\Bridge\Twig\Extension\CsrfExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\ProfilerExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\TranslationExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\AssetExtension';
-$classes[] = 'Symfony\Component\Asset\Packages';
-$classes[] = 'Symfony\Component\Asset\PathPackage';
-$classes[] = 'Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy';
-$classes[] = 'Symfony\Component\Asset\Context\RequestStackContext';
 $classes[] = 'Symfony\Bridge\Twig\Extension\CodeExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\RoutingExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\YamlExtension';
@@ -102,6 +103,7 @@ $classes[] = 'Symfony\Component\VarDumper\Dumper\HtmlDumper';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Helper\Processor';
+$classes[] = 'Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension';
 $classes[] = 'Symfony\Bridge\Twig\AppVariable';
 $classes[] = 'Twig\RuntimeLoader\ContainerRuntimeLoader';
 $classes[] = 'Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor';

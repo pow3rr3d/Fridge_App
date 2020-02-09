@@ -11,8 +11,6 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-<p class="h1 text-center">Dashboard</p>
-
 <nav class="nav flex-column" id="navbar">
     <li class="nav-item">
         <a class="nav-link" href="/admin/dashboard">
@@ -24,6 +22,12 @@
         <a class="nav-link" href="/admin/product">
             <i class="fas fa-carrot"></i>
             <span class="spanMenu">Products</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/category/">
+            <i class="fas fa-bookmark"></i>
+            <span class="spanMenu">Category</span>
         </a>
     </li>
     {% if app.user %}

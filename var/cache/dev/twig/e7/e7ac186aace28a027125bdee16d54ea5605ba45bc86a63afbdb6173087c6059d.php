@@ -62,8 +62,6 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
         // line 12
         echo "</head>
 <body>
-<p class=\"h1 text-center\">Dashboard</p>
-
 <nav class=\"nav flex-column\" id=\"navbar\">
     <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"/admin/dashboard\">
@@ -78,12 +76,12 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
         </a>
     </li>
     ";
-        // line 29
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "user", [], "any", false, false, false, 29)) {
-            // line 30
+        // line 27
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 27, $this->source); })()), "user", [], "any", false, false, false, 27)) {
+            // line 28
             echo "        <li class=\"nav-item\">
             <a class=\"nav-link\" href=\"";
-            // line 31
+            // line 29
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\">
                 <i class=\"fas fa-sign-out-alt\"></i>
@@ -92,7 +90,7 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
         </li>
     ";
         }
-        // line 37
+        // line 35
         echo "    <li class=\"nav-item\" id=\"toogleButton\">
         <a class=\"nav-link\" href=\"#\">
             <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>
@@ -101,14 +99,14 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
     </li>
 </nav>
 <div class=\"container\"> ";
-        // line 44
+        // line 42
         $this->displayBlock('body', $context, $blocks);
-        // line 45
+        // line 43
         echo "</div>
 ";
-        // line 46
+        // line 44
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 47
+        // line 45
         echo "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
 <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
 <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
@@ -168,7 +166,7 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
 
     }
 
-    // line 44
+    // line 42
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -186,7 +184,7 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
 
     }
 
-    // line 46
+    // line 44
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -216,7 +214,7 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
 
     public function getDebugInfo()
     {
-        return array (  190 => 46,  172 => 44,  154 => 11,  134 => 8,  112 => 47,  110 => 46,  107 => 45,  105 => 44,  96 => 37,  87 => 31,  84 => 30,  82 => 29,  63 => 12,  61 => 11,  58 => 10,  56 => 8,  47 => 1,);
+        return array (  188 => 44,  170 => 42,  152 => 11,  132 => 8,  110 => 45,  108 => 44,  105 => 43,  103 => 42,  94 => 35,  85 => 29,  82 => 28,  80 => 27,  63 => 12,  61 => 11,  58 => 10,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -234,8 +232,6 @@ class __TwigTemplate_af79ff328581f9ef13b58f338973e06dfbf4fe0e4fba9b89f182cff4863
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-<p class=\"h1 text-center\">Dashboard</p>
-
 <nav class=\"nav flex-column\" id=\"navbar\">
     <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"/admin/dashboard\">

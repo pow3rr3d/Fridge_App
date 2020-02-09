@@ -34,6 +34,8 @@
                 <thead>
                 <tr>
                     <th> Product</th>
+                    <th> Description</th>
+                    <th> Category</th>
                     <th> Actions</th>
                 </tr>
                 </thead>
@@ -45,6 +47,11 @@
                         </td>
                         <td>
                             {{ product.description }}
+                        </td>
+                        <td>
+                            {% if product.getCategory().getName() is defined %}
+                            {{ product.getCategory().getName() }}
+                            {% endif %}
                         </td>
                         <td>
                             <a href="{{ path('admin.product.edit', {id: product.id }) }}" class="btn btn-secondary">

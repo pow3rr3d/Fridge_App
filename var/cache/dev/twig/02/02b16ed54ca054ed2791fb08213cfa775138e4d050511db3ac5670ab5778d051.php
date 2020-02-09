@@ -87,7 +87,7 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "
+        echo "        <p class=\"h1 text-center\">Dashboard</p>
 
     ";
         
@@ -122,7 +122,7 @@ class __TwigTemplate_bb224befaa8af676ded5bd59d604ad499c6ecd011d5bf5dd706b5cbc6ec
 {% endblock %}
 
     {% block body %}
-
+        <p class=\"h1 text-center\">Dashboard</p>
 
     {% endblock %}
 ", "admin/dashboard/index.html.twig", "/var/www/html/Fridge_App/templates/admin/dashboard/index.html.twig");

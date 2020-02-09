@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-class ProductSearch{
+class ProductSearch
+{
     /**
      * @var string
      */
     private $name;
 
     private $description;
+
+    private $category;
 
     /**
      * @return string
@@ -40,6 +43,20 @@ class ProductSearch{
     public function setDescription($description): void
     {
         $this->description = $description;
+    }
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category): void
+    {
+            $this->category = $category;
     }
 
 
