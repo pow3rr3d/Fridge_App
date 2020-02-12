@@ -1,0 +1,18 @@
+            <div class="col-4">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Category</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td><a href="/admin/category/{{ category.id }}">{{ category.name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>

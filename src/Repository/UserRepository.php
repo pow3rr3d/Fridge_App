@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -18,7 +19,20 @@ class UserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, User::class);
     }
-
+    /**
+     * @param UserSearch $search
+     * @return \Doctrine\ORM\Query
+     */
+    public function getAllQuery(UserSearch $search): \Doctrine\ORM\Query
+    {
+        $qb = $this->createQueryBuilder('p');
+        if($search->getName())
+        {
+            $qb = $qb->where("p.name LIKE :name");
+            $qb->setParameter(":name" , '%'.$search->getName().'%');
+        }
+        return $qb->getQuery();
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

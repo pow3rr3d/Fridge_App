@@ -81,13 +81,19 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
             <span class=\"spanMenu\">Category</span>
         </a>
     </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/admin/user/\">
+            <i class=\"fas fa-users\"></i>
+            <span class=\"spanMenu\">User</span>
+        </a>
+    </li>
     ";
-        // line 33
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 33, $this->source); })()), "user", [], "any", false, false, false, 33)) {
-            // line 34
+        // line 39
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 39, $this->source); })()), "user", [], "any", false, false, false, 39)) {
+            // line 40
             echo "        <li class=\"nav-item\">
             <a class=\"nav-link\" href=\"";
-            // line 35
+            // line 41
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\">
                 <i class=\"fas fa-sign-out-alt\"></i>
@@ -96,7 +102,7 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
         </li>
     ";
         }
-        // line 41
+        // line 47
         echo "    <li class=\"nav-item\" id=\"toogleButton\">
         <a class=\"nav-link\" href=\"#\">
             <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>
@@ -105,14 +111,14 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
     </li>
 </nav>
 <div class=\"container\"> ";
-        // line 48
+        // line 54
         $this->displayBlock('body', $context, $blocks);
-        // line 49
+        // line 55
         echo "</div>
 ";
-        // line 50
+        // line 56
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 51
+        // line 57
         echo "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
 <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
 <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
@@ -172,7 +178,7 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
 
     }
 
-    // line 48
+    // line 54
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -190,7 +196,7 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
 
     }
 
-    // line 50
+    // line 56
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -220,7 +226,7 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
 
     public function getDebugInfo()
     {
-        return array (  194 => 50,  176 => 48,  158 => 11,  138 => 8,  116 => 51,  114 => 50,  111 => 49,  109 => 48,  100 => 41,  91 => 35,  88 => 34,  86 => 33,  63 => 12,  61 => 11,  58 => 10,  56 => 8,  47 => 1,);
+        return array (  200 => 56,  182 => 54,  164 => 11,  144 => 8,  122 => 57,  120 => 56,  117 => 55,  115 => 54,  106 => 47,  97 => 41,  94 => 40,  92 => 39,  63 => 12,  61 => 11,  58 => 10,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -255,6 +261,12 @@ class __TwigTemplate_3c032133df5c5f35acccbd53b130b49b76b143231919ce35f977aaab769
         <a class=\"nav-link\" href=\"/admin/category/\">
             <i class=\"fas fa-bookmark\"></i>
             <span class=\"spanMenu\">Category</span>
+        </a>
+    </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/admin/user/\">
+            <i class=\"fas fa-users\"></i>
+            <span class=\"spanMenu\">User</span>
         </a>
     </li>
     {% if app.user %}

@@ -173,7 +173,7 @@ class __TwigTemplate_594df29a61197bcc7fe9cd03222ba0e07fc8b457dab46f11a40fad82d7d
                         Account
                     </a>
                     <div class=\"dropdown-menu bg-secondary \">
-                        <a class=\"nav-link text-white\" href=\"#\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
+                        <a class=\"nav-link text-white\" href=\"/register\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
                         <a class=\"nav-link text-white\" href=\"/user/dashboard\"><i class=\"fas fa-sign-in-alt\"></i>
                             Login</a>
                     </div>
@@ -309,7 +309,7 @@ class __TwigTemplate_594df29a61197bcc7fe9cd03222ba0e07fc8b457dab46f11a40fad82d7d
                         Account
                     </a>
                     <div class=\"dropdown-menu bg-secondary \">
-                        <a class=\"nav-link text-white\" href=\"#\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
+                        <a class=\"nav-link text-white\" href=\"/register\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
                         <a class=\"nav-link text-white\" href=\"/user/dashboard\"><i class=\"fas fa-sign-in-alt\"></i>
                             Login</a>
                     </div>

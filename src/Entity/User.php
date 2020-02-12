@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface, \Serializable
 {
@@ -46,6 +50,17 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=255)
      */
     private $Username;
+
+    /**
+     * @var UserPasswordEncoderInterface
+     */
+    private $encoder;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $role;
+
 
     public function getId(): ?int
     {
@@ -88,16 +103,34 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    /**
+     * @return UserPasswordEncoderInterface
+     */
+    public function getEncoder(): UserPasswordEncoderInterface
+    {
+        return $this->encoder;
+    }
+
+    /**
+     * @param UserPasswordEncoderInterface $encoder
+     * @param string $password
+     * @return User
+     */
+    public function setEncoder(UserPasswordEncoderInterface $encoder, string $password)
+    {
+        $encoder = $this->get('security.encoder_factory')->getEncoder($this);
+        $this->encoder = $encoder->encodePassword($this, $password);
+        return $this;
+    }
+
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(string $password)
     {
-        $this->password = $password;
-
-        return $this;
+        return $this->password = $password;
     }
 
     public function getImage(): ?string
@@ -113,11 +146,22 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @inheritDoc
+     * @return array
      */
-    public function getRoles()
+    public function getRoles(): array
     {
-        return ['ROLE_ADMIN'];
+        return [$this->role];
+    }
+
+    public function getRolesData(): string
+    {
+        return $this->role;
+    }
+
+    public function setRoles(string $role)
+    {
+        $this->role = $role;
+        return $this;
     }
 
     /**
@@ -154,7 +198,8 @@ class User implements UserInterface, \Serializable
         return serialize([
             $this->id,
             $this->Username,
-            $this->password
+            $this->password,
+            $this->role
         ]);
     }
 
@@ -172,7 +217,8 @@ class User implements UserInterface, \Serializable
         list(
             $this->id,
             $this->Username,
-            $this->password
+            $this->password,
+            $this->role
             ) = unserialize($serialized);
     }
 
@@ -182,4 +228,6 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
+
+
 }

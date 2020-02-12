@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* /security/login.html.twig */
+/* security/login.html.twig */
 class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb7ee62 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/security/login.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/login.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/security/login.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/login.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "/security/login.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "security/login.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -65,9 +65,7 @@ class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        // line 4
-        echo "    Fridge App : Connection
-";
+        echo "Log in!";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -76,7 +74,7 @@ class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb
 
     }
 
-    // line 7
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -86,46 +84,62 @@ class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 6
+        echo "    <div class=\"container\">
+        <form method=\"post\">
+            ";
         // line 8
-        echo "    <div class=\"container mt-5\">
-        <div class=\"text-center\">
-            <div class=\"row h-100\">
-                <div class=\"col-md-12 my-auto\">
-
-                    ";
-        // line 13
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 13, $this->source); })())) {
-            // line 14
-            echo "                        <div class=\"alert alert-danger\">
-                            ";
-            // line 15
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 15, $this->source); })()), "messageKey", [], "any", false, false, false, 15), "html", null, true);
-            echo "
-                        </div>
-                    ";
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })())) {
+            // line 9
+            echo "                <div class=\"alert alert-danger\">";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 9, $this->source); })()), "messageKey", [], "any", false, false, false, 9), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 9, $this->source); })()), "messageData", [], "any", false, false, false, 9), "security"), "html", null, true);
+            echo "</div>
+            ";
         }
-        // line 18
+        // line 11
         echo "
-                    <form method=\"post\" name=\"form_login\" class=\"form-signin\" action=\"";
-        // line 19
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\">
-                        <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-                        <label for=\"inputEmail\" class=\"sr-only\">Username</label>
-                        <input type=\"text\" id=\"text\" name=\"_username\" class=\"form-control\" placeholder=\"Pseudo\"
-                               value=\"";
-        // line 23
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 23, $this->source); })()), "html", null, true);
-        echo "\" required
-                               autofocus><br>
-                        <label for=\"inputPassword\" class=\"sr-only\">Password</label>
-                        <input type=\"password\" id=\"password\" name=\"_password\" class=\"form-control\"
-                               placeholder=\"Password\" required><br>
-                        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>
-                    </form>
+            ";
+        // line 12
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
+            // line 13
+            echo "                <div class=\"mb-3\">
+                    You are logged in as ";
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "user", [], "any", false, false, false, 14), "username", [], "any", false, false, false, 14), "html", null, true);
+            echo ", <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Logout</a>
                 </div>
+            ";
+        }
+        // line 17
+        echo "            <div class=\"text-center  mt-4\">
+                <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
             </div>
-        </div>
+            <label for=\"inputEmail\">Email</label>
+            <input type=\"email\" value=\"";
+        // line 21
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 21, $this->source); })()), "html", null, true);
+        echo "\" name=\"email\" id=\"inputEmail\" class=\"form-control\" required
+                   autofocus>
+            <label for=\"inputPassword\">Password</label>
+            <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" required>
+
+            <input type=\"hidden\" name=\"_csrf_token\"
+                   value=\"";
+        // line 27
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
+        echo "\"
+            >
+
+            ";
+        // line 40
+        echo "            <div class=\"text-center mt-4\">
+                <button class=\"btn btn-lg btn-primary\" type=\"submit\">
+                    Sign in
+                </button>
+            </div>
+        </form>
     </div>
 ";
         
@@ -138,7 +152,7 @@ class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb
 
     public function getTemplateName()
     {
-        return "/security/login.html.twig";
+        return "security/login.html.twig";
     }
 
     public function isTraitable()
@@ -148,45 +162,58 @@ class __TwigTemplate_9c5f3a4a62d8f8f76f9cc9c3f1ef26245dcf917a1478a64de9c02c78cbb
 
     public function getDebugInfo()
     {
-        return array (  118 => 23,  111 => 19,  108 => 18,  102 => 15,  99 => 14,  97 => 13,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  137 => 40,  131 => 27,  122 => 21,  116 => 17,  108 => 14,  105 => 13,  103 => 12,  100 => 11,  94 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"base.html.twig\" %}
+        return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}
-    Fridge App : Connection
-{% endblock %}
+{% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div class=\"container mt-5\">
-        <div class=\"text-center\">
-            <div class=\"row h-100\">
-                <div class=\"col-md-12 my-auto\">
+    <div class=\"container\">
+        <form method=\"post\">
+            {% if error %}
+                <div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-                    {% if error %}
-                        <div class=\"alert alert-danger\">
-                            {{ error.messageKey }}
-                        </div>
-                    {% endif %}
-
-                    <form method=\"post\" name=\"form_login\" class=\"form-signin\" action=\"{{ path('login') }}\">
-                        <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-                        <label for=\"inputEmail\" class=\"sr-only\">Username</label>
-                        <input type=\"text\" id=\"text\" name=\"_username\" class=\"form-control\" placeholder=\"Pseudo\"
-                               value=\"{{ last_username }}\" required
-                               autofocus><br>
-                        <label for=\"inputPassword\" class=\"sr-only\">Password</label>
-                        <input type=\"password\" id=\"password\" name=\"_password\" class=\"form-control\"
-                               placeholder=\"Password\" required><br>
-                        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>
-                    </form>
+            {% if app.user %}
+                <div class=\"mb-3\">
+                    You are logged in as {{ app.user.username }}, <a href=\"{{ path('app_logout') }}\">Logout</a>
                 </div>
+            {% endif %}
+            <div class=\"text-center  mt-4\">
+                <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
             </div>
-        </div>
+            <label for=\"inputEmail\">Email</label>
+            <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" required
+                   autofocus>
+            <label for=\"inputPassword\">Password</label>
+            <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" required>
+
+            <input type=\"hidden\" name=\"_csrf_token\"
+                   value=\"{{ csrf_token('authenticate') }}\"
+            >
+
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+
+                <div class=\"checkbox mb-3\">
+                    <label>
+                        <input type=\"checkbox\" name=\"_remember_me\"> Remember me
+                    </label>
+                </div>
+            #}
+            <div class=\"text-center mt-4\">
+                <button class=\"btn btn-lg btn-primary\" type=\"submit\">
+                    Sign in
+                </button>
+            </div>
+        </form>
     </div>
 {% endblock %}
-", "/security/login.html.twig", "/var/www/html/Fridge_App/templates/security/login.html.twig");
+", "security/login.html.twig", "/var/www/html/Fridge_App/templates/security/login.html.twig");
     }
 }

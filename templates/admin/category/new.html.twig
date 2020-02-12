@@ -3,9 +3,16 @@
 {% block title %}New Category{% endblock %}
 
 {% block body %}
+<div class="div container text-center mt-4">
     <h1>Create new Category</h1>
+    <div class="container mt-4">
+        <div class="text-left">
+            <div class="text-right mb-4">
+                <a href="{{ path('category_index') }}" class="btn btn-primary">back to list</a>
+            </div>
+
 
     {{ include('/admin/category/_form.html.twig') }}
 
-    <a href="{{ path('category_index') }}">back to list</a>
+
 {% endblock %}

@@ -133,7 +133,7 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_end');
         echo "
             </div>
-            <div class=\"text-right\">
+            <div class=\"text-left\">
                 <table class=\"table\">
                     <thead>
                     <tr>
@@ -188,6 +188,15 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
         echo "                    </tbody>
                 </table>
             </div>
+            <br>
+        </div>
+        <div class=\"row justify-content-end\">
+            <div class=\"pagination\">
+                ";
+        // line 61
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 61, $this->source); })()));
+        echo "
+            </div>
         </div>
     </div>
 ";
@@ -211,7 +220,7 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
 
     public function getDebugInfo()
     {
-        return array (  188 => 54,  179 => 50,  170 => 46,  166 => 45,  160 => 42,  156 => 41,  153 => 40,  148 => 39,  133 => 27,  124 => 21,  118 => 18,  112 => 15,  109 => 14,  100 => 11,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  197 => 61,  188 => 54,  179 => 50,  170 => 46,  166 => 45,  160 => 42,  156 => 41,  153 => 40,  148 => 39,  133 => 27,  124 => 21,  118 => 18,  112 => 15,  109 => 14,  100 => 11,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -244,7 +253,7 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
                 </div>
                 {{ form_end(form) }}
             </div>
-            <div class=\"text-right\">
+            <div class=\"text-left\">
                 <table class=\"table\">
                     <thead>
                     <tr>
@@ -271,6 +280,12 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
                     {% endfor %}
                     </tbody>
                 </table>
+            </div>
+            <br>
+        </div>
+        <div class=\"row justify-content-end\">
+            <div class=\"pagination\">
+                {{ knp_pagination_render(categories) }}
             </div>
         </div>
     </div>

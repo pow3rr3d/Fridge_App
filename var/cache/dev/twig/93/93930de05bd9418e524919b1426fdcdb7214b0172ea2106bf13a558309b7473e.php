@@ -87,9 +87,45 @@ class __TwigTemplate_d9d7474993397eb9047add2719896538ecc0962b62f74ba3e610b2f4a9d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "        <p class=\"h1 text-center\">Dashboard</p>
+        echo "<div class=\"div container text-center\">
+    <h1> Dashboard </h1>
+    <div class=\"container mt-4\">
+        <div class=\"jumbotron\">
+            <div class=\"form-row\">
+                <div class=\"col\">
+                    <input type=\"text\" id=\"search\" placeholder=\"Searching for....\" class=\"form-control\">
+                </div>
+            </div>
+        </div>
+        <br>
 
-    ";
+        <div class=\"d-flex row justify-content-around mt-4\">
+
+            ";
+        // line 22
+        echo twig_include($this->env, $context, "/admin/dashboard/_product.html.twig");
+        echo "
+
+            ";
+        // line 24
+        echo twig_include($this->env, $context, "/admin/dashboard/_category.html.twig");
+        echo "
+
+            ";
+        // line 26
+        echo twig_include($this->env, $context, "/admin/dashboard/_user.html.twig");
+        echo "
+
+        </div>
+        ";
+        // line 29
+        $this->displayParentBlock("body", $context, $blocks);
+        echo "
+        ";
+        // line 30
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("search");
+        echo "
+        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -110,7 +146,7 @@ class __TwigTemplate_d9d7474993397eb9047add2719896538ecc0962b62f74ba3e610b2f4a9d
 
     public function getDebugInfo()
     {
-        return array (  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  126 => 30,  122 => 29,  116 => 26,  111 => 24,  106 => 22,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -122,9 +158,30 @@ class __TwigTemplate_d9d7474993397eb9047add2719896538ecc0962b62f74ba3e610b2f4a9d
 {% endblock %}
 
     {% block body %}
-        <p class=\"h1 text-center\">Dashboard</p>
+<div class=\"div container text-center\">
+    <h1> Dashboard </h1>
+    <div class=\"container mt-4\">
+        <div class=\"jumbotron\">
+            <div class=\"form-row\">
+                <div class=\"col\">
+                    <input type=\"text\" id=\"search\" placeholder=\"Searching for....\" class=\"form-control\">
+                </div>
+            </div>
+        </div>
+        <br>
 
-    {% endblock %}
+        <div class=\"d-flex row justify-content-around mt-4\">
+
+            {{ include('/admin/dashboard/_product.html.twig') }}
+
+            {{ include('/admin/dashboard/_category.html.twig') }}
+
+            {{ include('/admin/dashboard/_user.html.twig') }}
+
+        </div>
+        {{ parent() }}
+        {{ encore_entry_script_tags('search') }}
+        {% endblock %}
 ", "admin/dashboard/index.html.twig", "/var/www/html/Fridge_App/templates/admin/dashboard/index.html.twig");
     }
 }

@@ -87,15 +87,13 @@ class __TwigTemplate_81a460c5e9f09777afa65aaf2ecf0423a3aec0b79ced6046724cccbfd91
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "        <div class=\"text-center\">
-            <h1>Welcome ";
+        echo "    <div class=\"text-center\">
+        <h1>Welcome ";
         // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 9, $this->source); })()), "surname", [], "any", false, false, false, 9), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 9, $this->source); })()), "name", [], "any", false, false, false, 9), "html", null, true);
         echo "</h1>
-        </div>
-
-
-    ";
+    </div>
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -127,13 +125,10 @@ class __TwigTemplate_81a460c5e9f09777afa65aaf2ecf0423a3aec0b79ced6046724cccbfd91
     Dashboard
 {% endblock %}
 
-    {% block body %}
-        <div class=\"text-center\">
-            <h1>Welcome {{ user.surname }}</h1>
-        </div>
-
-
-    {% endblock %}
-", "user/dashboard/index.html.twig", "/var/www/html/Fridge_App/templates/user/dashboard/index.html.twig");
+{% block body %}
+    <div class=\"text-center\">
+        <h1>Welcome {{ user.name }}</h1>
+    </div>
+{% endblock %}", "user/dashboard/index.html.twig", "/var/www/html/Fridge_App/templates/user/dashboard/index.html.twig");
     }
 }
