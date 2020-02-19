@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\UserProduct;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -60,6 +63,17 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=255)
      */
     private $role;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserProduct", mappedBy="user")
+     */
+    private $userProducts;
+
+
+    public function __construct()
+    {
+        $this->userProducts = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -228,6 +242,43 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
+
+    public function getUserProduct(): ?UserProduct
+    {
+        return $this->userProduct;
+    }
+
+    /**
+     * @return Collection|UserProduct[]
+     */
+    public function getUserProducts(): Collection
+    {
+        return $this->userProducts;
+    }
+
+    public function addUserProduct(UserProduct $userProduct): self
+    {
+        if (!$this->userProducts->contains($userProduct)) {
+            $this->userProducts[] = $userProduct;
+            $userProduct->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserProduct(UserProduct $userProduct): self
+    {
+        if ($this->userProducts->contains($userProduct)) {
+            $this->userProducts->removeElement($userProduct);
+            // set the owning side to null (unless already changed)
+            if ($userProduct->getUser() === $this) {
+                $userProduct->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 
 }

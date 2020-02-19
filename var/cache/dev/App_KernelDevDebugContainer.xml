@@ -409,6 +409,22 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\homeController"/>
       </call>
     </service>
+    <service id="App\Controller\user\userAccountController" class="App\Controller\user\userAccountController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\user\userAccountController"/>
+      </call>
+    </service>
+    <service id="App\Controller\user\userConsumptionController" class="App\Controller\user\userConsumptionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\UserProductRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\user\userConsumptionController"/>
+      </call>
+    </service>
     <service id="App\Controller\user\userDashboardController" class="App\Controller\user\userDashboardController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -419,8 +435,19 @@
     <service id="App\Controller\user\userProductController" class="App\Controller\user\userProductController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\UserProductRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\user\userProductController"/>
+      </call>
+    </service>
+    <service id="App\Controller\user\userShoppingListController" class="App\Controller\user\userShoppingListController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\UserProductRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\user\userShoppingListController"/>
       </call>
     </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
@@ -451,6 +478,15 @@
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserProductSearchType" class="App\Form\UserProductSearchType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserProductType" class="App\Form\UserProductType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\UserSearchType" class="App\Form\UserSearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -466,6 +502,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserProductRepository" class="App\Repository\UserProductRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -902,6 +942,9 @@
         <argument>App\Form\ProductSearchType</argument>
         <argument>App\Form\ProductType</argument>
         <argument>App\Form\RegistrationFormType</argument>
+        <argument>App\Form\UserAccountType</argument>
+        <argument>App\Form\UserProductSearchType</argument>
+        <argument>App\Form\UserProductType</argument>
         <argument>App\Form\UserSearchType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1227,7 +1270,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.uNqZeGo"/>
+      <argument type="service" id=".service_locator.WKUq3Kg"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3875,7 +3918,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Mb822rg"/>
+      <argument type="service" id=".service_locator.1Xu9lwI"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5273,12 +5316,21 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\homeController" class="App\Controller\homeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\homeController" class="App\Controller\homeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\homeController" class="App\Controller\homeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\user\userAccountController" class="App\Controller\user\userAccountController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\user\userAccountController" class="App\Controller\user\userAccountController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\user\userAccountController" class="App\Controller\user\userAccountController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\user\userConsumptionController" class="App\Controller\user\userConsumptionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\user\userConsumptionController" class="App\Controller\user\userConsumptionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\user\userConsumptionController" class="App\Controller\user\userConsumptionController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\user\userDashboardController" class="App\Controller\user\userDashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\user\userDashboardController" class="App\Controller\user\userDashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\user\userDashboardController" class="App\Controller\user\userDashboardController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\user\userProductController" class="App\Controller\user\userProductController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\user\userProductController" class="App\Controller\user\userProductController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\user\userProductController" class="App\Controller\user\userProductController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\user\userShoppingListController" class="App\Controller\user\userShoppingListController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\user\userShoppingListController" class="App\Controller\user\userShoppingListController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\user\userShoppingListController" class="App\Controller\user\userShoppingListController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" abstract="true"/>
@@ -5297,6 +5349,12 @@
     <service id=".abstract.instanceof.App\Form\ProductType" class="App\Form\ProductType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserProductSearchType" class="App\Form\UserProductSearchType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserProductSearchType" class="App\Form\UserProductSearchType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserProductType" class="App\Form\UserProductType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserProductType" class="App\Form\UserProductType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserSearchType" class="App\Form\UserSearchType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserSearchType" class="App\Form\UserSearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
@@ -5305,6 +5363,8 @@
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserProductRepository" class="App\Repository\UserProductRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UserProductRepository" class="App\Repository\UserProductRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5555,13 +5615,26 @@
         <argument key="contactNotification" type="service" id="App\Notification\ContactNotification"/>
       </argument>
     </service>
+    <service id=".service_locator.BMz2YTS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="paginator" type="service" id="knp_paginator"/>
+      </argument>
+    </service>
     <service id=".service_locator.zABJvAy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="user" type="service" id=".errored..service_locator.zABJvAy.Symfony\Component\Security\Core\User\UserInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.8Iz3qS2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.4nhWbpP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="userProduct" type="service" id=".errored..service_locator.4nhWbpP.App\Entity\UserProduct"/>
+      </argument>
+    </service>
+    <service id=".service_locator.39cJoHR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.iiu8BOO"/>
@@ -5580,7 +5653,13 @@
         <argument key="App\Controller\admin\adminUserController::index" type="service" id=".service_locator.3NkeMTN"/>
         <argument key="App\Controller\admin\adminUserController::show" type="service" id=".service_locator.VPb8Zl0"/>
         <argument key="App\Controller\contactController::show" type="service" id=".service_locator.EJUWuoh"/>
+        <argument key="App\Controller\user\userConsumptionController::index" type="service" id=".service_locator.BMz2YTS"/>
         <argument key="App\Controller\user\userDashboardController::index" type="service" id=".service_locator.zABJvAy"/>
+        <argument key="App\Controller\user\userProductController::delete" type="service" id=".service_locator.4nhWbpP"/>
+        <argument key="App\Controller\user\userProductController::edit" type="service" id=".service_locator.4nhWbpP"/>
+        <argument key="App\Controller\user\userProductController::index" type="service" id=".service_locator.BMz2YTS"/>
+        <argument key="App\Controller\user\userProductController::new" type="service" id=".service_locator.zABJvAy"/>
+        <argument key="App\Controller\user\userShoppingListController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\RegistrationController:register" type="service" id=".service_locator.iiu8BOO"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.q6jLs_L"/>
         <argument key="App\Controller\admin\adminCategoryController:delete" type="service" id=".service_locator.MpsgFRY"/>
@@ -5597,7 +5676,13 @@
         <argument key="App\Controller\admin\adminUserController:index" type="service" id=".service_locator.3NkeMTN"/>
         <argument key="App\Controller\admin\adminUserController:show" type="service" id=".service_locator.VPb8Zl0"/>
         <argument key="App\Controller\contactController:show" type="service" id=".service_locator.EJUWuoh"/>
+        <argument key="App\Controller\user\userConsumptionController:index" type="service" id=".service_locator.BMz2YTS"/>
         <argument key="App\Controller\user\userDashboardController:index" type="service" id=".service_locator.zABJvAy"/>
+        <argument key="App\Controller\user\userProductController:delete" type="service" id=".service_locator.4nhWbpP"/>
+        <argument key="App\Controller\user\userProductController:edit" type="service" id=".service_locator.4nhWbpP"/>
+        <argument key="App\Controller\user\userProductController:index" type="service" id=".service_locator.BMz2YTS"/>
+        <argument key="App\Controller\user\userProductController:new" type="service" id=".service_locator.zABJvAy"/>
+        <argument key="App\Controller\user\userShoppingListController:index" type="service" id=".service_locator.CY_hMZh"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5659,7 +5744,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.uNqZeGo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.WKUq3Kg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorySearchType" type="service" id="App\Form\CategorySearchType"/>
@@ -5668,6 +5753,9 @@
         <argument key="App\Form\ProductSearchType" type="service" id="App\Form\ProductSearchType"/>
         <argument key="App\Form\ProductType" type="service" id="App\Form\ProductType"/>
         <argument key="App\Form\RegistrationFormType" type="service" id="App\Form\RegistrationFormType"/>
+        <argument key="App\Form\UserAccountType" type="service" id="App\Form\UserAccountType"/>
+        <argument key="App\Form\UserProductSearchType" type="service" id="App\Form\UserProductSearchType"/>
+        <argument key="App\Form\UserProductType" type="service" id="App\Form\UserProductType"/>
         <argument key="App\Form\UserSearchType" type="service" id="App\Form\UserSearchType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -5835,11 +5923,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Mb822rg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.1Xu9lwI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\ProductRepository" type="service" id="App\Repository\ProductRepository"/>
+        <argument key="App\Repository\UserProductRepository" type="service" id="App\Repository\UserProductRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -5939,6 +6028,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\user\userAccountController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\user\userAccountController"/>
+      <argument>App\Controller\user\userAccountController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\user\userConsumptionController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\user\userConsumptionController"/>
+      <argument>App\Controller\user\userConsumptionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\user\userDashboardController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\user\userDashboardController"/>
       <argument>App\Controller\user\userDashboardController</argument>
@@ -5948,6 +6049,12 @@
     <service id=".service_locator.pNNo5z3.App\Controller\user\userProductController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\user\userProductController"/>
       <argument>App\Controller\user\userProductController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\user\userShoppingListController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\user\userShoppingListController"/>
+      <argument>App\Controller\user\userShoppingListController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -6090,12 +6197,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.8Iz3qS2"/>
+      <argument type="service" id=".service_locator.39cJoHR"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.8Iz3qS2"/>
+      <argument type="service" id=".service_locator.39cJoHR"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6110,6 +6217,7 @@
     <service id=".errored..service_locator.VPb8Zl0.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.5S5H6Ja.Doctrine\ORM\EntityManager" class="Doctrine\ORM\EntityManager"/>
     <service id=".errored..service_locator.zABJvAy.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
+    <service id=".errored..service_locator.4nhWbpP.App\Entity\UserProduct" class="App\Entity\UserProduct"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.RwpVKPB"/>
       <argument type="collection">
@@ -6499,7 +6607,7 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.8Iz3qS2"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.39cJoHR"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

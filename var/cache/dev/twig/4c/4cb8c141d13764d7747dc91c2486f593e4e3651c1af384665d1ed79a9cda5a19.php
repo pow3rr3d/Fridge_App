@@ -85,9 +85,9 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"div container text-center mt-4\">
+        echo "    <div class=\"text-center\">
         <h1> Category list </h1>
-        <div class=\"container mt-4\">
+        <div class=\"mt-4\">
             ";
         // line 9
         $context['_parent'] = $context;
@@ -230,9 +230,9 @@ class __TwigTemplate_126979c4aa68ba16a059919c57e04e702169993a76ec2c83ff8a744d926
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <div class=\"div container text-center mt-4\">
+    <div class=\"text-center\">
         <h1> Category list </h1>
-        <div class=\"container mt-4\">
+        <div class=\"mt-4\">
             {% for message in app.flashes('success') %}
                 <div class=\"div alert alert-success\">
                     {{ message }}

@@ -3,7 +3,8 @@
 {
     font-family: 'Poppins', sans-serif;
 }
-body {
+body
+{
     background-color: white;
 }
 #Title{
@@ -16,4 +17,49 @@ body {
     padding-top: 10%;
     color: white;
     text-shadow: 1px 2px 3px #666;
+}
+#navbar {
+    transition-property: rotate, width;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 150px;
+    height: 100%;
+    box-shadow: 1px 1px 10px black;
+    position: fixed;
+    background-color: #343a40 !important;
+}
+
+#navbar.hidden .spanMenu {
+    display: none;
+}
+
+#navbar.hidden {
+    width: 50px;
+    transition-property: rotate, width;
+    transition-duration: 0.5s;
+}
+
+#navbar.hidden #arrow {
+    transform: rotate(180deg);
+    transition-duration: 0.5s;
+}
+
+#navbar #arrow {
+    transition-duration: 0.5s;
+}
+#container.col-11 {
+    transition-duration: 0.5s;
+}
+
+#container.col-9 {
+    transition-duration: 0.5s;
+}
+
+#containerFooter.col-11 {
+    transition-duration: 0.5s;
+}
+
+#containerFooter.col-9 {
+    transition-duration: 0.5s;
 }

@@ -50,7 +50,10 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
     <meta charset=\"UTF-8\">
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\"
           integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-
+    <link rel=\"stylesheet\" href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/app.css"), "html", null, true);
+        echo "\">
     <title>
         ";
         // line 9
@@ -63,7 +66,6 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
         // line 13
         echo "</head>
 <body>
-
 <nav class=\"nav flex-column\" id=\"navbar\">
     <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"/user/dashboard\">
@@ -77,13 +79,31 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
             <span class=\"spanMenu\">Products</span>
         </a>
     </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/user/conso\">
+            <i class=\"fas fa-utensils\"></i>
+            <span class=\"spanMenu\">Conso</span>
+        </a>
+    </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/user/list\">
+            <i class=\"fas fa-shopping-basket\"></i>
+            <span class=\"spanMenu\">List</span>
+        </a>
+    </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/user/account\">
+            <i class=\"fas fa-id-card\"></i>
+            <span class=\"spanMenu\">Account</span>
+        </a>
+    </li>
     ";
-        // line 29
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "user", [], "any", false, false, false, 29)) {
-            // line 30
+        // line 46
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 46, $this->source); })()), "user", [], "any", false, false, false, 46)) {
+            // line 47
             echo "        <li class=\"nav-item\">
             <a class=\"nav-link\" href=\"";
-            // line 31
+            // line 48
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\">
                 <i class=\"fas fa-sign-out-alt\"></i>
@@ -92,7 +112,7 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
         </li>
     ";
         }
-        // line 37
+        // line 54
         echo "    <li class=\"nav-item\" id=\"toogleButton\">
         <a class=\"nav-link\" href=\"#\">
             <i id=\"arrow\" class=\"fas fa-arrow-left\"></i>
@@ -100,15 +120,15 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
         </a>
     </li>
 </nav>
-<div class=\"container\"> ";
-        // line 44
+<div id=\"container\" class=\"container-fluid col-9\"> ";
+        // line 61
         $this->displayBlock('body', $context, $blocks);
-        // line 45
+        // line 62
         echo "</div>
 ";
-        // line 46
+        // line 63
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 47
+        // line 66
         echo "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"
         integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\"
         crossorigin=\"anonymous\"></script>
@@ -131,11 +151,10 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
 <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"
         integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\"
         crossorigin=\"anonymous\"></script>
-</body>
-</html>
-</body>
 
+</body>
 </html>
+
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -183,7 +202,7 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
 
     }
 
-    // line 44
+    // line 61
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -201,7 +220,7 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
 
     }
 
-    // line 46
+    // line 63
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -211,6 +230,11 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 64
+        echo "    ";
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("toggleMenu");
+        echo "
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -231,7 +255,7 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
 
     public function getDebugInfo()
     {
-        return array (  205 => 46,  187 => 44,  169 => 12,  149 => 9,  112 => 47,  110 => 46,  107 => 45,  105 => 44,  96 => 37,  87 => 31,  84 => 30,  82 => 29,  64 => 13,  62 => 12,  59 => 11,  57 => 9,  47 => 1,);
+        return array (  234 => 64,  224 => 63,  206 => 61,  188 => 12,  168 => 9,  132 => 66,  130 => 63,  127 => 62,  125 => 61,  116 => 54,  107 => 48,  104 => 47,  102 => 46,  67 => 13,  65 => 12,  62 => 11,  60 => 9,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -242,7 +266,7 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
     <meta charset=\"UTF-8\">
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\"
           integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-
+    <link rel=\"stylesheet\" href=\"{{ asset('build/app.css') }}\">
     <title>
         {% block title %}Welcome!
         {% endblock %}
@@ -250,7 +274,6 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-
 <nav class=\"nav flex-column\" id=\"navbar\">
     <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"/user/dashboard\">
@@ -262,6 +285,24 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
         <a class=\"nav-link\" href=\"/user/product\">
             <i class=\"fas fa-carrot\"></i>
             <span class=\"spanMenu\">Products</span>
+        </a>
+    </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/user/conso\">
+            <i class=\"fas fa-utensils\"></i>
+            <span class=\"spanMenu\">Conso</span>
+        </a>
+    </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/user/list\">
+            <i class=\"fas fa-shopping-basket\"></i>
+            <span class=\"spanMenu\">List</span>
+        </a>
+    </li>
+    <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"/user/account\">
+            <i class=\"fas fa-id-card\"></i>
+            <span class=\"spanMenu\">Account</span>
         </a>
     </li>
     {% if app.user %}
@@ -279,9 +320,11 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
         </a>
     </li>
 </nav>
-<div class=\"container\"> {% block body %}{% endblock %}
+<div id=\"container\" class=\"container-fluid col-9\"> {% block body %}{% endblock %}
 </div>
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('toggleMenu') }}
+{% endblock %}
 <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"
         integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\"
         crossorigin=\"anonymous\"></script>
@@ -304,11 +347,10 @@ class __TwigTemplate_55f068663c56df83f048ffdfa46f13e4c1cedf3f2e490164424108609f4
 <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"
         integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\"
         crossorigin=\"anonymous\"></script>
-</body>
-</html>
-</body>
 
+</body>
 </html>
+
 ", "user.html.twig", "/var/www/html/Fridge_App/templates/user.html.twig");
     }
 }

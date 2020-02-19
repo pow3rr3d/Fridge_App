@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\ProductSearch;
+use App\Entity\UserProductSearch;
 use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

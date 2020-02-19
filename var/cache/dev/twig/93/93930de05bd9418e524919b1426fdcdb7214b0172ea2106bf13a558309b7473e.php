@@ -87,9 +87,9 @@ class __TwigTemplate_d9d7474993397eb9047add2719896538ecc0962b62f74ba3e610b2f4a9d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "<div class=\"div container text-center\">
+        echo "<div class=\"text-center\">
     <h1> Dashboard </h1>
-    <div class=\"container mt-4\">
+    <div class=\"mt-4\">
         <div class=\"jumbotron\">
             <div class=\"form-row\">
                 <div class=\"col\">
@@ -158,9 +158,9 @@ class __TwigTemplate_d9d7474993397eb9047add2719896538ecc0962b62f74ba3e610b2f4a9d
 {% endblock %}
 
     {% block body %}
-<div class=\"div container text-center\">
+<div class=\"text-center\">
     <h1> Dashboard </h1>
-    <div class=\"container mt-4\">
+    <div class=\"mt-4\">
         <div class=\"jumbotron\">
             <div class=\"form-row\">
                 <div class=\"col\">

@@ -85,7 +85,7 @@ class __TwigTemplate_28e44f9034aa78a5b6678f211a57e7cecf6a3eda4392b7e0f645276687e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"div container text-center mt-4\">
+        echo "<div class=\"div container text-center\">
     <h1>Create new Category</h1>
     <div class=\"container mt-4\">
         <div class=\"text-left\">
@@ -134,7 +134,7 @@ class __TwigTemplate_28e44f9034aa78a5b6678f211a57e7cecf6a3eda4392b7e0f645276687e
 {% block title %}New Category{% endblock %}
 
 {% block body %}
-<div class=\"div container text-center mt-4\">
+<div class=\"div container text-center\">
     <h1>Create new Category</h1>
     <div class=\"container mt-4\">
         <div class=\"text-left\">

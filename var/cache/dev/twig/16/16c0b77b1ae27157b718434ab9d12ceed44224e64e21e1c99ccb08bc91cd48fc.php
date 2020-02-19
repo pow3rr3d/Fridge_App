@@ -85,9 +85,9 @@ class __TwigTemplate_bac59da985ebec415c5f02db2b365834357dba832dc0bb9445f073cf0f7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"div container text-center mt-4\">
+        echo "<div class=\"text-center\">
     <h1> Category </h1>
-    <div class=\"container mt-4\">
+    <div class=\"mt-4\">
         <div class=\"text-left\">
             <div class=\"text-right mb-4\">
             <a href=\"";
@@ -163,9 +163,9 @@ class __TwigTemplate_bac59da985ebec415c5f02db2b365834357dba832dc0bb9445f073cf0f7
 {% block title %}Category{% endblock %}
 
 {% block body %}
-<div class=\"div container text-center mt-4\">
+<div class=\"text-center\">
     <h1> Category </h1>
-    <div class=\"container mt-4\">
+    <div class=\"mt-4\">
         <div class=\"text-left\">
             <div class=\"text-right mb-4\">
             <a href=\"{{ path('category_index') }}\" class=\"btn btn-primary\">back to list</a>

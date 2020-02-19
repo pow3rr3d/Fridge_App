@@ -87,7 +87,7 @@ class __TwigTemplate_41b33b592d4cd2aedf3bdaaead454cd893463c14207e4742a4cf32a64b3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <div class=\"container mt-4\">
+        echo "    <div class=\"text-center \">
         <h1 class=\"text-center\"> Create Product </h1>
 
         ";
@@ -129,7 +129,7 @@ class __TwigTemplate_41b33b592d4cd2aedf3bdaaead454cd893463c14207e4742a4cf32a64b3
 {% endblock %}
 
 {% block body %}
-    <div class=\"container mt-4\">
+    <div class=\"text-center \">
         <h1 class=\"text-center\"> Create Product </h1>
 
         {{ include ('admin/product/_form.html.twig', {form: form, button: 'Create'}) }}

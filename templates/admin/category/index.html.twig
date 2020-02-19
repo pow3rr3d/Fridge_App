@@ -3,11 +3,11 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <div class="div container text-center mt-4">
+    <div class="text-center">
         <h1> Category list </h1>
-        <div class="container mt-4">
+        <div class="mt-4">
             {% for message in app.flashes('success') %}
-                <div class="div alert alert-success">
+                <div class="alert alert-success">
                     {{ message }}
                 </div>
             {% endfor %}

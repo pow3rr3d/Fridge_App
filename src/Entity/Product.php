@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -39,6 +41,18 @@ class Product
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
      */
     private $category;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserProduct", mappedBy="product")
+     */
+    private $userProducts;
+
+
+
+    public function __construct()
+    {
+        $this->userProducts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -92,4 +106,36 @@ class Product
 
         return $this;
     }
+
+    /**
+     * @return Collection|UserProduct[]
+     */
+    public function getUserProducts(): Collection
+    {
+        return $this->userProducts;
+    }
+
+    public function addUserProduct(UserProduct $userProduct): self
+    {
+        if (!$this->userProducts->contains($userProduct)) {
+            $this->userProducts[] = $userProduct;
+            $userProduct->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserProduct(UserProduct $userProduct): self
+    {
+        if ($this->userProducts->contains($userProduct)) {
+            $this->userProducts->removeElement($userProduct);
+            // set the owning side to null (unless already changed)
+            if ($userProduct->getProduct() === $this) {
+                $userProduct->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

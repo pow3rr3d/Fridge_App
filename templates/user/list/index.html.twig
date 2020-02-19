@@ -1,0 +1,80 @@
+{% extends 'user.html.twig' %}
+
+{% block title %}
+    Product List
+{% endblock %}
+
+{% block body %}
+
+    <div class="text-center">
+        <h1>Shopping List</h1>
+    </div>
+
+    <br>
+    <div class="jumbotron">
+        {{ form_start(form) }}
+        <div class="form-row text-center">
+            <div class="col-9">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="col">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+    <br>
+    {% for message in app.flashes('success') %}
+        <div class="div alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>
+                Product
+            </th>
+            <th>
+                Qty to Buy
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for product in products %}
+            {% if product.qt2Buy > 0 %}
+                <tr>
+                    <td>
+                        {{ product.product.name }}
+                    </td>
+                    <td>
+                        {{ product.qt2Buy }}
+                    </td>
+                    <td class="w-25">
+                        <form method="post" action="{{ path("user.conso.update", {id: product.id}) }}">
+                            <input type="hidden" name="_method" value="update">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                            <input name="nb" type="number" min="0"/>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <br>
+    <div class="row justify-content-end mr-5">
+        <div class="pagination">
+            {{ knp_pagination_render(products) }}
+        </div>
+    </div>
+
+{% endblock %}

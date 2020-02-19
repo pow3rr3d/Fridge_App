@@ -85,7 +85,7 @@ class __TwigTemplate_2879ef379b18fcc02290bdf2cfb648d725f96f7457dc64780558bffce25
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"div container text-center mt-4\">
+        echo "    <div class=\"div container text-center\">
         <h1>Edit Category</h1>
         <div class=\"text-right mb-4\">
             <a href=\"";
@@ -136,7 +136,7 @@ class __TwigTemplate_2879ef379b18fcc02290bdf2cfb648d725f96f7457dc64780558bffce25
 {% block title %}Edit Category{% endblock %}
 
 {% block body %}
-    <div class=\"div container text-center mt-4\">
+    <div class=\"div container text-center\">
         <h1>Edit Category</h1>
         <div class=\"text-right mb-4\">
             <a href=\"{{ path('category_index') }}\" class=\"btn btn-primary\">back to list</a>

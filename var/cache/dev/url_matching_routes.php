@@ -28,8 +28,12 @@ return [
         '/admin/user/new' => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\admin\\adminUserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/contact' => [[['_route' => 'contact', '_controller' => 'App\\Controller\\contactController::show'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\homeController::index'], null, null, null, false, false, null]],
+        '/user/account' => [[['_route' => 'user.account.index', '_controller' => 'App\\Controller\\user\\userAccountController::index'], null, null, null, false, false, null]],
+        '/user/conso' => [[['_route' => 'user.conso.index', '_controller' => 'App\\Controller\\user\\userConsumptionController::index'], null, null, null, false, false, null]],
         '/user/dashboard' => [[['_route' => 'user.dashboard.index', '_controller' => 'App\\Controller\\user\\userDashboardController::index'], null, null, null, false, false, null]],
         '/user/product' => [[['_route' => 'user.product.index', '_controller' => 'App\\Controller\\user\\userProductController::index'], null, null, null, false, false, null]],
+        '/user/product/new' => [[['_route' => 'userProduct_new', '_controller' => 'App\\Controller\\user\\userProductController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/user/list' => [[['_route' => 'user.list.index', '_controller' => 'App\\Controller\\user\\userShoppingListController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -64,6 +68,13 @@ return [
                         .'|(*:322)'
                     .')'
                 .')'
+                .'|/user/(?'
+                    .'|product/(?'
+                        .'|edit/([^/]++)(*:365)'
+                        .'|delete/([^/]++)(*:388)'
+                    .')'
+                    .'|list/update/([^/]++)(*:417)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -81,8 +92,11 @@ return [
         276 => [[['_route' => 'admin.product.delete', '_controller' => 'App\\Controller\\admin\\adminProductController::delete'], ['id'], null, null, false, true, null]],
         301 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\admin\\adminUserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         314 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\admin\\adminUserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        322 => [
-            [['_route' => 'user_delete', '_controller' => 'App\\Controller\\admin\\adminUserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
+        322 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\admin\\adminUserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        365 => [[['_route' => 'app_user_userproduct_edit', '_controller' => 'App\\Controller\\user\\userProductController::edit'], ['id'], null, null, false, true, null]],
+        388 => [[['_route' => 'user.product.delete', '_controller' => 'App\\Controller\\user\\userProductController::delete'], ['id'], null, null, false, true, null]],
+        417 => [
+            [['_route' => 'user.conso.update', '_controller' => 'App\\Controller\\user\\userShoppingListController::edit'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

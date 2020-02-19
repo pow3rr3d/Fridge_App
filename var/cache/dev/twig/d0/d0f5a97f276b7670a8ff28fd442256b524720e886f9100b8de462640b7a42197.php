@@ -87,9 +87,9 @@ class __TwigTemplate_34f297acf688c82bdbbe6f4b5eae80388ca1f94cafe6c0d4e13bf7849b5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <div class=\"div container text-center\">
+        echo "    <div class=\"text-center\">
         <h1> Product list </h1>
-        <div class=\"container mt-4\">
+        <div class=\"mt-4\">
             <div class=\"text-right\">
                 <a href=\"";
         // line 12
@@ -251,9 +251,9 @@ class __TwigTemplate_34f297acf688c82bdbbe6f4b5eae80388ca1f94cafe6c0d4e13bf7849b5
 {% endblock %}
 
 {% block body %}
-    <div class=\"div container text-center\">
+    <div class=\"text-center\">
         <h1> Product list </h1>
-        <div class=\"container mt-4\">
+        <div class=\"mt-4\">
             <div class=\"text-right\">
                 <a href=\"{{ path('admin.product.new') }}\" class=\"btn btn-primary\"> Create Product</a>
             </div>

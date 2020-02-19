@@ -86,9 +86,9 @@ class __TwigTemplate_d4db13a4e2752ac3a0e5ded52a240b8f16a6387279961b164497d2ed373
 
         // line 6
         echo "
-<div class=\"div container text-center\">
+<div class=\"text-center\">
     <h1>User index</h1>
-    <div class=\"container mt-4\">
+    <div class=\"mt-4\">
         ";
         // line 10
         $context['_parent'] = $context;
@@ -259,9 +259,9 @@ class __TwigTemplate_d4db13a4e2752ac3a0e5ded52a240b8f16a6387279961b164497d2ed373
 
 {% block body %}
 
-<div class=\"div container text-center\">
+<div class=\"text-center\">
     <h1>User index</h1>
-    <div class=\"container mt-4\">
+    <div class=\"mt-4\">
         {% for message in app.flashes('success') %}
             <div class=\"div alert alert-success\">
                 {{ message }}
