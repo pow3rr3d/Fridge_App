@@ -2,12 +2,17 @@
 
 namespace App\Controller\user;
 
-
-use App\Entity\User;
 use App\Form\UserAccountType;
-use http\Client\Response;
+use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 /**
@@ -15,23 +20,42 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class userAccountController extends AbstractController
 {
+
     /**
      * @Route("", name="user.account.index")
+     * @param UserRepository $userRepository
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return Response
      */
-    public function index()
+    public function index(UserRepository $userRepository, Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder)
     {
-        $u = new User();
-        $form = $this->createForm(UserAccountType::class, $u);
         $user = $this->getUser();
+        $form = $this->createForm(UserAccountType::class, $user);
+        $form->handleRequest($request);
 
-        dump($user);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash('success', 'Modify success !');
+            return $this->redirectToRoute('user.account.index');
+        }
 
         return $this->render("user/account/index.html.twig", [
-            'user' => $user,
             'form' => $form->createView()
         ]);
 
-    }
 
+
+    }
 
 }

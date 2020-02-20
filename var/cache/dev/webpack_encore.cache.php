@@ -12,12 +12,24 @@ return [[
     'entrypoints' => [
         'app' => [
             'js' => [
-                'http://localhost:8080/build/runtime.js',
-                'http://localhost:8080/build/vendors~app.js',
-                'http://localhost:8080/build/app.js',
+                '/build/runtime.1103dde6.js',
+                '/build/app.29caa2f3.js',
             ],
             'css' => [
-                'http://localhost:8080/build/app.css',
+                '/build/app.1f820bcf.css',
+            ],
+        ],
+        'search' => [
+            'js' => [
+                '/build/runtime.1103dde6.js',
+                '/build/0.ecda7895.js',
+                '/build/search.c1f21a8d.js',
+            ],
+        ],
+        'toggleMenu' => [
+            'js' => [
+                '/build/runtime.1103dde6.js',
+                '/build/toggleMenu.444f69ce.js',
             ],
         ],
     ],

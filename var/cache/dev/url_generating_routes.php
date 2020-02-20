@@ -18,6 +18,7 @@ return [
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
+    'admin.account.index' => [[], ['_controller' => 'App\\Controller\\admin\\adminAccountController::index'], [], [['text', '/admin/account']], [], []],
     'category_index' => [[], ['_controller' => 'App\\Controller\\admin\\adminCategoryController::index'], [], [['text', '/admin/category/']], [], []],
     'category_new' => [[], ['_controller' => 'App\\Controller\\admin\\adminCategoryController::new'], [], [['text', '/admin/category/new']], [], []],
     'category_show' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminCategoryController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/category']], [], []],
@@ -44,5 +45,7 @@ return [
     'user.product.delete' => [['id'], ['_controller' => 'App\\Controller\\user\\userProductController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/product/delete']], [], []],
     'user.list.index' => [[], ['_controller' => 'App\\Controller\\user\\userShoppingListController::index'], [], [['text', '/user/list']], [], []],
     'user.conso.update' => [['id'], ['_controller' => 'App\\Controller\\user\\userShoppingListController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/list/update']], [], []],
+    'liip_imagine_filter_runtime' => [['filter', 'hash', 'path'], ['_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter' => '[A-z0-9_-]*', 'path' => '.+'], [['variable', '/', '.+', 'path', true], ['variable', '/', '[^/]++', 'hash', true], ['text', '/rc'], ['variable', '/', '[A-z0-9_-]*', 'filter', true], ['text', '/media/cache/resolve']], [], []],
+    'liip_imagine_filter' => [['filter', 'path'], ['_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter' => '[A-z0-9_-]*', 'path' => '.+'], [['variable', '/', '.+', 'path', true], ['variable', '/', '[A-z0-9_-]*', 'filter', true], ['text', '/media/cache/resolve']], [], []],
     'logout' => [[], [], [], [['text', '/logout']], [], []],
 ];

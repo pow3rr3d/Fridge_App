@@ -244,7 +244,7 @@ class __TwigTemplate_34f297acf688c82bdbbe6f4b5eae80388ca1f94cafe6c0d4e13bf7849b5
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'admin.html.twig' %}
+        return new Source("{% extends 'admin.html.twig' %}            
 
 {% block title %}
     Product List

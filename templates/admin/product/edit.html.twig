@@ -5,10 +5,14 @@
 {% endblock %}
 
 {% block body %}
-    <div class="text-center">
+    <div class="text-left">
         <h1 class="text-center"> Edit Product </h1>
         <div class="row justify-content-center">
-            <img id="cercle" src="{{ product.image }}" alt="">
+            {% if product.filename %}
+            <img src="{{ vich_uploader_asset(product, "imageFile") | imagine_filter('thumb') }}" alt="">
+                {% else %}
+                    <img src="{{ "/images/products/empty.jpg" | imagine_filter('thumb') }}" alt="">
+            {%  endif %}
         </div>
         {{ include ('admin/product/_form.html.twig', {form: form, button: 'Edit'}) }}
     </div>

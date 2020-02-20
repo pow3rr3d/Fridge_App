@@ -87,7 +87,7 @@ class __TwigTemplate_e5797cea88a45d77cd4126a6ea0d487783d600480e4629f83cb934458ce
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <div class=\"container\">
+        echo "    <div class=\"text-left\">
         <h1 class=\"text-center\"> Edit Product </h1>
         <div class=\"row justify-content-center\">
             <img id=\"cercle\" src=\"";
@@ -134,7 +134,7 @@ class __TwigTemplate_e5797cea88a45d77cd4126a6ea0d487783d600480e4629f83cb934458ce
 {% endblock %}
 
 {% block body %}
-    <div class=\"container\">
+    <div class=\"text-left\">
         <h1 class=\"text-center\"> Edit Product </h1>
         <div class=\"row justify-content-center\">
             <img id=\"cercle\" src=\"{{ product.image }}\" alt=\"\">
