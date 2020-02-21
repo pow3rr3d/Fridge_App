@@ -55,7 +55,7 @@
                         {{ product.qt2Buy }}
                     </td>
                     <td class="w-25">
-                        <form method="post" action="{{ path("user.conso.update", {id: product.id}) }}">
+                        <form method="post" action="{{ path("user.list.update", {id: product.id}) }}">
                             <input type="hidden" name="_method" value="update">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
                             <input name="nb" type="number" min="0"/>

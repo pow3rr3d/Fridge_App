@@ -143,6 +143,7 @@ class ComposerStaticInitaeefeb82e50c0ba1d38b4649cd574c83
         'F' => 
         array (
             'Faker\\' => 6,
+            'FOS\\CKEditorBundle\\' => 19,
         ),
         'E' => 
         array (
@@ -528,6 +529,10 @@ class ComposerStaticInitaeefeb82e50c0ba1d38b4649cd574c83
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'FOS\\CKEditorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/ckeditor-bundle/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (

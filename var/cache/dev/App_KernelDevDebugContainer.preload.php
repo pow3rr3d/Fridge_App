@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/Container2BPC4xz/App_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerIExGecg/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'App\Kernel';
@@ -79,6 +79,8 @@ $classes[] = 'Symfony\Component\Routing\RequestContext';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\RouterListener';
 $classes[] = 'Doctrine\Common\Annotations\AnnotationReader';
 $classes[] = 'Doctrine\Common\Annotations\AnnotationRegistry';
+$classes[] = 'Symfony\Component\PropertyAccess\PropertyAccessor';
+$classes[] = 'Symfony\Component\Cache\Adapter\ArrayAdapter';
 $classes[] = 'Symfony\Component\PropertyInfo\PropertyInfoExtractor';
 $classes[] = 'Symfony\Component\WebLink\EventListener\AddLinkHeaderListener';
 $classes[] = 'Twig\Environment';
@@ -108,6 +110,9 @@ $classes[] = 'Knp\Bundle\PaginatorBundle\Helper\Processor';
 $classes[] = 'Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension';
 $classes[] = 'Vich\UploaderBundle\Twig\Extension\UploaderExtension';
 $classes[] = 'Liip\ImagineBundle\Templating\FilterExtension';
+$classes[] = 'FOS\CKEditorBundle\Twig\CKEditorExtension';
+$classes[] = 'FOS\CKEditorBundle\Renderer\CKEditorRenderer';
+$classes[] = 'FOS\CKEditorBundle\Builder\JsonBuilder';
 $classes[] = 'Symfony\Bridge\Twig\AppVariable';
 $classes[] = 'Twig\RuntimeLoader\ContainerRuntimeLoader';
 $classes[] = 'Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor';
@@ -137,7 +142,6 @@ $classes[] = 'Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter';
 $classes[] = 'Vich\UploaderBundle\EventListener\Doctrine\RemoveListener';
 $classes[] = 'Vich\UploaderBundle\EventListener\Doctrine\UploadListener';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\ConnectionFactory';
-$classes[] = 'Symfony\Component\Cache\Adapter\ArrayAdapter';
 $classes[] = 'Doctrine\ORM\EntityManager';
 $classes[] = 'Doctrine\ORM\Configuration';
 $classes[] = 'Symfony\Component\Cache\DoctrineProvider';

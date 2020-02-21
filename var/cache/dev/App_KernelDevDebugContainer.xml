@@ -24,6 +24,7 @@
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
       <parameter key="LiipImagineBundle">Liip\ImagineBundle\LiipImagineBundle</parameter>
+      <parameter key="FOSCKEditorBundle">FOS\CKEditorBundle\FOSCKEditorBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -94,6 +95,10 @@
         <parameter key="path">/var/www/html/Fridge_App/vendor/liip/imagine-bundle</parameter>
         <parameter key="namespace">Liip\ImagineBundle</parameter>
       </parameter>
+      <parameter key="FOSCKEditorBundle" type="collection">
+        <parameter key="path">/var/www/html/Fridge_App/vendor/friendsofsymfony/ckeditor-bundle/src</parameter>
+        <parameter key="namespace">FOS\CKEditorBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
@@ -142,6 +147,7 @@
     <parameter key="twig.form.resources" type="collection">
       <parameter>@VichUploader/Form/fields.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>@FOSCKEditor/Form/ckeditor_widget.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
       <parameter>@LiipImagine/Form/form_div_layout.html.twig</parameter>
     </parameter>
@@ -518,6 +524,13 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminCategoryController"/>
       </call>
     </service>
+    <service id="App\Controller\admin\adminContentController" class="App\Controller\admin\adminContentController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminContentController"/>
+      </call>
+    </service>
     <service id="App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -615,6 +628,9 @@
     <service id="App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -649,6 +665,10 @@
       <argument type="service" id="twig"/>
     </service>
     <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ContentRepository" class="App\Repository\ContentRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1091,11 +1111,13 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
         <argument>Vich\UploaderBundle\Form\Type</argument>
         <argument>Liip\ImagineBundle\Form\Type</argument>
+        <argument>FOS\CKEditorBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
         <argument>App\Form\CategorySearchType</argument>
         <argument>App\Form\CategoryType</argument>
         <argument>App\Form\ContactType</argument>
+        <argument>App\Form\ContentType</argument>
         <argument>App\Form\ProductSearchType</argument>
         <argument>App\Form\ProductType</argument>
         <argument>App\Form\RegistrationFormType</argument>
@@ -1111,6 +1133,7 @@
         <argument>Vich\UploaderBundle\Form\Type\VichFileType</argument>
         <argument>Vich\UploaderBundle\Form\Type\VichImageType</argument>
         <argument>Liip\ImagineBundle\Form\Type\ImageType</argument>
+        <argument>FOS\CKEditorBundle\Form\Type\CKEditorType</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
@@ -1430,7 +1453,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.0.gtGn1"/>
+      <argument type="service" id=".service_locator.hihNMtw"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2127,6 +2150,7 @@
           <argument>/var/www/html/Fridge_App/vendor/symfony/webpack-encore-bundle/src/translations</argument>
           <argument>/var/www/html/Fridge_App/vendor/symfony/swiftmailer-bundle/translations</argument>
           <argument>/var/www/html/Fridge_App/vendor/liip/imagine-bundle/translations</argument>
+          <argument>/var/www/html/Fridge_App/vendor/friendsofsymfony/ckeditor-bundle/src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -2151,6 +2175,7 @@
             <argument>vendor/symfony/webpack-encore-bundle/src/translations</argument>
             <argument>vendor/symfony/swiftmailer-bundle/translations</argument>
             <argument>vendor/liip/imagine-bundle/translations</argument>
+            <argument>vendor/friendsofsymfony/ckeditor-bundle/src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -3528,6 +3553,9 @@
       <call method="addExtension">
         <argument type="service" id="liip_imagine.templating.filter_extension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="fos_ck_editor.twig_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3652,6 +3680,14 @@
       <call method="addPath">
         <argument>/var/www/html/Fridge_App/vendor/liip/imagine-bundle/Resources/views</argument>
         <argument>!LiipImagine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Fridge_App/vendor/friendsofsymfony/ckeditor-bundle/src/Resources/views</argument>
+        <argument>FOSCKEditor</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Fridge_App/vendor/friendsofsymfony/ckeditor-bundle/src/Resources/views</argument>
+        <argument>!FOSCKEditor</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Fridge_App/templates</argument>
@@ -4138,7 +4174,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.l5bSFR0"/>
+      <argument type="service" id=".service_locator.fNN32Ja"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -6185,6 +6221,62 @@
       <argument type="service" id="liip_imagine.cache.manager"/>
       <deprecated>The "%service_id%" service is deprecated since LiipImagineBundle 2.2 and will be removed in 3.0.</deprecated>
     </service>
+    <service id="fos_ck_editor.builder.json_builder" class="FOS\CKEditorBundle\Builder\JsonBuilder">
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="fos_ck_editor.command.installer" class="FOS\CKEditorBundle\Command\CKEditorInstallerCommand">
+      <tag name="console.command" command="ckeditor:install"/>
+      <argument type="service" id="fos_ck_editor.installer"/>
+      <call method="setName">
+        <argument>ckeditor:install</argument>
+      </call>
+    </service>
+    <service id="fos_ck_editor.configuration" class="FOS\CKEditorBundle\Config\CKEditorConfiguration">
+      <argument type="collection">
+        <argument key="configs" type="collection">
+          <argument key="my_config" type="collection">
+            <argument key="toolbar">full</argument>
+          </argument>
+        </argument>
+        <argument key="enable">true</argument>
+        <argument key="async">false</argument>
+        <argument key="auto_inline">true</argument>
+        <argument key="inline">false</argument>
+        <argument key="autoload">true</argument>
+        <argument key="jquery">false</argument>
+        <argument key="require_js">false</argument>
+        <argument key="input_sync">false</argument>
+        <argument key="base_path">bundles/fosckeditor/</argument>
+        <argument key="js_path">bundles/fosckeditor/ckeditor.js</argument>
+        <argument key="jquery_path">bundles/fosckeditor/adapters/jquery.js</argument>
+        <argument key="default_config">null</argument>
+        <argument key="plugins" type="collection"/>
+        <argument key="styles" type="collection"/>
+        <argument key="templates" type="collection"/>
+        <argument key="filebrowsers" type="collection"/>
+        <argument key="toolbars" type="collection">
+          <argument key="configs" type="collection"/>
+          <argument key="items" type="collection"/>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_ck_editor.form.type" class="FOS\CKEditorBundle\Form\Type\CKEditorType">
+      <tag name="form.type"/>
+      <argument type="service" id="fos_ck_editor.configuration"/>
+    </service>
+    <service id="fos_ck_editor.installer" class="FOS\CKEditorBundle\Installer\CKEditorInstaller"/>
+    <service id="fos_ck_editor.renderer" class="FOS\CKEditorBundle\Renderer\CKEditorRenderer">
+      <argument type="service" id="fos_ck_editor.builder.json_builder"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="assets.packages"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="twig"/>
+      <argument type="expression">container.hasParameter('locale') ? parameter('locale') : null</argument>
+    </service>
+    <service id="fos_ck_editor.twig_extension" class="FOS\CKEditorBundle\Twig\CKEditorExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="fos_ck_editor.renderer"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6197,6 +6289,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminCategoryController" class="App\Controller\admin\adminCategoryController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminCategoryController" class="App\Controller\admin\adminCategoryController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminCategoryController" class="App\Controller\admin\adminCategoryController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminContentController" class="App\Controller\admin\adminContentController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminContentController" class="App\Controller\admin\adminContentController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminContentController" class="App\Controller\admin\adminContentController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6239,6 +6334,8 @@
     <service id=".abstract.instanceof.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContentType" class="App\Form\ContentType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductType" class="App\Form\ProductType" autowire="true" abstract="true"/>
@@ -6257,6 +6354,8 @@
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ContentRepository" class="App\Repository\ContentRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ContentRepository" class="App\Repository\ContentRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProdductRepository" class="App\Repository\ProdductRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProdductRepository" class="App\Repository\ProdductRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" abstract="true"/>
@@ -6481,6 +6580,18 @@
         <argument key="category" type="service" id=".errored..service_locator.MpsgFRY.App\Entity\Category"/>
       </argument>
     </service>
+    <service id=".service_locator.Z0b7_X1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="contentRepository" type="service" id="App\Repository\ContentRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1x47IPt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="content" type="service" id=".errored..service_locator.1x47IPt.App\Entity\Content"/>
+      </argument>
+    </service>
     <service id=".service_locator.TwZjFMQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6509,6 +6620,14 @@
         <argument key="user" type="service" id=".errored..service_locator.VPb8Zl0.App\Entity\User"/>
       </argument>
     </service>
+    <service id=".service_locator.2wyJttD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="passwordEncoder" type="service" id="security.user_password_encoder.generic"/>
+        <argument key="user" type="service" id=".errored..service_locator.2wyJttD.App\Entity\User"/>
+      </argument>
+    </service>
     <service id=".service_locator.5S5H6Ja" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6528,6 +6647,13 @@
         <argument key="paginator" type="service" id="knp_paginator"/>
       </argument>
     </service>
+    <service id=".service_locator.rN_aoHL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="user" type="service" id=".errored..service_locator.rN_aoHL.Symfony\Component\Security\Core\User\UserInterface"/>
+      </argument>
+    </service>
     <service id=".service_locator.zABJvAy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6540,7 +6666,7 @@
         <argument key="userProduct" type="service" id=".errored..service_locator.4nhWbpP.App\Entity\UserProduct"/>
       </argument>
     </service>
-    <service id=".service_locator.bLQJOUB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.0viRb4p" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.iiu8BOO"/>
@@ -6550,19 +6676,23 @@
         <argument key="App\Controller\admin\adminCategoryController::edit" type="service" id=".service_locator.MpsgFRY"/>
         <argument key="App\Controller\admin\adminCategoryController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\admin\adminCategoryController::show" type="service" id=".service_locator.MpsgFRY"/>
+        <argument key="App\Controller\admin\adminContentController::delete" type="service" id=".service_locator.1x47IPt"/>
+        <argument key="App\Controller\admin\adminContentController::edit" type="service" id=".service_locator.1x47IPt"/>
+        <argument key="App\Controller\admin\adminContentController::index" type="service" id=".service_locator.Z0b7_X1"/>
+        <argument key="App\Controller\admin\adminContentController::show" type="service" id=".service_locator.1x47IPt"/>
         <argument key="App\Controller\admin\adminDashboardController::index" type="service" id=".service_locator.TwZjFMQ"/>
         <argument key="App\Controller\admin\adminProductController::delete" type="service" id=".service_locator.xXN6XvR"/>
         <argument key="App\Controller\admin\adminProductController::edit" type="service" id=".service_locator.xXN6XvR"/>
         <argument key="App\Controller\admin\adminProductController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\admin\adminUserController::admin" type="service" id=".service_locator.5S5H6Ja"/>
         <argument key="App\Controller\admin\adminUserController::delete" type="service" id=".service_locator.VPb8Zl0"/>
-        <argument key="App\Controller\admin\adminUserController::edit" type="service" id=".service_locator.VPb8Zl0"/>
+        <argument key="App\Controller\admin\adminUserController::edit" type="service" id=".service_locator.2wyJttD"/>
         <argument key="App\Controller\admin\adminUserController::index" type="service" id=".service_locator.3NkeMTN"/>
         <argument key="App\Controller\admin\adminUserController::show" type="service" id=".service_locator.VPb8Zl0"/>
         <argument key="App\Controller\contactController::show" type="service" id=".service_locator.EJUWuoh"/>
         <argument key="App\Controller\user\userAccountController::index" type="service" id=".service_locator.l58G74E"/>
         <argument key="App\Controller\user\userConsumptionController::index" type="service" id=".service_locator.BMz2YTS"/>
-        <argument key="App\Controller\user\userDashboardController::index" type="service" id=".service_locator.zABJvAy"/>
+        <argument key="App\Controller\user\userDashboardController::index" type="service" id=".service_locator.rN_aoHL"/>
         <argument key="App\Controller\user\userProductController::delete" type="service" id=".service_locator.4nhWbpP"/>
         <argument key="App\Controller\user\userProductController::edit" type="service" id=".service_locator.4nhWbpP"/>
         <argument key="App\Controller\user\userProductController::index" type="service" id=".service_locator.BMz2YTS"/>
@@ -6575,19 +6705,23 @@
         <argument key="App\Controller\admin\adminCategoryController:edit" type="service" id=".service_locator.MpsgFRY"/>
         <argument key="App\Controller\admin\adminCategoryController:index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\admin\adminCategoryController:show" type="service" id=".service_locator.MpsgFRY"/>
+        <argument key="App\Controller\admin\adminContentController:delete" type="service" id=".service_locator.1x47IPt"/>
+        <argument key="App\Controller\admin\adminContentController:edit" type="service" id=".service_locator.1x47IPt"/>
+        <argument key="App\Controller\admin\adminContentController:index" type="service" id=".service_locator.Z0b7_X1"/>
+        <argument key="App\Controller\admin\adminContentController:show" type="service" id=".service_locator.1x47IPt"/>
         <argument key="App\Controller\admin\adminDashboardController:index" type="service" id=".service_locator.TwZjFMQ"/>
         <argument key="App\Controller\admin\adminProductController:delete" type="service" id=".service_locator.xXN6XvR"/>
         <argument key="App\Controller\admin\adminProductController:edit" type="service" id=".service_locator.xXN6XvR"/>
         <argument key="App\Controller\admin\adminProductController:index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\admin\adminUserController:admin" type="service" id=".service_locator.5S5H6Ja"/>
         <argument key="App\Controller\admin\adminUserController:delete" type="service" id=".service_locator.VPb8Zl0"/>
-        <argument key="App\Controller\admin\adminUserController:edit" type="service" id=".service_locator.VPb8Zl0"/>
+        <argument key="App\Controller\admin\adminUserController:edit" type="service" id=".service_locator.2wyJttD"/>
         <argument key="App\Controller\admin\adminUserController:index" type="service" id=".service_locator.3NkeMTN"/>
         <argument key="App\Controller\admin\adminUserController:show" type="service" id=".service_locator.VPb8Zl0"/>
         <argument key="App\Controller\contactController:show" type="service" id=".service_locator.EJUWuoh"/>
         <argument key="App\Controller\user\userAccountController:index" type="service" id=".service_locator.l58G74E"/>
         <argument key="App\Controller\user\userConsumptionController:index" type="service" id=".service_locator.BMz2YTS"/>
-        <argument key="App\Controller\user\userDashboardController:index" type="service" id=".service_locator.zABJvAy"/>
+        <argument key="App\Controller\user\userDashboardController:index" type="service" id=".service_locator.rN_aoHL"/>
         <argument key="App\Controller\user\userProductController:delete" type="service" id=".service_locator.4nhWbpP"/>
         <argument key="App\Controller\user\userProductController:edit" type="service" id=".service_locator.4nhWbpP"/>
         <argument key="App\Controller\user\userProductController:index" type="service" id=".service_locator.BMz2YTS"/>
@@ -6654,12 +6788,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.0.gtGn1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.hihNMtw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorySearchType" type="service" id="App\Form\CategorySearchType"/>
         <argument key="App\Form\CategoryType" type="service" id="App\Form\CategoryType"/>
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
+        <argument key="App\Form\ContentType" type="service" id="App\Form\ContentType"/>
         <argument key="App\Form\ProductSearchType" type="service" id="App\Form\ProductSearchType"/>
         <argument key="App\Form\ProductType" type="service" id="App\Form\ProductType"/>
         <argument key="App\Form\RegistrationFormType" type="service" id="App\Form\RegistrationFormType"/>
@@ -6668,6 +6803,7 @@
         <argument key="App\Form\UserProductType" type="service" id="App\Form\UserProductType"/>
         <argument key="App\Form\UserSearchType" type="service" id="App\Form\UserSearchType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
+        <argument key="FOS\CKEditorBundle\Form\Type\CKEditorType" type="service" id="fos_ck_editor.form.type"/>
         <argument key="Liip\ImagineBundle\Form\Type\ImageType" type="service" id="liip_imagine.form.type.image"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
@@ -6836,10 +6972,11 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.l5bSFR0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.fNN32Ja" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
+        <argument key="App\Repository\ContentRepository" type="service" id="App\Repository\ContentRepository"/>
         <argument key="App\Repository\ProdductRepository" type="service" id="App\Repository\ProdductRepository"/>
         <argument key="App\Repository\ProductRepository" type="service" id="App\Repository\ProductRepository"/>
         <argument key="App\Repository\UserProductRepository" type="service" id="App\Repository\UserProductRepository"/>
@@ -6915,6 +7052,12 @@
     <service id=".service_locator.pNNo5z3.App\Controller\admin\adminCategoryController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\admin\adminCategoryController"/>
       <argument>App\Controller\admin\adminCategoryController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminContentController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminContentController"/>
+      <argument>App\Controller\admin\adminContentController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -7117,12 +7260,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.bLQJOUB"/>
+      <argument type="service" id=".service_locator.0viRb4p"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.bLQJOUB"/>
+      <argument type="service" id=".service_locator.0viRb4p"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7133,13 +7276,16 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.MpsgFRY.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.1x47IPt.App\Entity\Content" class="App\Entity\Content"/>
     <service id=".errored..service_locator.xXN6XvR.App\Entity\Product" class="App\Entity\Product"/>
     <service id=".errored..service_locator.VPb8Zl0.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.2wyJttD.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.5S5H6Ja.Doctrine\ORM\EntityManager" class="Doctrine\ORM\EntityManager"/>
+    <service id=".errored..service_locator.rN_aoHL.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id=".errored..service_locator.zABJvAy.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id=".errored..service_locator.4nhWbpP.App\Entity\UserProduct" class="App\Entity\UserProduct"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.XHW0lle"/>
+      <argument type="service" id=".service_locator.vMHhrdx"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -7211,6 +7357,7 @@
         <argument key="vich:mapping:list-classes">vich_uploader.command.mapping_list_classes</argument>
         <argument key="liip:imagine:cache:remove">liip_imagine.command.cache_remove</argument>
         <argument key="liip:imagine:cache:resolve">liip_imagine.command.cache_resolve</argument>
+        <argument key="ckeditor:install">fos_ck_editor.command.installer</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -7231,7 +7378,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.XHW0lle" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.vMHhrdx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -7291,6 +7438,7 @@
         <argument key="doctrine_migrations.status_command" type="service" id="doctrine_migrations.status_command"/>
         <argument key="doctrine_migrations.up_to_date_command" type="service" id="doctrine_migrations.up_to_date_command"/>
         <argument key="doctrine_migrations.version_command" type="service" id="doctrine_migrations.version_command"/>
+        <argument key="fos_ck_editor.command.installer" type="service" id="fos_ck_editor.command.installer"/>
         <argument key="liip_imagine.command.cache_remove" type="service" id="liip_imagine.command.cache_remove"/>
         <argument key="liip_imagine.command.cache_resolve" type="service" id="liip_imagine.command.cache_resolve"/>
         <argument key="maker.auto_command.make_auth" type="service" id="maker.auto_command.make_auth"/>
@@ -7566,7 +7714,7 @@
     <service id="Liip\ImagineBundle\Imagine\Filter\FilterManager" alias="liip_imagine.filter.manager" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.bLQJOUB"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.0viRb4p"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

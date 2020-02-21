@@ -38,7 +38,6 @@ class adminProductController extends AbstractController
      * @Route("/admin/product", name="admin.product.index")
      * @param PaginatorInterface $paginator
      * @param Request $request
-     * @param ProductRepository $productRepo
      * @return Response
      */
     public function index(PaginatorInterface $paginator, Request $request): Response

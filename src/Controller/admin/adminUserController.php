@@ -8,6 +8,7 @@ use App\Entity\UserSearch;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Knp\Component\Pager\PaginatorInterface;
@@ -15,6 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/admin/user")
@@ -84,19 +86,28 @@ use Symfony\Component\Routing\Annotation\Route;
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
-     * @param Request $request
-     * @param User $user
-     * @return Response
-     */
-    public function edit(Request $request, User $user): Response
+        /**
+         * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+         * @param Request $request
+         * @param User $user
+         * @param UserPasswordEncoderInterface $passwordEncoder
+         * @param EntityManagerInterface $em
+         * @return Response
+         */
+    public function edit(Request $request, User $user,UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+            $em->persist($user);
+            $em->flush();
 
             return $this->redirectToRoute('user_index');
         }

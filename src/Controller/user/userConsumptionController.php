@@ -64,7 +64,6 @@ class userConsumptionController extends AbstractController
     /**
      * @Route("/update/{id}", name="user.conso.update")
      * @param $id
-     * @return void
      */
     public function edit($id)
     {
