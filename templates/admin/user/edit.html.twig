@@ -15,11 +15,20 @@
                 {{ include('admin/user/_delete_form.html.twig') }}
             </div>
             <div class="d-inline-block ">
-                <form method="post" action="" onsubmit="return confirm('Are you sure you want to put this user Admin?');">
+                {% for r in user.role %}
+                {%  if r is same as ("ROLE_USER") %}
+                <form method="post" action="{{ path('user_admin', {'id': user.id})}}" onsubmit="return confirm('Are you sure you want to put this user Admin?');">
                     <input name="inputAdmin" type="hidden" value="{{ user.id }}">
                     <input name="submitAdmin" type="submit" value="PutAdmin" class="btn btn-danger">
                 </form>
-                {{ dump(user)}}
+                {%  endif %}
+                    {%  if r is same as ("ROLE_ADMIN") %}
+                    <form method="post" action="{{ path('user_admin', {'id': user.id})}}" onsubmit="return confirm('Are you sure you want to put this user as User?');">
+                        <input name="inputAdmin" type="hidden" value="{{ user.id }}">
+                        <input name="submitAdmin" type="submit" value="PutUser" class="btn btn-danger">
+                    </form>
+                    {%  endif %}
+                {% endfor %}
             </div>
         </div>
         <br>

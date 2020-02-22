@@ -99,22 +99,36 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
     </div>
     <br>
     <div class=\"jumbotron\">
+        ";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_start');
+        echo "
         <div class=\"form-row\">
             <div class=\"col\">
-                <input type=\"text\" id=\"search\" placeholder=\"Searching for....\" class=\"form-control\">
+                ";
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), "name", [], "any", false, false, false, 20), 'row');
+        echo "
+            </div>
+            <div class=\"col\">
+                <button class=\"btn btn-primary\">Search</button>
             </div>
         </div>
+        ";
+        // line 26
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), 'form_end');
+        echo "
     </div>
     <br>
     ";
-        // line 24
+        // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 24, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 24));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 29));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 25
+            // line 30
             echo "        <div class=\"div alert alert-success\">
             ";
-            // line 26
+            // line 31
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
         </div>
@@ -123,7 +137,7 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 34
         echo "    <table class=\"table table-striped\">
         <thead>
         <tr>
@@ -136,72 +150,78 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
         </thead>
         <tbody>
         ";
-        // line 40
+        // line 45
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 40, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 45, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 41
-            echo "            <tr>
-                <td>
-                    ";
-            // line 43
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "product", [], "any", false, false, false, 43), "name", [], "any", false, false, false, 43), "html", null, true);
-            echo "
-                </td>
-                <td>
-                    ";
             // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "stockReel", [], "any", false, false, false, 46), "html", null, true);
-            echo "
+            echo "            ";
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "user", [], "any", false, false, false, 46), "id", [], "any", false, false, false, 46) === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 46, $this->source); })()), "user", [], "any", false, false, false, 46), "id", [], "any", false, false, false, 46))) {
+                // line 47
+                echo "            <tr>
+                <td>
+                    ";
+                // line 49
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "product", [], "any", false, false, false, 49), "name", [], "any", false, false, false, 49), "html", null, true);
+                echo "
                 </td>
                 <td>
                     ";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "stockOpti", [], "any", false, false, false, 49), "html", null, true);
-            echo "
+                // line 52
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "stockReel", [], "any", false, false, false, 52), "html", null, true);
+                echo "
+                </td>
+                <td>
+                    ";
+                // line 55
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "stockOpti", [], "any", false, false, false, 55), "html", null, true);
+                echo "
                 </td>
                 <td>
                     <a href=\"/user/product/edit/";
-            // line 52
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 52), "html", null, true);
-            echo "\" class=\"btn btn-secondary\"> Edit </a>
+                // line 58
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 58), "html", null, true);
+                echo "\" class=\"btn btn-secondary\"> Edit </a>
                     <form method=\"post\" action=\"";
-            // line 53
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user.product.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 53)]), "html", null, true);
-            echo "\"
+                // line 59
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user.product.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 59)]), "html", null, true);
+                echo "\"
                           style=\"display: inline-block\">
                         <input type=\"hidden\" name=\"_method\" value=\"update\">
                         <input type=\"hidden\" name=\"_token\" value=\"";
-            // line 56
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 56))), "html", null, true);
-            echo "\">
+                // line 62
+                echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 62))), "html", null, true);
+                echo "\">
                         <button class=\"btn btn-danger\">Delete</button>
                     </form>
                 </td>
             </tr>
-        ";
+            ";
+            }
+            // line 68
+            echo "        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 69
         echo "        </tbody>
     </table>
     <br>
     <div class=\"row justify-content-end\">
         <div class=\"pagination\">
             ";
-        // line 67
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 67, $this->source); })()));
+        // line 74
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 74, $this->source); })()));
         echo "
         </div>
     </div>
     ";
-        // line 70
+        // line 77
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     ";
-        // line 71
+        // line 78
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("search");
         echo "
 ";
@@ -225,7 +245,7 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
 
     public function getDebugInfo()
     {
-        return array (  205 => 71,  201 => 70,  195 => 67,  188 => 62,  176 => 56,  170 => 53,  166 => 52,  160 => 49,  154 => 46,  148 => 43,  144 => 41,  140 => 40,  127 => 29,  118 => 26,  115 => 25,  111 => 24,  97 => 13,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  225 => 78,  221 => 77,  215 => 74,  208 => 69,  202 => 68,  193 => 62,  187 => 59,  183 => 58,  177 => 55,  171 => 52,  165 => 49,  161 => 47,  158 => 46,  154 => 45,  141 => 34,  132 => 31,  129 => 30,  125 => 29,  119 => 26,  110 => 20,  104 => 17,  97 => 13,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -246,11 +266,16 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
     </div>
     <br>
     <div class=\"jumbotron\">
+        {{ form_start(form) }}
         <div class=\"form-row\">
             <div class=\"col\">
-                <input type=\"text\" id=\"search\" placeholder=\"Searching for....\" class=\"form-control\">
+                {{ form_row(form.name) }}
+            </div>
+            <div class=\"col\">
+                <button class=\"btn btn-primary\">Search</button>
             </div>
         </div>
+        {{ form_end(form) }}
     </div>
     <br>
     {% for message in app.flashes('success') %}
@@ -270,6 +295,7 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
         </thead>
         <tbody>
         {% for product in products %}
+            {% if product.user.id is same as (app.user.id) %}
             <tr>
                 <td>
                     {{ product.product.name }}
@@ -290,6 +316,7 @@ class __TwigTemplate_fe9d6da27d31a9c95691d1c67e4deaef38fd9256be76aee29f52fe0bc65
                     </form>
                 </td>
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>

@@ -125,7 +125,7 @@ class __TwigTemplate_7eaaa36b122cf4d00b4ba6c4f3faf9a1d8b0147f46e71f128975f82672d
         $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 27, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
             // line 28
-            echo "            <div class=\"card mt-5\" style=\"width: 18rem;\">
+            echo "            <div name=\"card\" class=\"card mt-5\" style=\"width: 18rem;\">
                 ";
             // line 29
             if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "product", [], "any", false, false, false, 29), "filename", [], "any", false, false, false, 29)) {
@@ -185,7 +185,11 @@ class __TwigTemplate_7eaaa36b122cf4d00b4ba6c4f3faf9a1d8b0147f46e71f128975f82672d
         // line 53
         $this->displayParentBlock("body", $context, $blocks);
         echo "
-    ";
+       ";
+        // line 54
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("searchCard");
+        echo "
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -206,7 +210,7 @@ class __TwigTemplate_7eaaa36b122cf4d00b4ba6c4f3faf9a1d8b0147f46e71f128975f82672d
 
     public function getDebugInfo()
     {
-        return array (  186 => 53,  182 => 51,  166 => 41,  160 => 38,  156 => 37,  152 => 36,  148 => 35,  145 => 34,  139 => 32,  133 => 30,  131 => 29,  128 => 28,  124 => 27,  121 => 26,  112 => 23,  109 => 22,  105 => 21,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  190 => 54,  186 => 53,  182 => 51,  166 => 41,  160 => 38,  156 => 37,  152 => 36,  148 => 35,  145 => 34,  139 => 32,  133 => 30,  131 => 29,  128 => 28,  124 => 27,  121 => 26,  112 => 23,  109 => 22,  105 => 21,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -238,7 +242,7 @@ class __TwigTemplate_7eaaa36b122cf4d00b4ba6c4f3faf9a1d8b0147f46e71f128975f82672d
     {% endfor %}
     <div class=\"row justify-content-around\">
         {% for product in products %}
-            <div class=\"card mt-5\" style=\"width: 18rem;\">
+            <div name=\"card\" class=\"card mt-5\" style=\"width: 18rem;\">
                 {% if product.product.filename %}
                     <img src=\"{{ vich_uploader_asset(product, \"imageFile\") | imagine_filter('card') }}\" class=\"card-img-top\" alt=\"\">
                 {% else %}
@@ -264,7 +268,7 @@ class __TwigTemplate_7eaaa36b122cf4d00b4ba6c4f3faf9a1d8b0147f46e71f128975f82672d
     </div>
     <br>
     {{ parent() }}
-    {#    {{ encore_entry_script_tags('searchCard') }}#}
+       {{ encore_entry_script_tags('searchCard') }}
 {% endblock %}", "user/conso/index.html.twig", "/var/www/html/Fridge_App/templates/user/conso/index.html.twig");
     }
 }

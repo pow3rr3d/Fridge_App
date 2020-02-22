@@ -42,22 +42,20 @@ class userProductController extends AbstractController
 
     /**
      * @Route("", name="user.product.index")
-     * @param EntityManagerInterface $em
      * @param PaginatorInterface $paginator
      * @param Request $request
      * @return Response
      */
-    public function index(EntityManagerInterface $em, PaginatorInterface $paginator, Request $request)
+    public function index(PaginatorInterface $paginator, Request $request):Response
     {
 
-        $list = new UserProductSearch();
-        $form = $this->createForm(UserProductSearchType::class, $list);
+        $search = new UserProductSearch();
+        $form = $this->createForm(UserProductSearchType::class, $search);
         $form->handleRequest($request);
-        $el = $this->getDoctrine()->getManager()->getRepository(UserProduct::class)->findBy(['user' => $this->getUser()->getId()]);
 
 
         $products = $paginator->paginate(
-            $el,
+            $this->getDoctrine()->getManager()->getRepository(UserProduct::class)->getAllQuery($search),
             $request->query->getInt('page', 1),
             12
         );

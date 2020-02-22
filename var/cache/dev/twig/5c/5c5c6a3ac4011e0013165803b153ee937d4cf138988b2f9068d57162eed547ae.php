@@ -113,10 +113,7 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
                         <button class=\"btn btn-primary\">Search</button>
                     </div>
                 </div>
-                ";
-        // line 25
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_end');
-        echo "
+
             </div>
             <br>
             ";
@@ -239,7 +236,7 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
 
     public function getDebugInfo()
     {
-        return array (  215 => 74,  207 => 68,  195 => 62,  189 => 59,  184 => 57,  180 => 55,  174 => 53,  172 => 52,  166 => 49,  160 => 46,  156 => 44,  152 => 43,  140 => 33,  131 => 30,  128 => 29,  124 => 28,  118 => 25,  109 => 19,  103 => 16,  96 => 12,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  212 => 74,  204 => 68,  192 => 62,  186 => 59,  181 => 57,  177 => 55,  171 => 53,  169 => 52,  163 => 49,  157 => 46,  153 => 44,  149 => 43,  137 => 33,  128 => 30,  125 => 29,  121 => 28,  109 => 19,  103 => 16,  96 => 12,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -268,7 +265,7 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
                         <button class=\"btn btn-primary\">Search</button>
                     </div>
                 </div>
-                {{ form_end(form) }}
+
             </div>
             <br>
             {% for message in app.flashes('success') %}

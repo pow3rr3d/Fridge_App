@@ -55,7 +55,7 @@ class __TwigTemplate_4674f9c033476a7f6c86936632557a006cfb2c003d1db7b85d1054f56f3
 
     }
 
-    // line 3
+    // line 2
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -65,7 +65,7 @@ class __TwigTemplate_4674f9c033476a7f6c86936632557a006cfb2c003d1db7b85d1054f56f3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        // line 4
+        // line 3
         echo "    Dashboard
 ";
         
@@ -76,7 +76,7 @@ class __TwigTemplate_4674f9c033476a7f6c86936632557a006cfb2c003d1db7b85d1054f56f3
 
     }
 
-    // line 7
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -86,19 +86,19 @@ class __TwigTemplate_4674f9c033476a7f6c86936632557a006cfb2c003d1db7b85d1054f56f3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 8
+        // line 7
         echo "    <div class=\"text-center\">
         <h1>My Account</h1>
     </div>
     ";
-        // line 11
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 11));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 10, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 10));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 12
+            // line 11
             echo "        <div class=\"div alert alert-success\">
             ";
-            // line 13
+            // line 12
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
         </div>
@@ -107,19 +107,19 @@ class __TwigTemplate_4674f9c033476a7f6c86936632557a006cfb2c003d1db7b85d1054f56f3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 16
+        // line 15
         echo "    ";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_start');
         echo "
     ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'widget');
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'widget');
         echo "
     <div class=\"form-group text-right\">
     <button class=\"btn btn-lg btn-success mt-2 ml-0\" type=\"submit\">Save</button>
     ";
-        // line 20
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'form_end');
+        // line 19
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form_end');
         echo "
 
 ";
@@ -143,13 +143,12 @@ class __TwigTemplate_4674f9c033476a7f6c86936632557a006cfb2c003d1db7b85d1054f56f3
 
     public function getDebugInfo()
     {
-        return array (  122 => 20,  116 => 17,  111 => 16,  102 => 13,  99 => 12,  95 => 11,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  122 => 19,  116 => 16,  111 => 15,  102 => 12,  99 => 11,  95 => 10,  90 => 7,  80 => 6,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'admin.html.twig' %}
-
 {% block title %}
     Dashboard
 {% endblock %}

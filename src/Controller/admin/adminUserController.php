@@ -111,7 +111,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
             return $this->redirectToRoute('user_index');
         }
-
         return $this->render('admin/user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
@@ -136,18 +135,26 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
     }
 
         /**
+         * * @Route("/admin/{id}", name="user_admin")
          * @param EntityManager $entityManager
          * @throws ORMException
          * @throws OptimisticLockException
          */
-        public function admin(EntityManager $entityManager)
+        public function admin(EntityManagerInterface $entityManager)
     {
         if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutAdmin")
         {
             $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
             $user->setRoles("ROLE_ADMIN");
             $entityManager->flush();
-            dump($user);
+            return $this->redirectToRoute('user_index');
+        }
+        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutUser")
+        {
+            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
+            $user->setRoles("ROLE_USER");
+            $entityManager->flush();
+            return $this->redirectToRoute('user_index');
         }
     }
 }

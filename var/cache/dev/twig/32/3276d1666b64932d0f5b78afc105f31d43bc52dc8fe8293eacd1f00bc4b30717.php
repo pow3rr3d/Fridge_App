@@ -103,23 +103,54 @@ class __TwigTemplate_62f044ae79e1513edfb38e61705e97559f38c45b504bca18344f28cf53a
         echo "
             </div>
             <div class=\"d-inline-block \">
-                <form method=\"post\" action=\"\" onsubmit=\"return confirm('Are you sure you want to put this user Admin?');\">
+                ";
+        // line 18
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 18, $this->source); })()), "role", [], "any", false, false, false, 18));
+        foreach ($context['_seq'] as $context["_key"] => $context["r"]) {
+            // line 19
+            echo "                ";
+            if (($context["r"] === "ROLE_USER")) {
+                // line 20
+                echo "                <form method=\"post\" action=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_admin", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 20, $this->source); })()), "id", [], "any", false, false, false, 20)]), "html", null, true);
+                echo "\" onsubmit=\"return confirm('Are you sure you want to put this user Admin?');\">
                     <input name=\"inputAdmin\" type=\"hidden\" value=\"";
-        // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19), "html", null, true);
-        echo "\">
+                // line 21
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21), "html", null, true);
+                echo "\">
                     <input name=\"submitAdmin\" type=\"submit\" value=\"PutAdmin\" class=\"btn btn-danger\">
                 </form>
                 ";
-        // line 22
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 22, $this->source); })()));
-        echo "
-            </div>
+            }
+            // line 25
+            echo "                    ";
+            if (($context["r"] === "ROLE_ADMIN")) {
+                // line 26
+                echo "                    <form method=\"post\" action=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_admin", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 26, $this->source); })()), "id", [], "any", false, false, false, 26)]), "html", null, true);
+                echo "\" onsubmit=\"return confirm('Are you sure you want to put this user as User?');\">
+                        <input name=\"inputAdmin\" type=\"hidden\" value=\"";
+                // line 27
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 27, $this->source); })()), "id", [], "any", false, false, false, 27), "html", null, true);
+                echo "\">
+                        <input name=\"submitAdmin\" type=\"submit\" value=\"PutUser\" class=\"btn btn-danger\">
+                    </form>
+                    ";
+            }
+            // line 31
+            echo "                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['r'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 32
+        echo "            </div>
         </div>
         <br>
         <div class=\"text-left\">
             ";
-        // line 27
+        // line 36
         echo twig_include($this->env, $context, "admin/user/_form.html.twig", ["button_label" => "Update"]);
         echo "
 
@@ -145,7 +176,7 @@ class __TwigTemplate_62f044ae79e1513edfb38e61705e97559f38c45b504bca18344f28cf53a
 
     public function getDebugInfo()
     {
-        return array (  123 => 27,  115 => 22,  109 => 19,  102 => 15,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  154 => 36,  148 => 32,  142 => 31,  135 => 27,  130 => 26,  127 => 25,  120 => 21,  115 => 20,  112 => 19,  108 => 18,  102 => 15,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -167,11 +198,20 @@ class __TwigTemplate_62f044ae79e1513edfb38e61705e97559f38c45b504bca18344f28cf53a
                 {{ include('admin/user/_delete_form.html.twig') }}
             </div>
             <div class=\"d-inline-block \">
-                <form method=\"post\" action=\"\" onsubmit=\"return confirm('Are you sure you want to put this user Admin?');\">
+                {% for r in user.role %}
+                {%  if r is same as (\"ROLE_USER\") %}
+                <form method=\"post\" action=\"{{ path('user_admin', {'id': user.id})}}\" onsubmit=\"return confirm('Are you sure you want to put this user Admin?');\">
                     <input name=\"inputAdmin\" type=\"hidden\" value=\"{{ user.id }}\">
                     <input name=\"submitAdmin\" type=\"submit\" value=\"PutAdmin\" class=\"btn btn-danger\">
                 </form>
-                {{ dump(user)}}
+                {%  endif %}
+                    {%  if r is same as (\"ROLE_ADMIN\") %}
+                    <form method=\"post\" action=\"{{ path('user_admin', {'id': user.id})}}\" onsubmit=\"return confirm('Are you sure you want to put this user as User?');\">
+                        <input name=\"inputAdmin\" type=\"hidden\" value=\"{{ user.id }}\">
+                        <input name=\"submitAdmin\" type=\"submit\" value=\"PutUser\" class=\"btn btn-danger\">
+                    </form>
+                    {%  endif %}
+                {% endfor %}
             </div>
         </div>
         <br>

@@ -28,12 +28,14 @@ class UserProductRepository extends ServiceEntityRepository
      */
     public function getAllQuery(UserProductSearch $search): Query
     {
-        $qb = $this->createQueryBuilder('p');
-        if($search->getId())
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('App\Entity\Product','prod');
+        if($search->getName())
         {
-            $qb = $qb->where("p.name LIKE :name");
-            $qb->setParameter(":name" , '%'.$search->getId().'%');
+            $qb = $qb->where("prod.name LIKE :name");
+            $qb->setParameter(":name" , '%'.$search->getName().'%');
         }
+        dump($search);
         return $qb->getQuery();
     }
 

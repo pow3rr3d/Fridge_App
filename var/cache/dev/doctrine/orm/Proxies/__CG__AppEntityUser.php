@@ -326,6 +326,17 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getRole()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRole', []);
+
+        return parent::getRole();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getRoles(): array
     {
 

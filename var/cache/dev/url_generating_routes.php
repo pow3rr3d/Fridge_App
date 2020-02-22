@@ -39,6 +39,7 @@ return [
     'user_show' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
     'user_edit' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
     'user_delete' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
+    'user_admin' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::admin'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user/admin']], [], []],
     'contact' => [[], ['_controller' => 'App\\Controller\\contactController::show'], [], [['text', '/contact']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\homeController::index'], [], [['text', '/']], [], []],
     'user.account.index' => [[], ['_controller' => 'App\\Controller\\user\\userAccountController::index'], [], [['text', '/user/account']], [], []],

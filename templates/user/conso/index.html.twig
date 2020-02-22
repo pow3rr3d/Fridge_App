@@ -25,7 +25,7 @@
     {% endfor %}
     <div class="row justify-content-around">
         {% for product in products %}
-            <div class="card mt-5" style="width: 18rem;">
+            <div name="card" class="card mt-5" style="width: 18rem;">
                 {% if product.product.filename %}
                     <img src="{{ vich_uploader_asset(product, "imageFile") | imagine_filter('card') }}" class="card-img-top" alt="">
                 {% else %}
@@ -51,5 +51,5 @@
     </div>
     <br>
     {{ parent() }}
-    {#    {{ encore_entry_script_tags('searchCard') }}#}
+       {{ encore_entry_script_tags('searchCard') }}
 {% endblock %}
