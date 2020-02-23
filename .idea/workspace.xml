@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="472c1784-03d4-4090-a029-e43fa6d88573" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/toggleMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/toggleMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/product/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/product/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/product/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/product/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/1/4/YhCRIiEGfjPFP488epFA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/1/4/YhCRIiEGfjPFP488epFA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/8/R/bTbqXPWXHpjB7Wrqv3XQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/8/R/bTbqXPWXHpjB7Wrqv3XQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/E/A/3Hsu0QRKU8E6HTqqp7Cg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/E/A/3Hsu0QRKU8E6HTqqp7Cg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/H/P/Y2uMw+g-OSgOE6T-qPYw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/H/P/Y2uMw+g-OSgOE6T-qPYw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/I/9/shAnp8uQRgWzzllOKLwA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/I/9/shAnp8uQRgWzzllOKLwA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/R/R/05VzXvJdYr0OrYyPG9gQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/R/R/05VzXvJdYr0OrYyPG9gQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/S/C/zKpnxp1fZ3PVlwVOu-Gw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/432C47Olng/S/C/zKpnxp1fZ3PVlwVOu-Gw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/5c/5c5c6a3ac4011e0013165803b153ee937d4cf138988b2f9068d57162eed547ae.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/5c/5c5c6a3ac4011e0013165803b153ee937d4cf138988b2f9068d57162eed547ae.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/5f/5fef0aed032ac2840b6b5232d02d5ab000b00b0c579252e7f8a3980b10482ff2.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/5f/5fef0aed032ac2840b6b5232d02d5ab000b00b0c579252e7f8a3980b10482ff2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/fd/fd1627a7f1a8d229cadf90147ccf2c949066ae4f1a1eef3c4ddff62787fac6c3.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/fd/fd1627a7f1a8d229cadf90147ccf2c949066ae4f1a1eef3c4ddff62787fac6c3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/1f/1f6c906197570ec6094444295504d1c4b43b62171953043e4edc4c448caf6a1b.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/1f/1f6c906197570ec6094444295504d1c4b43b62171953043e4edc4c448caf6a1b.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +277,7 @@
       <workItem from="1582225378203" duration="598000" />
       <workItem from="1582293801740" duration="9156000" />
       <workItem from="1582400807851" duration="6705000" />
-      <workItem from="1582453955598" duration="3827000" />
+      <workItem from="1582453955598" duration="7645000" />
     </task>
     <servers />
   </component>
