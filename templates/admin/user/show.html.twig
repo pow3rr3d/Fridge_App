@@ -1,0 +1,53 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+
+<div class="text-center">
+    <h1>User</h1>
+    <div class="mt-4">
+        <div class="text-right">
+            <a href="{{ path('user_index') }}" class="btn btn-primary">back to list</a>
+            <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-secondary">edit</a>
+        </div>
+        <br>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{ user.surname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ user.image }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.Username }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <div class="text-right">
+
+            {{ include('admin/user/_delete_form.html.twig') }}
+        </div>
+        {% endblock %}

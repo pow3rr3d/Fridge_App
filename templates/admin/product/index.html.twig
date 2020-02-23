@@ -1,0 +1,99 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+    Product List
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1> Product list </h1>
+        <div class="mt-4">
+            <div class="text-right">
+                <a href="{{ path('admin.product.new') }}" class="btn btn-primary"> Create Product</a>
+            </div>
+            <br>
+            <div class="jumbotron">
+                {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="col">
+                        {{ form_row(form.name) }}
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <br>
+            {% for message in app.flashes('success') %}
+                <div class="div alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th> Product</th>
+                    <th> Description</th>
+                    <th> Category</th>
+                    <th> Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>
+                            {{ product.name }}
+                        </td>
+                        <td>
+                            {{ product.description }}
+                        </td>
+                        <td>
+                            {% if product.getCategory().getName() is defined %}
+                            {{ product.getCategory().getName() }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ path('admin.product.edit', {id: product.id }) }}" class="btn btn-secondary">
+                                Editer</a>
+                            <button type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit{{product.id}}" class="btn btn-danger">
+                                Delete
+                                <input class="button" type="hidden" value="{{product.id}}" name="id"/>
+                            </button>
+                        </td>
+                    </tr>
+                <div class="modal fade" id="confirm-submit{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                Confirm Submit
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-left ">Are you sure you want to delete the following product?</p>
+                                <p class="text-left">Name:</p>
+                                <p class="text-left font-weight-bold">{{product.name}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <form method="post" action="{{ path("admin.product.delete", {id: product.id}) }}"
+                                      style="display: inline-block">
+                                    <input type="hidden" name="_method" value="update">
+                                    <input type="hidden" name="_token" data-toggle="modal" data-target="#confirm-submit{{product.id}}" value="{{ csrf_token('delete' ~ product.id) }}">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="row justify-content-end">
+            <div class="pagination">
+                {{ knp_pagination_render(products) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

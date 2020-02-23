@@ -1,0 +1,92 @@
+{% extends 'user.html.twig' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1><b>Welcome {{ user.name }}</b></h1>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col">
+            <div class="text-left mt-5">
+                <h2>
+                    Memo
+                </h2>
+            </div>
+            <br>
+            <p> COMING SOON</p>
+        </div>
+
+        <div class="border-left my-3 mt-5 mr-5"></div>
+
+        <div class="col-4 mr-4">
+            <div class="text-left mt-5">
+                <h2>
+                    List
+                </h2>
+            </div>
+            <br>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th>
+                        Product
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for product in products %}
+                    {% if product.qt2Buy > 0 %}
+                        <tr>
+                            <td>
+                                {{ product.product.name }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <div class="row justify-content-end">
+                <div class="pagination">
+                    {{ knp_pagination_render(products) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="border-top my-3 mt-5"></div>
+
+    <div class="text-left">
+        <h2>
+            News
+        </h2>
+    </div>
+    <br>
+    {% for content in contents %}
+        {% if content.isActive == true %}
+            <div class="card mb-5">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <b>
+                                {{ content.name }}
+                            </b>
+                        </div>
+                        <div class="col text-right">
+                            {{ content.createdAt.date | date }}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ml-4 mr-4 text-justify">
+                    <p class="card-text ">{{ content.content | raw }}</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

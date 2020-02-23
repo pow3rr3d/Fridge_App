@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+    {% block body %}
+        <p id="Title" class="h1 text-center">Contact</p>
+        <div class="container">
+            <div class="mt-5">
+                {% for message in app.flashes('success') %}
+                    <div class="div alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% if not form.vars.valid %}
+                    <div class="alert alert-danger">
+                        Error: data entered are not correct
+                    </div>
+                {% endif %}
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col">{{ form_row(form.firstname) }}</div>
+                    <div class="col">{{ form_row(form.lastname) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">{{ form_row(form.phone) }}</div>
+                    <div class="col">{{ form_row(form.email) }}</div>
+                </div>
+                {{ form_rest(form) }}
+                <div class="form_group">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+    {% endblock %}

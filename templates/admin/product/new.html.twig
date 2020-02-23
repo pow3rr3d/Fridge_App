@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+    Create Product
+{% endblock %}
+
+{% block body %}
+    <div class="text-center ">
+        <h1 class="text-center"> Create Product </h1>
+
+        {{ include ('admin/product/_form.html.twig', {form: form, button: 'Create'}) }}
+    </div>
+
+{% endblock %}
