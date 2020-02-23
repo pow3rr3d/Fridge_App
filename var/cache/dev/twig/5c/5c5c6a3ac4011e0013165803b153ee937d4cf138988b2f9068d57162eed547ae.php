@@ -113,7 +113,10 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
                         <button class=\"btn btn-primary\">Search</button>
                     </div>
                 </div>
-
+                ";
+        // line 25
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_end');
+        echo "
             </div>
             <br>
             ";
@@ -181,26 +184,60 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.product.edit", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 57)]), "html", null, true);
             echo "\" class=\"btn btn-secondary\">
                                 Editer</a>
-                            <form method=\"post\" action=\"";
+                            <button type=\"button\" name=\"btn\" value=\"Submit\" id=\"submitBtn\" data-toggle=\"modal\" data-target=\"#confirm-submit";
             // line 59
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.product.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 59)]), "html", null, true);
-            echo "\"
-                                  style=\"display: inline-block\">
-                                <input type=\"hidden\" name=\"_method\" value=\"Delete\">
-                                <input type=\"hidden\" name=\"_token\" value=\"";
-            // line 62
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 62))), "html", null, true);
-            echo "\">
-                                <button class=\"btn btn-danger\">Delete</button>
-                            </form>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 59), "html", null, true);
+            echo "\" class=\"btn btn-danger\">
+                                Delete
+                                <input class=\"button\" type=\"hidden\" value=\"";
+            // line 61
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 61), "html", null, true);
+            echo "\" name=\"id\"/>
+                            </button>
                         </td>
                     </tr>
+                <div class=\"modal fade\" id=\"confirm-submit";
+            // line 65
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 65), "html", null, true);
+            echo "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+                    <div class=\"modal-dialog\">
+                        <div class=\"modal-content\">
+                            <div class=\"modal-header\">
+                                Confirm Submit
+                            </div>
+                            <div class=\"modal-body\">
+                                <p class=\"text-left \">Are you sure you want to delete the following product?</p>
+                                <p class=\"text-left\">Name:</p>
+                                <p class=\"text-left font-weight-bold\">";
+            // line 74
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 74), "html", null, true);
+            echo "</p>
+                            </div>
+                            <div class=\"modal-footer\">
+                                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+                                <form method=\"post\" action=\"";
+            // line 78
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.product.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 78)]), "html", null, true);
+            echo "\"
+                                      style=\"display: inline-block\">
+                                    <input type=\"hidden\" name=\"_method\" value=\"update\">
+                                    <input type=\"hidden\" name=\"_token\" data-toggle=\"modal\" data-target=\"#confirm-submit";
+            // line 81
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 81), "html", null, true);
+            echo "\" value=\"";
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 81))), "html", null, true);
+            echo "\">
+                                    <button class=\"btn btn-danger\">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 68
+        // line 88
         echo "                </tbody>
             </table>
         </div>
@@ -208,8 +245,8 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
         <div class=\"row justify-content-end\">
             <div class=\"pagination\">
                 ";
-        // line 74
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 74, $this->source); })()));
+        // line 94
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 94, $this->source); })()));
         echo "
             </div>
         </div>
@@ -236,7 +273,7 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
 
     public function getDebugInfo()
     {
-        return array (  212 => 74,  204 => 68,  192 => 62,  186 => 59,  181 => 57,  177 => 55,  171 => 53,  169 => 52,  163 => 49,  157 => 46,  153 => 44,  149 => 43,  137 => 33,  128 => 30,  125 => 29,  121 => 28,  109 => 19,  103 => 16,  96 => 12,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  249 => 94,  241 => 88,  226 => 81,  220 => 78,  213 => 74,  201 => 65,  194 => 61,  189 => 59,  184 => 57,  180 => 55,  174 => 53,  172 => 52,  166 => 49,  160 => 46,  156 => 44,  152 => 43,  140 => 33,  131 => 30,  128 => 29,  124 => 28,  118 => 25,  109 => 19,  103 => 16,  96 => 12,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -265,7 +302,7 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
                         <button class=\"btn btn-primary\">Search</button>
                     </div>
                 </div>
-
+                {{ form_end(form) }}
             </div>
             <br>
             {% for message in app.flashes('success') %}
@@ -299,14 +336,34 @@ class __TwigTemplate_eeb5a911716053c372d0bbe0f11394c73ae5b2b390b88198c6b94a14bf0
                         <td>
                             <a href=\"{{ path('admin.product.edit', {id: product.id }) }}\" class=\"btn btn-secondary\">
                                 Editer</a>
-                            <form method=\"post\" action=\"{{ path(\"admin.product.delete\", {id: product.id}) }}\"
-                                  style=\"display: inline-block\">
-                                <input type=\"hidden\" name=\"_method\" value=\"Delete\">
-                                <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ product.id) }}\">
-                                <button class=\"btn btn-danger\">Delete</button>
-                            </form>
+                            <button type=\"button\" name=\"btn\" value=\"Submit\" id=\"submitBtn\" data-toggle=\"modal\" data-target=\"#confirm-submit{{product.id}}\" class=\"btn btn-danger\">
+                                Delete
+                                <input class=\"button\" type=\"hidden\" value=\"{{product.id}}\" name=\"id\"/>
+                            </button>
                         </td>
                     </tr>
+                <div class=\"modal fade\" id=\"confirm-submit{{product.id}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+                    <div class=\"modal-dialog\">
+                        <div class=\"modal-content\">
+                            <div class=\"modal-header\">
+                                Confirm Submit
+                            </div>
+                            <div class=\"modal-body\">
+                                <p class=\"text-left \">Are you sure you want to delete the following product?</p>
+                                <p class=\"text-left\">Name:</p>
+                                <p class=\"text-left font-weight-bold\">{{product.name}}</p>
+                            </div>
+                            <div class=\"modal-footer\">
+                                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+                                <form method=\"post\" action=\"{{ path(\"admin.product.delete\", {id: product.id}) }}\"
+                                      style=\"display: inline-block\">
+                                    <input type=\"hidden\" name=\"_method\" value=\"update\">
+                                    <input type=\"hidden\" name=\"_token\" data-toggle=\"modal\" data-target=\"#confirm-submit{{product.id}}\" value=\"{{ csrf_token('delete' ~ product.id) }}\">
+                                    <button class=\"btn btn-danger\">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
                 </tbody>
             </table>

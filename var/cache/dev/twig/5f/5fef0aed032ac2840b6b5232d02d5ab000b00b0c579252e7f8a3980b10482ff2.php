@@ -65,7 +65,7 @@ class __TwigTemplate_a974c512b5326791cd7e44b327c7b56315edd51683e01a473f0f40b24e8
         // line 12
         echo "</head>
 <body>
-<nav class=\"nav flex-column\" id=\"navbar\">
+<nav class=\"nav flex-column notHidden\" id=\"navbar\">
     <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"/admin/dashboard\">
             <i class=\"fas fa-home\"></i>
@@ -264,7 +264,7 @@ class __TwigTemplate_a974c512b5326791cd7e44b327c7b56315edd51683e01a473f0f40b24e8
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-<nav class=\"nav flex-column\" id=\"navbar\">
+<nav class=\"nav flex-column notHidden\" id=\"navbar\">
     <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"/admin/dashboard\">
             <i class=\"fas fa-home\"></i>

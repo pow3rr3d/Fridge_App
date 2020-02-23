@@ -4,14 +4,28 @@ var menu = document.getElementById('navbar');
 var body = document.getElementById('container');
 var footer = document.getElementById('containerFooter');
 
+if(document.cookie) {
+    menu.classList.replace('notHidden', document.cookie);
+    menu.classList.contains('hidden') ? body.classList.add('col-11') : body.classList.remove('col-11');
+}
+else{
 
-
-
+}
 var toogleEvent = function () {
     menu.classList.contains('hidden') ? menu.classList.remove('hidden') : menu.classList.add('hidden');
     menu.classList.contains('hidden') ? body.classList.add('col-11') : body.classList.remove('col-11');
-    menu.classList.contains('hidden') ? footer.classList.add('col-11') : footer.classList.remove('col-11');
+    if (menu.classList.contains('hidden'))
+    {
+        document.cookie = 'hidden';
+    }
+    else
+    {
+        document.cookie = '';
+    }
 }
+
+
+
 function myFunction(x) {
     if (x.matches) { // If media query matches
         menu.classList.add('hidden');
