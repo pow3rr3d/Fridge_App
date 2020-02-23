@@ -23,6 +23,6 @@ As a training project some errors could be find in the project. I did all my bes
 ## Contributing
 Pull requests are welcome.
 
-##Acknowledgement
+## Acknowledgement
 
 Thank to [kl3sk](https://github.com/kl3sk) for help and support!
