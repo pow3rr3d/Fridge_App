@@ -5362,3 +5362,9 @@ f42ff5,127.0.0.1,POST,http://fridge.local/login,1582547207,,500
 82e394,127.0.0.1,POST,http://fridge.local/login,1582547375,,302
 08e391,127.0.0.1,GET,http://fridge.local/user/dashboard,1582547377,,200
 ec8d1d,127.0.0.1,GET,http://fridge.local/user/account,1582547389,,200
+9c65de,127.0.0.1,GET,http://fridge.local/user/account,1582564255,,302
+a35605,127.0.0.1,GET,http://fridge.local/login,1582564255,,200
+6af15e,127.0.0.1,POST,http://fridge.local/login,1582564259,,302
+3e1b29,127.0.0.1,GET,http://fridge.local/user/account,1582564259,,200
+1ae50c,127.0.0.1,GET,http://fridge.local/user/product,1582564262,,200
+da9ce2,127.0.0.1,GET,http://fridge.local/user/dashboard,1582564263,,200

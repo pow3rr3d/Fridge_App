@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'name', '' . "\0" . 'App\\Entity\\User' . "\0" . 'surname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'image', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'encoder', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userProducts'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'name', '' . "\0" . 'App\\Entity\\User' . "\0" . 'surname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'encoder', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userProducts'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'name', '' . "\0" . 'App\\Entity\\User' . "\0" . 'surname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'image', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'encoder', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userProducts'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'name', '' . "\0" . 'App\\Entity\\User' . "\0" . 'surname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'encoder', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userProducts'];
     }
 
     /**
@@ -299,28 +299,6 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
 
         return parent::setPassword($password);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getImage(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImage', []);
-
-        return parent::getImage();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setImage(string $image): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImage', [$image]);
-
-        return parent::setImage($image);
     }
 
     /**
