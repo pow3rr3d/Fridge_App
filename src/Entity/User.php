@@ -44,10 +44,7 @@ class User implements UserInterface, \Serializable
      */
     private $password;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -147,17 +144,7 @@ class User implements UserInterface, \Serializable
         return $this->password = $password;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
 
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
 
 
     public function getRole()
