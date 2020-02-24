@@ -18,7 +18,7 @@ Admin:
 
 ## Disclamer
 
-As a training project some errors could be find in the project. I did all my best to path them as soon as possible. 
+As a training project some errors could be find in the project. I did all my best to patch them as soon as possible. 
 
 ## Evolution
 In the future, some functionality will be add: 

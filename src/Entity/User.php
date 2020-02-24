@@ -44,8 +44,11 @@ class User implements UserInterface, \Serializable
      */
     private $password;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -144,9 +147,12 @@ class User implements UserInterface, \Serializable
         return $this->password = $password;
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> master
     public function getRole()
     {
         return [$this->role];
