@@ -64,6 +64,11 @@ class User implements UserInterface, \Serializable
      */
     private $userProducts;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\UserMemo", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $userMemo;
+
 
     public function __construct()
     {
@@ -262,6 +267,24 @@ class User implements UserInterface, \Serializable
             if ($userProduct->getUser() === $this) {
                 $userProduct->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getUserMemo(): ?UserMemo
+    {
+        return $this->userMemo;
+    }
+
+    public function setUserMemo(?UserMemo $userMemo): self
+    {
+        $this->userMemo = $userMemo;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = null === $userMemo ? null : $this;
+        if ($userMemo->getUser() !== $newUser) {
+            $userMemo->setUser($newUser);
         }
 
         return $this;

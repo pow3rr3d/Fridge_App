@@ -34,6 +34,7 @@ return [
         '/user/account' => [[['_route' => 'user.account.index', '_controller' => 'App\\Controller\\user\\userAccountController::index'], null, null, null, false, false, null]],
         '/user/conso' => [[['_route' => 'user.conso.index', '_controller' => 'App\\Controller\\user\\userConsumptionController::index'], null, null, null, false, false, null]],
         '/user/dashboard' => [[['_route' => 'user.dashboard.index', '_controller' => 'App\\Controller\\user\\userDashboardController::index'], null, null, null, false, false, null]],
+        '/user/memo' => [[['_route' => 'user.dashboard.memo', '_controller' => 'App\\Controller\\user\\userDashboardController::memo'], null, null, null, false, false, null]],
         '/user/product' => [[['_route' => 'user.product.index', '_controller' => 'App\\Controller\\user\\userProductController::index'], null, null, null, false, false, null]],
         '/user/product/new' => [[['_route' => 'userProduct_new', '_controller' => 'App\\Controller\\user\\userProductController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/user/list' => [[['_route' => 'user.list.index', '_controller' => 'App\\Controller\\user\\userShoppingListController::index'], null, null, null, false, false, null]],

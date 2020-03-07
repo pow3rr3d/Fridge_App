@@ -16,7 +16,13 @@
                 </h2>
             </div>
             <br>
-            <p> COMING SOON</p>
+            <input id="userId" type="hidden" value="{{ user.id }}">
+           <div class="form-control h-75" contenteditable="true" id="memo">
+                {% for memos in memo %}
+                   {{ memos.memo |raw }}
+               {%  endfor %}
+               <br>
+           </div>
         </div>
 
         <div class="border-left my-3 mt-5 mr-5"></div>
@@ -89,4 +95,6 @@
             </div>
         {% endif %}
     {% endfor %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('updateMemo') }}
 {% endblock %}

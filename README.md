@@ -23,7 +23,6 @@ As a training project some errors could be found in the project. I did all my be
 ## Evolution
 In the future, some functionalites will be add: 
 
-- Personal memo
 - GDPR
 - French translations
 - multiple entry for product and categories
