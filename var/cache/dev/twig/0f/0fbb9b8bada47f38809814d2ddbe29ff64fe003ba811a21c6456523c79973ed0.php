@@ -138,17 +138,10 @@ class __TwigTemplate_a4fbe7576d5020e800dfee27b6f4e8355329e4563f80f5b6303c7aaa565
         echo "</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>";
-        // line 39
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 39, $this->source); })()), "image", [], "any", false, false, false, 39), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
                 <th>Username</th>
                 <td>";
-        // line 43
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 43, $this->source); })()), "Username", [], "any", false, false, false, 43), "html", null, true);
+        // line 39
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 39, $this->source); })()), "Username", [], "any", false, false, false, 39), "html", null, true);
         echo "</td>
             </tr>
             </tbody>
@@ -158,7 +151,7 @@ class __TwigTemplate_a4fbe7576d5020e800dfee27b6f4e8355329e4563f80f5b6303c7aaa565
         <div class=\"text-right\">
 
             ";
-        // line 51
+        // line 47
         echo twig_include($this->env, $context, "admin/user/_delete_form.html.twig");
         echo "
         </div>
@@ -183,7 +176,7 @@ class __TwigTemplate_a4fbe7576d5020e800dfee27b6f4e8355329e4563f80f5b6303c7aaa565
 
     public function getDebugInfo()
     {
-        return array (  162 => 51,  151 => 43,  144 => 39,  137 => 35,  130 => 31,  123 => 27,  116 => 23,  109 => 19,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  155 => 47,  144 => 39,  137 => 35,  130 => 31,  123 => 27,  116 => 23,  109 => 19,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -223,10 +216,6 @@ class __TwigTemplate_a4fbe7576d5020e800dfee27b6f4e8355329e4563f80f5b6303c7aaa565
             <tr>
                 <th>Password</th>
                 <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ user.image }}</td>
             </tr>
             <tr>
                 <th>Username</th>
