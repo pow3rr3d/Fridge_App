@@ -1,3 +1,7 @@
 <?php //%255B%255BC%255DApp%255CEntity%255CUserProduct%2524stockReel%255D%255B1%255D
 
+<<<<<<< Updated upstream
 return [PHP_INT_MAX, 1583487724];
+=======
+return [PHP_INT_MAX, 1583593521];
+>>>>>>> Stashed changes

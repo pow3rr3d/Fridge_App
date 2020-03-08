@@ -14,8 +14,16 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
     \class_alias(\ContainerPhqxDEN\App_KernelDevDebugContainer::class, App_KernelDevDebugContainer::class, false);
 }
 
+<<<<<<< Updated upstream
 return new \ContainerPhqxDEN\App_KernelDevDebugContainer([
     'container.build_hash' => 'PhqxDEN',
     'container.build_id' => 'b86c52e2',
     'container.build_time' => 1583581145,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerPhqxDEN');
+=======
+return new \Container6g02FMN\App_KernelDevDebugContainer([
+    'container.build_hash' => '6g02FMN',
+    'container.build_id' => 'ef82a2bb',
+    'container.build_time' => 1583593485,
+], __DIR__.\DIRECTORY_SEPARATOR.'Container6g02FMN');
+>>>>>>> Stashed changes

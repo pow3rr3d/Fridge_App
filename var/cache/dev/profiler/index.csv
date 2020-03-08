@@ -5353,6 +5353,7 @@ dd72be,127.0.0.1,GET,http://fridge.local/,1582466663,,200
 c3956e,127.0.0.1,GET,http://fridge.local/,1582466890,,200
 be90bb,127.0.0.1,GET,http://fridge.local/,1582466929,,200
 fccea1,127.0.0.1,GET,http://fridge.local/,1582466976,,200
+<<<<<<< Updated upstream
 df90f6,127.0.0.1,GET,http://fridge.local/,1582547147,,200
 c4af50,127.0.0.1,GET,http://fridge.local/contact,1582547159,,200
 01263e,127.0.0.1,GET,http://fridge.local/user/dashboard,1582547172,,302
@@ -5819,3 +5820,12 @@ ff5341,127.0.0.1,GET,http://fridge.local/admin/news/,1583590105,,200
 cf6c15,127.0.0.1,GET,http://fridge.local/admin/news/3,1583590424,,200
 bb4975,127.0.0.1,GET,http://fridge.local/admin/dashboard,1583591975,,302
 cef61e,127.0.0.1,GET,http://fridge.local/login,1583591975,,200
+=======
+26289a,127.0.0.1,GET,http://fridge.local/login,1583593487,,200
+25b6e0,127.0.0.1,GET,http://fridge.local/login,1583593521,8797c8,500
+8797c8,127.0.0.1,POST,http://fridge.local/login,1583593521,,500
+e81a25,127.0.0.1,POST,http://fridge.local/login,1583679207,,302
+0d7dee,127.0.0.1,GET,http://fridge.local/login,1583679208,,200
+099632,127.0.0.1,GET,http://fridge.local/login,1583679212,5a1e24,500
+5a1e24,127.0.0.1,POST,http://fridge.local/login,1583679212,,500
+>>>>>>> Stashed changes
