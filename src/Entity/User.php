@@ -47,11 +47,6 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $image;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $Username;
 
     /**
@@ -68,6 +63,11 @@ class User implements UserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="App\Entity\UserProduct", mappedBy="user")
      */
     private $userProducts;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\UserMemo", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $userMemo;
 
 
     public function __construct()
@@ -146,20 +146,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->password = $password;
     }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-
+    
     public function getRole()
     {
         return [$this->role];
@@ -280,6 +267,24 @@ class User implements UserInterface, \Serializable
             if ($userProduct->getUser() === $this) {
                 $userProduct->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getUserMemo(): ?UserMemo
+    {
+        return $this->userMemo;
+    }
+
+    public function setUserMemo(?UserMemo $userMemo): self
+    {
+        $this->userMemo = $userMemo;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = null === $userMemo ? null : $this;
+        if ($userMemo->getUser() !== $newUser) {
+            $userMemo->setUser($newUser);
         }
 
         return $this;

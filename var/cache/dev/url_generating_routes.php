@@ -46,6 +46,7 @@ return [
     'user.conso.index' => [[], ['_controller' => 'App\\Controller\\user\\userConsumptionController::index'], [], [['text', '/user/conso']], [], []],
     'user.conso.update' => [['id'], ['_controller' => 'App\\Controller\\user\\userConsumptionController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/conso/update']], [], []],
     'user.dashboard.index' => [[], ['_controller' => 'App\\Controller\\user\\userDashboardController::index'], [], [['text', '/user/dashboard']], [], []],
+    'user.dashboard.memo' => [[], ['_controller' => 'App\\Controller\\user\\userDashboardController::memo'], [], [['text', '/user/memo']], [], []],
     'user.product.index' => [[], ['_controller' => 'App\\Controller\\user\\userProductController::index'], [], [['text', '/user/product']], [], []],
     'userProduct_new' => [[], ['_controller' => 'App\\Controller\\user\\userProductController::new'], [], [['text', '/user/product/new']], [], []],
     'app_user_userproduct_edit' => [['id'], ['_controller' => 'App\\Controller\\user\\userProductController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/product/edit']], [], []],

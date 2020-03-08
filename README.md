@@ -18,15 +18,14 @@ Admin:
 
 ## Disclamer
 
-As a training project some errors could be find in the project. I did all my best to path them as soon as possible. 
+As a training project some errors could be found in the project. I did all my best to patch them as soon as possible. 
 
 ## Evolution
-In the future, some functionality will be add: 
+In the future, some functionalites will be add: 
 
-- Personal memo, 
-- GDPR, 
-- Translation in French, 
-- multiple entry for product and categories, 
+- GDPR
+- French translations
+- multiple entry for product and categories
 - CMS for the front-end
 
 ## Known Issue

@@ -89,11 +89,12 @@ class __TwigTemplate_3ae8430af4f91c755ef6a68fe42b707faf8f8d6d8d65b8f2ac4c37543be
         // line 8
         echo "    <div class=\"text-center \">
         <h1 class=\"text-center\"> Create Product </h1>
-
-        ";
+        <div class=\"text-left\">
+            ";
         // line 11
         echo twig_include($this->env, $context, "admin/product/_form.html.twig", ["form" => (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), "button" => "Create"]);
         echo "
+        </div>
     </div>
 
 ";
@@ -131,8 +132,9 @@ class __TwigTemplate_3ae8430af4f91c755ef6a68fe42b707faf8f8d6d8d65b8f2ac4c37543be
 {% block body %}
     <div class=\"text-center \">
         <h1 class=\"text-center\"> Create Product </h1>
-
-        {{ include ('admin/product/_form.html.twig', {form: form, button: 'Create'}) }}
+        <div class=\"text-left\">
+            {{ include ('admin/product/_form.html.twig', {form: form, button: 'Create'}) }}
+        </div>
     </div>
 
 {% endblock %}", "admin/product/new.html.twig", "/var/www/html/Fridge_App/templates/admin/product/new.html.twig");
