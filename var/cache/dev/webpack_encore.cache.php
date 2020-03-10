@@ -12,8 +12,8 @@ return [[
     'entrypoints' => [
         'app' => [
             'js' => [
-                '/build/runtime.1103dde6.js',
-                '/build/app.29caa2f3.js',
+                '/build/runtime.af19f1f9.js',
+                '/build/app.aa3a1d76.js',
             ],
             'css' => [
                 '/build/app.83405223.css',
@@ -21,23 +21,29 @@ return [[
         ],
         'search' => [
             'js' => [
-                '/build/runtime.1103dde6.js',
-                '/build/0.ecda7895.js',
-                '/build/search.c1f21a8d.js',
+                '/build/runtime.af19f1f9.js',
+                '/build/0.264d7ee1.js',
+                '/build/search.7fd568cc.js',
             ],
         ],
         'toggleMenu' => [
             'js' => [
-                '/build/runtime.1103dde6.js',
-                '/build/1.d36e84db.js',
-                '/build/toggleMenu.dbb759bb.js',
+                '/build/runtime.af19f1f9.js',
+                '/build/1.2131949b.js',
+                '/build/toggleMenu.8bb70894.js',
             ],
         ],
         'searchCard' => [
             'js' => [
-                '/build/runtime.1103dde6.js',
-                '/build/0.ecda7895.js',
-                '/build/searchCard.05502178.js',
+                '/build/runtime.af19f1f9.js',
+                '/build/0.264d7ee1.js',
+                '/build/searchCard.e469f61f.js',
+            ],
+        ],
+        'updateMemo' => [
+            'js' => [
+                '/build/runtime.af19f1f9.js',
+                '/build/updateMemo.2e95819a.js',
             ],
         ],
     ],
