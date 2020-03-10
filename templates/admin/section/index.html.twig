@@ -3,15 +3,19 @@
 {% block title %}Section index{% endblock %}
 
 {% block body %}
+<div class="text-center">
     <h1>Section index</h1>
-
+    <div class="text-right mb-4">
+        <a href="{{ path('admin_section_new') }}" class="btn btn-primary">Create new</a>
+    </div>
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>IsActive</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for section in sections %}
@@ -19,8 +23,15 @@
                 <td>{{ section.id }}</td>
                 <td>{{ section.name }}</td>
                 <td>
-                    <a href="{{ path('admin_section_show', {'id': section.id}) }}">show</a>
-                    <a href="{{ path('admin_section_edit', {'id': section.id}) }}">edit</a>
+                    {% if section.isActive == 1 %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('admin_section_show', {'id': section.id}) }}" class="btn btn-secondary">show</a>
+                    <a href="{{ path('admin_section_edit', {'id': section.id}) }}" class="btn btn-secondary">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +42,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_section_new') }}">Create new</a>
-{% endblock %}
+
+    {% endblock %}

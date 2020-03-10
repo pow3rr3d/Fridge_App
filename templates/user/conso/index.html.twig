@@ -27,7 +27,7 @@
         {% for product in products %}
             <div name="card" class="card mt-5" style="width: 18rem;">
                 {% if product.product.filename %}
-                    <img src="{{ vich_uploader_asset(product, "imageFile") | imagine_filter('card') }}" class="card-img-top" alt="">
+                    <img src="{{ vich_uploader_asset(product.product , 'imageFile', 'App\\Entity\\Product') | imagine_filter('card') }}" class="card-img-top" alt="">
                 {% else %}
                     <img src="{{ "/images/products/empty.jpg" | imagine_filter('card') }}" class="card-img-top" alt="">
                 {%  endif %}

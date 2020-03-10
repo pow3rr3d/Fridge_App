@@ -78,6 +78,8 @@ class adminContentController extends AbstractController
         $form = $this->createForm(ContentType::class, $content);
         $form->handleRequest($request);
 
+        $content->setCreatedAt(new \DateTime('now'));
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 

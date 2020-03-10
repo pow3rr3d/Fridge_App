@@ -34,6 +34,8 @@ class adminSectionController extends AbstractController
         $form = $this->createForm(SectionType::class, $section);
         $form->handleRequest($request);
 
+        $section->setCreatedAt(new \DateTime('now'));
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($section);
@@ -65,6 +67,8 @@ class adminSectionController extends AbstractController
     {
         $form = $this->createForm(SectionType::class, $section);
         $form->handleRequest($request);
+
+        $section->setCreatedAt(new \DateTime('now'));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();

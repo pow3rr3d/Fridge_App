@@ -10048,21 +10048,14 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="training: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="training: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="content: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="training" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="training: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user_memo: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="section: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -10234,17 +10227,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/js" />
+      <recent name="$PROJECT_DIR$/templates/user/product" />
+      <recent name="$PROJECT_DIR$/src/Form" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Controller/admin" />
       <recent name="$PROJECT_DIR$/templates/admin" />
       <recent name="$PROJECT_DIR$/templates/user/conso" />
       <recent name="$PROJECT_DIR$/templates/user" />
       <recent name="$PROJECT_DIR$/src/Entity" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/js" />
-      <recent name="$PROJECT_DIR$/templates/user/product" />
-      <recent name="$PROJECT_DIR$/src/Form" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -10296,6 +10289,8 @@
       <workItem from="1583503817725" duration="1764000" />
       <workItem from="1583505654296" duration="1747000" />
       <workItem from="1583507599493" duration="1705000" />
+      <workItem from="1583833245828" duration="7049000" />
+      <workItem from="1583853383814" duration="2190000" />
     </task>
     <servers />
   </component>
@@ -10311,9 +10306,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#Inspections/67.27.1853.1053@67.27.1853.1053" timestamp="1580918069894" />
-    <state x="451" y="211" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582116410169">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="398" y="182" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583854354422">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="398" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583854354422" />
     <state x="451" y="211" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582116410169" />
     <state x="612" y="357" width="753" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582214333016">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10331,9 +10327,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="599" y="27" width="769" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582296506286" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583509136396">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583854422144">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583854422144" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583509136396" />
     <state x="558" y="151" width="860" height="803" key="CommitChangelistDialog2" timestamp="1582297185096">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10363,9 +10360,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583502671350" />
-    <state x="576" y="289" width="824" height="526" key="IDE.errors.dialog" timestamp="1580900039686">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="527" y="259" width="854" height="528" key="IDE.errors.dialog" timestamp="1583838384633">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="527" y="259" width="854" height="528" key="IDE.errors.dialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838384633" />
     <state x="576" y="289" width="824" height="526" key="IDE.errors.dialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580900039686" />
     <state x="732" y="366" width="513" height="373" key="NewPhpClassDialog" timestamp="1581258650859">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10375,9 +10373,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1582109658933" />
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1583507600198">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1583853453247">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583853453247" />
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583507600198" />
     <state x="647" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580902056388">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10391,9 +10390,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580902710828" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1583494805228">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="610" y="227" width="697" height="670" key="search.everywhere.popup" timestamp="1583836996922">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="610" y="227" width="697" height="670" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583836996922" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583494805228" />
     <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1581071711295">
       <screen x="67" y="27" width="1853" height="1053" />

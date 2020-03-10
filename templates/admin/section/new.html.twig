@@ -3,9 +3,15 @@
 {% block title %}New Section{% endblock %}
 
 {% block body %}
+<div class="text-center">
     <h1>Create new Section</h1>
+    <div class="text-right mb-4">
+        <a href="{{ path('admin_section_index') }}" class="btn btn-primary">back to list</a>
+    </div>
 
-    {{ include('admin/section/_form.html.twig') }}
+    <div class="text-left">
 
-    <a href="{{ path('admin_section_index') }}">back to list</a>
-{% endblock %}
+        {{ include('admin/section/_form.html.twig') }}
+    </div>
+
+    {% endblock %}
