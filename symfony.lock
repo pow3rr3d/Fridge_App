@@ -161,7 +161,7 @@
         "version": "2.2.3"
     },
     "php": {
-        "version": "7.2"
+        "version": "7.3"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
@@ -198,6 +198,9 @@
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "snilius/twig-sort-by-field": {
+        "version": "v0.1.5"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"

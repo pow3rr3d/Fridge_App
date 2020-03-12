@@ -13,6 +13,7 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Order</th>
             <th>IsActive</th>
             <th>actions</th>
         </tr>
@@ -22,6 +23,7 @@
             <tr>
                 <td>{{ section.id }}</td>
                 <td>{{ section.name }}</td>
+                <td>{{ section.orderNb }}</td>
                 <td>
                     {% if section.isActive == 1 %}
                         Yes

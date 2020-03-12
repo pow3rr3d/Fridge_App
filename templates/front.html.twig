@@ -7,11 +7,10 @@
     {% block body %}
     <h1 class="text-center">{{ page.name }}</h1>
         <br>
-        {% for section in sections %}
-            {% if section.isActive == true %}
-            <h2 class="text-center">{{ section.name }}</h2>
-            {{ section.content | raw }}
+        {% for section in sections|filter(s => s.isActive) %}
+           <div class="row d-flex justify-content-around mr-5 ml-5">
+               {{ section.content|raw }}
+           </div>
             <br>
-            {% endif %}
         {% endfor %}
     {% endblock %}

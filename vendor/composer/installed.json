@@ -2112,36 +2112,37 @@
     },
     {
         "name": "ocramius/package-versions",
-        "version": "1.4.2",
-        "version_normalized": "1.4.2.0",
+        "version": "1.5.1",
+        "version_normalized": "1.5.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Ocramius/PackageVersions.git",
-            "reference": "44af6f3a2e2e04f2af46bcb302ad9600cba41c7d"
+            "reference": "1d32342b8c1eb27353c8887c366147b4c2da673c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/44af6f3a2e2e04f2af46bcb302ad9600cba41c7d",
-            "reference": "44af6f3a2e2e04f2af46bcb302ad9600cba41c7d",
+            "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/1d32342b8c1eb27353c8887c366147b4c2da673c",
+            "reference": "1d32342b8c1eb27353c8887c366147b4c2da673c",
             "shasum": ""
         },
         "require": {
             "composer-plugin-api": "^1.0.0",
-            "php": "^7.1.0"
+            "php": "^7.3.0"
         },
         "require-dev": {
-            "composer/composer": "^1.6.3",
-            "doctrine/coding-standard": "^5.0.1",
+            "composer/composer": "^1.8.6",
+            "doctrine/coding-standard": "^6.0.0",
             "ext-zip": "*",
-            "infection/infection": "^0.7.1",
-            "phpunit/phpunit": "^7.5.17"
+            "infection/infection": "^0.13.4",
+            "phpunit/phpunit": "^8.2.5",
+            "vimeo/psalm": "^3.4.9"
         },
-        "time": "2019-11-15T16:17:10+00:00",
+        "time": "2019-07-17T15:49:50+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": "PackageVersions\\Installer",
             "branch-alias": {
-                "dev-master": "2.0.x-dev"
+                "dev-master": "1.6.x-dev"
             }
         },
         "installation-source": "dist",
@@ -2716,6 +2717,47 @@
             "annotations",
             "controllers"
         ]
+    },
+    {
+        "name": "snilius/twig-sort-by-field",
+        "version": "v0.1.5",
+        "version_normalized": "0.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/victorhaggqvist/Twig-sort-by-field.git",
+            "reference": "6d02c6d49f93d78526e24ecf8999d322f291aa44"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/victorhaggqvist/Twig-sort-by-field/zipball/6d02c6d49f93d78526e24ecf8999d322f291aa44",
+            "reference": "6d02c6d49f93d78526e24ecf8999d322f291aa44",
+            "shasum": ""
+        },
+        "require-dev": {
+            "doctrine/collections": "^1.3",
+            "php": ">=5.5.9",
+            "phpunit/phpunit": "~4.5",
+            "twig/extensions": "~1.2"
+        },
+        "time": "2016-01-27T00:29:51+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Snilius\\Twig\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Victor Häggqvist",
+                "email": "victor@snilius.com"
+            }
+        ],
+        "description": "A Twig Extension filter to sort an array of entries (objects or arrays) by the specified field"
     },
     {
         "name": "swiftmailer/swiftmailer",

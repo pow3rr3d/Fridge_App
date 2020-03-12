@@ -41,6 +41,11 @@ class Section
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $orderNb;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Section
     public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getOrderNb(): ?int
+    {
+        return $this->orderNb;
+    }
+
+    public function setOrderNb(int $orderNb): self
+    {
+        $this->orderNb = $orderNb;
 
         return $this;
     }

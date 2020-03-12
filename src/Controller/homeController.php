@@ -32,29 +32,42 @@ class homeController extends AbstractController
         $this->repository = $repository;
         $this->em = $em;
     }
+
     /**
-     * @Route("/{path}", name="front")
+     * @Route("/", name="front")
+     * @Route("/{slug}", name="front_slug", requirements={"slug": "[a-z]+"})
      * @param Request $request
+     * @param $slug
      * @return Response
      */
-
-    public function index(Request $request): Response
+    public function index(Request $request, $slug = null): Response
     {
-        $uri = $request->getPathInfo();
-        $search = $this->em->getRepository(Page::class)->findBy(['path' => $uri]);
+            $search = $this->em->getRepository(Page::class)->findBy(['path' => $slug]);
 
-        if($search)
-        {
-            $page = $search['0'];
-            $section = $page->getSections();
-            return $this->render('front.html.twig',[
-                "sections" => $section,
-                "page" => $page
-            ]);
-        }
+            if($search)
+            {
+                $page = $search['0'];
+                if($page->getIsActive() == true)
+                {
+                    $section = $page->getSections();
+                    return $this->render('front.html.twig',[
+                        "sections" => $section,
+                        "page" => $page
+                    ]);
+                }
+                else
+                {
+                    return new Response('', 404);
+                }
 
-        return $this->redirect('/');
-
+            }
+            else
+            {
+                return new Response('', 404);
+            }
     }
+
+
+
 }
 

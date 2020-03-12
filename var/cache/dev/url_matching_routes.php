@@ -31,6 +31,7 @@ return [
         '/admin/user' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\admin\\adminUserController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/user/new' => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\admin\\adminUserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/contact' => [[['_route' => 'contact', '_controller' => 'App\\Controller\\contactController::show'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'front', '_controller' => 'App\\Controller\\homeController::index'], null, null, null, false, false, null]],
         '/user/account' => [[['_route' => 'user.account.index', '_controller' => 'App\\Controller\\user\\userAccountController::index'], null, null, null, false, false, null]],
         '/user/conso' => [[['_route' => 'user.conso.index', '_controller' => 'App\\Controller\\user\\userConsumptionController::index'], null, null, null, false, false, null]],
         '/user/dashboard' => [[['_route' => 'user.dashboard.index', '_controller' => 'App\\Controller\\user\\userDashboardController::index'], null, null, null, false, false, null]],
@@ -94,20 +95,20 @@ return [
                         .'|admin/([^/]++)(*:511)'
                     .')'
                 .')'
-                .'|/([^/]++)(*:530)'
+                .'|/([a-z]+)?(*:531)'
                 .'|/user/(?'
-                    .'|conso/update/([^/]++)(*:568)'
+                    .'|conso/update/([^/]++)(*:569)'
                     .'|product/(?'
-                        .'|edit/([^/]++)(*:600)'
-                        .'|delete/([^/]++)(*:623)'
+                        .'|edit/([^/]++)(*:601)'
+                        .'|delete/([^/]++)(*:624)'
                     .')'
-                    .'|list/update/([^/]++)(*:652)'
+                    .'|list/update/([^/]++)(*:653)'
                 .')'
                 .'|/media/cache/resolve/(?'
-                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:715)'
-                    .'|([A-z0-9_-]*)/(.+)(*:741)'
+                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:716)'
+                    .'|([A-z0-9_-]*)/(.+)(*:742)'
                 .')'
-                .'|/logout(*:757)'
+                .'|/logout(*:758)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -136,14 +137,14 @@ return [
         480 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\admin\\adminUserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         488 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\admin\\adminUserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
         511 => [[['_route' => 'user_admin', '_controller' => 'App\\Controller\\admin\\adminUserController::admin'], ['id'], null, null, false, true, null]],
-        530 => [[['_route' => 'front', '_controller' => 'App\\Controller\\homeController::index'], ['path'], null, null, false, true, null]],
-        568 => [[['_route' => 'user.conso.update', '_controller' => 'App\\Controller\\user\\userConsumptionController::edit'], ['id'], null, null, false, true, null]],
-        600 => [[['_route' => 'app_user_userproduct_edit', '_controller' => 'App\\Controller\\user\\userProductController::edit'], ['id'], null, null, false, true, null]],
-        623 => [[['_route' => 'user.product.delete', '_controller' => 'App\\Controller\\user\\userProductController::delete'], ['id'], null, null, false, true, null]],
-        652 => [[['_route' => 'user.list.update', '_controller' => 'App\\Controller\\user\\userShoppingListController::edit'], ['id'], null, null, false, true, null]],
-        715 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
-        741 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
-        757 => [
+        531 => [[['_route' => 'front_slug', 'slug' => null, '_controller' => 'App\\Controller\\homeController::index'], ['slug'], null, null, false, true, null]],
+        569 => [[['_route' => 'user.conso.update', '_controller' => 'App\\Controller\\user\\userConsumptionController::edit'], ['id'], null, null, false, true, null]],
+        601 => [[['_route' => 'app_user_userproduct_edit', '_controller' => 'App\\Controller\\user\\userProductController::edit'], ['id'], null, null, false, true, null]],
+        624 => [[['_route' => 'user.product.delete', '_controller' => 'App\\Controller\\user\\userProductController::delete'], ['id'], null, null, false, true, null]],
+        653 => [[['_route' => 'user.list.update', '_controller' => 'App\\Controller\\user\\userShoppingListController::edit'], ['id'], null, null, false, true, null]],
+        716 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        742 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
+        758 => [
             [['_route' => 'logout'], [], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

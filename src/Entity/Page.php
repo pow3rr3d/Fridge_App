@@ -24,7 +24,7 @@ class Page
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", nullable = true, length=255)
      */
     private $path;
 
@@ -34,6 +34,7 @@ class Page
     private $isActive;
 
     /**
+     * @ORM\OrderBy({"orderNb" = "ASC"})
      * @ORM\OneToMany(targetEntity="App\Entity\Section", mappedBy="page")
      */
     private $sections;
@@ -65,7 +66,7 @@ class Page
         return $this->path;
     }
 
-    public function setPath(string $path): self
+    public function setPath(?string $path): self
     {
         $this->path = $path;
 

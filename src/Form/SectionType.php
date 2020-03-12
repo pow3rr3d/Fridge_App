@@ -31,6 +31,7 @@ class SectionType extends AbstractType
                 ]
             ])
             ->add('isActive')
+            ->add('orderNb')
         ;
     }
 
