@@ -51,7 +51,7 @@ return [
     'user_delete' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
     'user_admin' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::admin'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user/admin']], [], []],
     'contact' => [[], ['_controller' => 'App\\Controller\\contactController::show'], [], [['text', '/contact']], [], []],
-    'home' => [[], ['_controller' => 'App\\Controller\\homeController::index'], [], [['text', '/']], [], []],
+    'front' => [['path'], ['_controller' => 'App\\Controller\\homeController::index'], [], [['variable', '/', '[^/]++', 'path', true]], [], []],
     'user.account.index' => [[], ['_controller' => 'App\\Controller\\user\\userAccountController::index'], [], [['text', '/user/account']], [], []],
     'user.conso.index' => [[], ['_controller' => 'App\\Controller\\user\\userConsumptionController::index'], [], [['text', '/user/conso']], [], []],
     'user.conso.update' => [['id'], ['_controller' => 'App\\Controller\\user\\userConsumptionController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/conso/update']], [], []],

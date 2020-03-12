@@ -10291,6 +10291,8 @@
       <workItem from="1583507599493" duration="1705000" />
       <workItem from="1583833245828" duration="7049000" />
       <workItem from="1583853383814" duration="2190000" />
+      <workItem from="1583934509925" duration="518000" />
+      <workItem from="1584001489624" duration="3216000" />
     </task>
     <servers />
   </component>
@@ -10327,10 +10329,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="599" y="27" width="769" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582296506286" />
-    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583854422144">
+    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584002662616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583854422144" />
+    <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584002662616" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583509136396" />
     <state x="558" y="151" width="860" height="803" key="CommitChangelistDialog2" timestamp="1582297185096">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10373,10 +10375,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1582109658933" />
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1583853453247">
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584001668239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583853453247" />
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584001668239" />
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583934510204" />
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583507600198" />
     <state x="647" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580902056388">
       <screen x="67" y="27" width="1853" height="1053" />

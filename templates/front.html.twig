@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{ page.name }}
+{% endblock %}
+
+    {% block body %}
+    <h1 class="text-center">{{ page.name }}</h1>
+        <br>
+        {% for section in sections %}
+            {% if section.isActive == true %}
+            <h2 class="text-center">{{ section.name }}</h2>
+            {{ section.content | raw }}
+            <br>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
