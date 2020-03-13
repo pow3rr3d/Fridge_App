@@ -11,4 +11,4 @@ search.addEventListener('keyup', e => {
             el.style.display = "none";
         }
     })
-})
+});

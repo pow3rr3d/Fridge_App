@@ -46,6 +46,13 @@ return [[
                 '/build/updateMemo.2e95819a.js',
             ],
         ],
+        'createSlug' => [
+            'js' => [
+                '/build/runtime.af19f1f9.js',
+                '/build/1.2131949b.js',
+                '/build/createSlug.a223d42c.js',
+            ],
+        ],
     ],
 ],
 

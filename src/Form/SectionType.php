@@ -7,6 +7,7 @@ use App\Entity\Section;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,6 +26,9 @@ class SectionType extends AbstractType
         {
             return $entity ? $entity->getId() : '';
         }])
+            ->add('color', ColorType::class,[
+                'label' => 'Background color'
+            ])
             ->add('content', CKEditorType::class, [
                 'config' => [
                     'toolbar' => 'full'

@@ -5,27 +5,29 @@
 {% endblock %}
 
     {% block body %}
-<div class="text-center">
-    <h1> Dashboard </h1>
-    <div class="mt-4">
-        <div class="jumbotron">
-            <div class="form-row">
-                <div class="col">
-                    <input type="text" id="search" placeholder="Searching for...." class="form-control">
+        <div class="text-center">
+            <h1> Dashboard </h1>
+            <div class="mt-4">
+                <div class="jumbotron">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" id="search" placeholder="Searching for...." class="form-control">
+                        </div>
+                    </div>
                 </div>
+                <br>
+
+                <div class="d-flex row justify-content-around mt-4">
+
+                    {{ include('/admin/dashboard/_product.html.twig') }}
+
+                    {{ include('/admin/dashboard/_category.html.twig') }}
+
+                    {{ include('/admin/dashboard/_user.html.twig') }}
+
+                </div>
+                {{ parent() }}
+                {{ encore_entry_script_tags('search') }}
             </div>
         </div>
-        <br>
-
-        <div class="d-flex row justify-content-around mt-4">
-
-            {{ include('/admin/dashboard/_product.html.twig') }}
-
-            {{ include('/admin/dashboard/_category.html.twig') }}
-
-            {{ include('/admin/dashboard/_user.html.twig') }}
-
-        </div>
-        {{ parent() }}
-        {{ encore_entry_script_tags('search') }}
-        {% endblock %}
+    {% endblock %}

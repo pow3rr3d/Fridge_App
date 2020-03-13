@@ -46,6 +46,11 @@ class Section
      */
     private $orderNb;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Color;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Section
     public function setOrderNb(int $orderNb): self
     {
         $this->orderNb = $orderNb;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->Color;
+    }
+
+    public function setColor(?string $Color): self
+    {
+        $this->Color = $Color;
 
         return $this;
     }

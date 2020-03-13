@@ -3,8 +3,15 @@
 {% block title %}Section index{% endblock %}
 
 {% block body %}
-<div class="text-center">
+    <div class="text-center">
     <h1>Section index</h1>
+    <div class="jumbotron mt-5">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" id="search" placeholder="Searching for...." class="form-control">
+            </div>
+        </div>
+    </div>
     <div class="text-right mb-4">
         <a href="{{ path('admin_section_new') }}" class="btn btn-primary">Create new</a>
     </div>
@@ -13,6 +20,7 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Page</th>
             <th>Order</th>
             <th>IsActive</th>
             <th>actions</th>
@@ -23,6 +31,7 @@
             <tr>
                 <td>{{ section.id }}</td>
                 <td>{{ section.name }}</td>
+                <td>{{ section.page.name }}</td>
                 <td>{{ section.orderNb }}</td>
                 <td>
                     {% if section.isActive == 1 %}
@@ -44,5 +53,5 @@
         </tbody>
     </table>
 
-
-    {% endblock %}
+    {{ encore_entry_script_tags('search') }}
+{% endblock %}
