@@ -295,6 +295,22 @@
         <parameter key="inject_on_load">false</parameter>
         <parameter key="db_driver">orm</parameter>
       </parameter>
+      <parameter key="slider_image" type="collection">
+        <parameter key="uri_prefix">/images/slider</parameter>
+        <parameter key="upload_destination">C:\wamp\www\Fridge_App/public/images/slider</parameter>
+        <parameter key="namer" type="collection">
+          <parameter key="service">Vich\UploaderBundle\Naming\UniqidNamer.slider_image</parameter>
+          <parameter key="options" type="collection"/>
+        </parameter>
+        <parameter key="directory_namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="delete_on_remove">true</parameter>
+        <parameter key="delete_on_update">true</parameter>
+        <parameter key="inject_on_load">false</parameter>
+        <parameter key="db_driver">orm</parameter>
+      </parameter>
     </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
     <parameter key="liip_imagine.resolvers" type="collection">
@@ -506,6 +522,8 @@
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\PageRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\SecurityController"/>
       </call>
@@ -538,6 +556,13 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminDashboardController"/>
       </call>
     </service>
+    <service id="App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminPageController"/>
+      </call>
+    </service>
     <service id="App\Controller\admin\adminProductController" class="App\Controller\admin\adminProductController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -545,6 +570,20 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminProductController"/>
+      </call>
+    </service>
+    <service id="App\Controller\admin\adminSectionController" class="App\Controller\admin\adminSectionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminSectionController"/>
+      </call>
+    </service>
+    <service id="App\Controller\admin\adminSliderController" class="App\Controller\admin\adminSliderController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminSliderController"/>
       </call>
     </service>
     <service id="App\Controller\admin\adminUserController" class="App\Controller\admin\adminUserController" public="true" autowire="true" autoconfigure="true">
@@ -557,6 +596,8 @@
     <service id="App\Controller\contactController" class="App\Controller\contactController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\PageRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\contactController"/>
       </call>
@@ -564,6 +605,8 @@
     <service id="App\Controller\homeController" class="App\Controller\homeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\PageRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\homeController"/>
       </call>
@@ -614,8 +657,18 @@
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
-    <service id="App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" autoconfigure="true">
+    <service id="App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\ContentFixtures" class="App\DataFixtures\ContentFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\PageFixtures" class="App\DataFixtures\PageFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\SectionFixtures" class="App\DataFixtures\SectionFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
@@ -633,6 +686,9 @@
     <service id="App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\PageType" class="App\Form\PageType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -640,6 +696,12 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SectionType" class="App\Form\SectionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SliderType" class="App\Form\SliderType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" autoconfigure="true">
@@ -677,7 +739,19 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\PageRepository" class="App\Repository\PageRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\SectionRepository" class="App\Repository\SectionRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\SliderRepository" class="App\Repository\SliderRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1123,9 +1197,12 @@
         <argument>App\Form\CategoryType</argument>
         <argument>App\Form\ContactType</argument>
         <argument>App\Form\ContentType</argument>
+        <argument>App\Form\PageType</argument>
         <argument>App\Form\ProductSearchType</argument>
         <argument>App\Form\ProductType</argument>
         <argument>App\Form\RegistrationFormType</argument>
+        <argument>App\Form\SectionType</argument>
+        <argument>App\Form\SliderType</argument>
         <argument>App\Form\UserAccountType</argument>
         <argument>App\Form\UserMemoType</argument>
         <argument>App\Form\UserProductSearchType</argument>
@@ -1459,7 +1536,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.DiZKX6W"/>
+      <argument type="service" id=".service_locator.t8nrC1r"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4140,10 +4217,19 @@
         <argument type="service" id="vich_uploader.listener.clean.product_image"/>
       </call>
       <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.clean.slider_image"/>
+      </call>
+      <call method="addEventSubscriber">
         <argument type="service" id="vich_uploader.listener.remove.product_image"/>
       </call>
       <call method="addEventSubscriber">
         <argument type="service" id="vich_uploader.listener.upload.product_image"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.remove.slider_image"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.upload.slider_image"/>
       </call>
       <call method="addEventListener">
         <argument type="collection">
@@ -4189,7 +4275,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.DMtSK.d"/>
+      <argument type="service" id=".service_locator.iT5D_KI"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5362,7 +5448,19 @@
             <argument key="groups" type="collection"/>
           </argument>
           <argument type="collection">
-            <argument key="fixture" type="service" id="App\DataFixtures\ProductFixture"/>
+            <argument key="fixture" type="service" id="App\DataFixtures\CategoryFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\ContentFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\PageFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\SectionFixtures"/>
             <argument key="groups" type="collection"/>
           </argument>
           <argument type="collection">
@@ -5570,6 +5668,7 @@
       <tag name="swiftmailer.default.plugin"/>
     </service>
     <service id="Vich\UploaderBundle\Naming\UniqidNamer.product_image" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
+    <service id="Vich\UploaderBundle\Naming\UniqidNamer.slider_image" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
     <service id="vich_uploader.adapter.mongodb" class="Vich\UploaderBundle\Adapter\ODM\MongoDB\MongoDBAdapter" public="false"/>
     <service id="vich_uploader.adapter.orm" class="Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter" public="false"/>
     <service id="vich_uploader.adapter.phpcr" class="Vich\UploaderBundle\Adapter\PHPCR\PHPCRAdapter" public="false"/>
@@ -5796,6 +5895,27 @@
     <service id="vich_uploader.listener.upload.product_image" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
       <tag name="doctrine.event_subscriber" priority="0"/>
       <argument>product_image</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.clean.slider_image" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="50"/>
+      <argument>slider_image</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.remove.slider_image" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>slider_image</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.upload.slider_image" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>slider_image</argument>
       <argument type="service" id="vich_uploader.adapter.orm"/>
       <argument type="service" id="vich_uploader.metadata_reader"/>
       <argument type="service" id="vich_uploader.upload_handler"/>
@@ -6310,9 +6430,18 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminProductController" class="App\Controller\admin\adminProductController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminProductController" class="App\Controller\admin\adminProductController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminProductController" class="App\Controller\admin\adminProductController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminSectionController" class="App\Controller\admin\adminSectionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminSectionController" class="App\Controller\admin\adminSectionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminSectionController" class="App\Controller\admin\adminSectionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminSliderController" class="App\Controller\admin\adminSliderController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminSliderController" class="App\Controller\admin\adminSliderController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminSliderController" class="App\Controller\admin\adminSliderController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminUserController" class="App\Controller\admin\adminUserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminUserController" class="App\Controller\admin\adminUserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminUserController" class="App\Controller\admin\adminUserController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6339,8 +6468,14 @@
     <service id=".abstract.instanceof.App\Controller\user\userShoppingListController" class="App\Controller\user\userShoppingListController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ContentFixtures" class="App\DataFixtures\ContentFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\ContentFixtures" class="App\DataFixtures\ContentFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\PageFixtures" class="App\DataFixtures\PageFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\PageFixtures" class="App\DataFixtures\PageFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\SectionFixtures" class="App\DataFixtures\SectionFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\SectionFixtures" class="App\DataFixtures\SectionFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorySearchType" class="App\Form\CategorySearchType" autowire="true" abstract="true"/>
@@ -6351,12 +6486,18 @@
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContentType" class="App\Form\ContentType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PageType" class="App\Form\PageType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PageType" class="App\Form\PageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductType" class="App\Form\ProductType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProductType" class="App\Form\ProductType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SectionType" class="App\Form\SectionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SectionType" class="App\Form\SectionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SliderType" class="App\Form\SliderType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SliderType" class="App\Form\SliderType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserMemoType" class="App\Form\UserMemoType" autowire="true" abstract="true"/>
@@ -6373,8 +6514,14 @@
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ContentRepository" class="App\Repository\ContentRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ContentRepository" class="App\Repository\ContentRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PageRepository" class="App\Repository\PageRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PageRepository" class="App\Repository\PageRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SectionRepository" class="App\Repository\SectionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SectionRepository" class="App\Repository\SectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SliderRepository" class="App\Repository\SliderRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SliderRepository" class="App\Repository\SliderRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserMemoRepository" class="App\Repository\UserMemoRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserMemoRepository" class="App\Repository\UserMemoRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserProductRepository" class="App\Repository\UserProductRepository" autowire="true" abstract="true"/>
@@ -6618,10 +6765,46 @@
         <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.QtzbAnb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="pageRepository" type="service" id="App\Repository\PageRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.STpZUTq" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="page" type="service" id=".errored..service_locator.STpZUTq.App\Entity\Page"/>
+      </argument>
+    </service>
     <service id=".service_locator.xXN6XvR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="product" type="service" id=".errored..service_locator.xXN6XvR.App\Entity\Product"/>
+      </argument>
+    </service>
+    <service id=".service_locator.fAYVfZb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="sectionRepository" type="service" id="App\Repository\SectionRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Hi75c0z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="section" type="service" id=".errored..service_locator.Hi75c0z.App\Entity\Section"/>
+      </argument>
+    </service>
+    <service id=".service_locator.mc9OSTL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="sliderRepository" type="service" id="App\Repository\SliderRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.M1qQhvP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="slider" type="service" id=".errored..service_locator.M1qQhvP.App\Entity\Slider"/>
       </argument>
     </service>
     <service id=".service_locator.3NkeMTN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6683,7 +6866,7 @@
         <argument key="userProduct" type="service" id=".errored..service_locator.4nhWbpP.App\Entity\UserProduct"/>
       </argument>
     </service>
-    <service id=".service_locator..fAUwHI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.y0I2L4C" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.iiu8BOO"/>
@@ -6698,9 +6881,21 @@
         <argument key="App\Controller\admin\adminContentController::index" type="service" id=".service_locator.Z0b7_X1"/>
         <argument key="App\Controller\admin\adminContentController::show" type="service" id=".service_locator.1x47IPt"/>
         <argument key="App\Controller\admin\adminDashboardController::index" type="service" id=".service_locator.TwZjFMQ"/>
+        <argument key="App\Controller\admin\adminPageController::delete" type="service" id=".service_locator.STpZUTq"/>
+        <argument key="App\Controller\admin\adminPageController::edit" type="service" id=".service_locator.STpZUTq"/>
+        <argument key="App\Controller\admin\adminPageController::index" type="service" id=".service_locator.QtzbAnb"/>
+        <argument key="App\Controller\admin\adminPageController::show" type="service" id=".service_locator.STpZUTq"/>
         <argument key="App\Controller\admin\adminProductController::delete" type="service" id=".service_locator.xXN6XvR"/>
         <argument key="App\Controller\admin\adminProductController::edit" type="service" id=".service_locator.xXN6XvR"/>
         <argument key="App\Controller\admin\adminProductController::index" type="service" id=".service_locator.CY_hMZh"/>
+        <argument key="App\Controller\admin\adminSectionController::delete" type="service" id=".service_locator.Hi75c0z"/>
+        <argument key="App\Controller\admin\adminSectionController::edit" type="service" id=".service_locator.Hi75c0z"/>
+        <argument key="App\Controller\admin\adminSectionController::index" type="service" id=".service_locator.fAYVfZb"/>
+        <argument key="App\Controller\admin\adminSectionController::show" type="service" id=".service_locator.Hi75c0z"/>
+        <argument key="App\Controller\admin\adminSliderController::delete" type="service" id=".service_locator.M1qQhvP"/>
+        <argument key="App\Controller\admin\adminSliderController::edit" type="service" id=".service_locator.M1qQhvP"/>
+        <argument key="App\Controller\admin\adminSliderController::index" type="service" id=".service_locator.mc9OSTL"/>
+        <argument key="App\Controller\admin\adminSliderController::show" type="service" id=".service_locator.M1qQhvP"/>
         <argument key="App\Controller\admin\adminUserController::admin" type="service" id=".service_locator.D6XybyG"/>
         <argument key="App\Controller\admin\adminUserController::delete" type="service" id=".service_locator.VPb8Zl0"/>
         <argument key="App\Controller\admin\adminUserController::edit" type="service" id=".service_locator.2wyJttD"/>
@@ -6776,16 +6971,19 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.DiZKX6W" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.t8nrC1r" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorySearchType" type="service" id="App\Form\CategorySearchType"/>
         <argument key="App\Form\CategoryType" type="service" id="App\Form\CategoryType"/>
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\ContentType" type="service" id="App\Form\ContentType"/>
+        <argument key="App\Form\PageType" type="service" id="App\Form\PageType"/>
         <argument key="App\Form\ProductSearchType" type="service" id="App\Form\ProductSearchType"/>
         <argument key="App\Form\ProductType" type="service" id="App\Form\ProductType"/>
         <argument key="App\Form\RegistrationFormType" type="service" id="App\Form\RegistrationFormType"/>
+        <argument key="App\Form\SectionType" type="service" id="App\Form\SectionType"/>
+        <argument key="App\Form\SliderType" type="service" id="App\Form\SliderType"/>
         <argument key="App\Form\UserAccountType" type="service" id="App\Form\UserAccountType"/>
         <argument key="App\Form\UserMemoType" type="service" id="App\Form\UserMemoType"/>
         <argument key="App\Form\UserProductSearchType" type="service" id="App\Form\UserProductSearchType"/>
@@ -6961,12 +7159,15 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.DMtSK.d" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.iT5D_KI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\ContentRepository" type="service" id="App\Repository\ContentRepository"/>
+        <argument key="App\Repository\PageRepository" type="service" id="App\Repository\PageRepository"/>
         <argument key="App\Repository\ProductRepository" type="service" id="App\Repository\ProductRepository"/>
+        <argument key="App\Repository\SectionRepository" type="service" id="App\Repository\SectionRepository"/>
+        <argument key="App\Repository\SliderRepository" type="service" id="App\Repository\SliderRepository"/>
         <argument key="App\Repository\UserMemoRepository" type="service" id="App\Repository\UserMemoRepository"/>
         <argument key="App\Repository\UserProductRepository" type="service" id="App\Repository\UserProductRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
@@ -7056,9 +7257,27 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminPageController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminPageController"/>
+      <argument>App\Controller\admin\adminPageController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\admin\adminProductController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\admin\adminProductController"/>
       <argument>App\Controller\admin\adminProductController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminSectionController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminSectionController"/>
+      <argument>App\Controller\admin\adminSectionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminSliderController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminSliderController"/>
+      <argument>App\Controller\admin\adminSliderController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -7249,12 +7468,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator..fAUwHI"/>
+      <argument type="service" id=".service_locator.y0I2L4C"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator..fAUwHI"/>
+      <argument type="service" id=".service_locator.y0I2L4C"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7266,7 +7485,10 @@
     </service>
     <service id=".errored..service_locator.MpsgFRY.App\Entity\Category" class="App\Entity\Category"/>
     <service id=".errored..service_locator.1x47IPt.App\Entity\Content" class="App\Entity\Content"/>
+    <service id=".errored..service_locator.STpZUTq.App\Entity\Page" class="App\Entity\Page"/>
     <service id=".errored..service_locator.xXN6XvR.App\Entity\Product" class="App\Entity\Product"/>
+    <service id=".errored..service_locator.Hi75c0z.App\Entity\Section" class="App\Entity\Section"/>
+    <service id=".errored..service_locator.M1qQhvP.App\Entity\Slider" class="App\Entity\Slider"/>
     <service id=".errored..service_locator.VPb8Zl0.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.2wyJttD.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.rN_aoHL.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
@@ -7702,7 +7924,7 @@
     <service id="Liip\ImagineBundle\Imagine\Filter\FilterManager" alias="liip_imagine.filter.manager" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator..fAUwHI"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.y0I2L4C"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

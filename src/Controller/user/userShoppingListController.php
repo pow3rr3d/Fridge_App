@@ -43,7 +43,7 @@ class userShoppingListController extends AbstractController
 
 
     /**
-     * @Route("", name="user.list.index")
+     * @Route("", name="user_list_index")
      * @param PaginatorInterface $paginator
      * @param Request $request
      * @return Response
@@ -69,7 +69,7 @@ class userShoppingListController extends AbstractController
     }
 
     /**
-     * @Route("/update/{id}", name="user.list.update")
+     * @Route("/update/{id}", name="user_list_update")
      * @param $id
      */
     public function edit($id)
@@ -92,7 +92,7 @@ class userShoppingListController extends AbstractController
         $product->setStockReel($stock + $nb);
         $entityManager->flush();
 
-        return $this->redirectToRoute('user.list.index');
+        return $this->redirectToRoute('user_list_index');
 
     }
 

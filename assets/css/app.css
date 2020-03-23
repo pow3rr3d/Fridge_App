@@ -23,7 +23,7 @@ body
     transition-duration: 0.5s;
     overflow: hidden;
     white-space: nowrap;
-    width: 150px;
+    width: 200px;
     height: 100%;
     box-shadow: 1px 1px 10px black;
     position: fixed;
@@ -62,4 +62,9 @@ body
 
 #containerFooter.col-9 {
     transition-duration: 0.5s;
+}
+#section {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    margin-bottom: -25px;
 }

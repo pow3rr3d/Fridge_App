@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Page;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,7 +31,6 @@ class RegistrationController extends AbstractController
         $this->em = $em;
         $user = new User();
         $user->setRoles('ROLE_USER');
-        $user->setImage('null');
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -51,9 +51,10 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-
+        $pages = $this->em->getRepository(Page::class)->findBy(['isActive' => true]);
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'pages' => $pages
         ]);
     }
 }

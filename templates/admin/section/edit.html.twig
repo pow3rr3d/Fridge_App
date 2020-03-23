@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Section{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>Edit Section</h1>
+        <div class="text-right mb-4">
+            <a href="{{ path('admin_section_index') }}" class="btn btn-primary">back to list</a>
+        </div>
+
+        <div class="text-left mt-5">
+
+            {{ include('admin/section/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+            {{ include('admin/section/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

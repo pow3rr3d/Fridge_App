@@ -35,7 +35,7 @@ class adminProductController extends AbstractController
     }
 
     /**
-     * @Route("/admin/product", name="admin.product.index")
+     * @Route("/admin/product", name="admin_product_index")
      * @param PaginatorInterface $paginator
      * @param Request $request
      * @return Response
@@ -59,7 +59,7 @@ class adminProductController extends AbstractController
     }
 
     /**
-     * @Route("/admin/product/create", name="admin.product.new")
+     * @Route("/admin/product/create", name="admin_product_new")
      * @param Request $request
      * @return Response
      */
@@ -73,7 +73,7 @@ class adminProductController extends AbstractController
             $this->em->persist($product);
             $this->em->flush();
             $this->addFlash('success', 'Creation success !');
-            return $this->redirectToRoute('admin.product.index');
+            return $this->redirectToRoute('admin_product_index');
         }
 
         return $this->render('admin/product/new.html.twig', [
@@ -85,7 +85,7 @@ class adminProductController extends AbstractController
 
 
     /**
-     * @Route("/admin/product/edit/{id}", name="admin.product.edit")
+     * @Route("/admin/product/edit/{id}", name="admin_product_edit")
      * @param Product $product
      * @param Request $request
      * @return Response
@@ -99,7 +99,7 @@ class adminProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
             $this->addFlash('success', 'Modifcation success !');
-            return $this->redirectToRoute('admin.product.index');
+            return $this->redirectToRoute('admin_product_index');
         }
         return $this->render('admin/product/edit.html.twig', [
             'product' => $product,
@@ -108,7 +108,7 @@ class adminProductController extends AbstractController
     }
 
     /**
-     * @Route("/admin/product/delete/{id}", name="admin.product.delete")
+     * @Route("/admin/product/delete/{id}", name="admin_product_delete")
      * @param Product $product
      * @param Request $request
      * @return Response
@@ -121,7 +121,7 @@ class adminProductController extends AbstractController
             $this->em->flush();
             $this->addFlash('success', 'Delete success !');
         }
-        return $this->redirectToRoute('admin.product.index');
+        return $this->redirectToRoute('admin_product_index');
     }
 
 }

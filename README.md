@@ -5,6 +5,12 @@ Fridge_App is a training project based on Symfony 5.
 
 
 ## Using 
+To start: 
+- composer update
+- npm install
+- npm run build
+- php bin/console doctrine:fixtures:load
+
 
 User : 
 

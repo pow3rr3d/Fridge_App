@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class adminDashboardController extends AbstractController
 {
     /**
-     * @Route("/admin/dashboard", name="admin.dashboard.index")
+     * @Route("/admin/dashboard", name="admin_dashboard_index")
      * @param CategoryRepository $categoryRepository
      * @param ProductRepository $productRepository
      * @param UserRepository $userRepository

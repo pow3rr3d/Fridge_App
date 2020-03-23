@@ -48,6 +48,29 @@
             <span class="spanMenu">Account</span>
         </a>
     </li>
+    <ul class="nav nav-item ml-auto mr-5">
+         <li class="nav-item dropdown mr-5">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <i class="fas fa-file"></i>
+                    <span class="spanMenu"> CMS </span>
+                </a>
+            <div class="dropdown-menu bg-dark">
+                <a class="nav-link ml-3" href="/admin/page">
+                    <i class="fas fa-file-alt"></i> 
+                    <span class="spanMenu"> Page</span>
+                </a>
+                <a class="nav-link ml-3" href="/admin/section">
+                    <i class="fas fa-th"></i>
+                    <span class="spanMenu"> Section</span>
+                </a>
+                <a class="nav-link ml-3" href="/admin/slider/">
+                    <i class="fas fa-images"></i>
+                    <span class="spanMenu"> Slider</span>
+                </a>
+            </div>
+        </li>
+    </ul>
+
     {% if app.user %}
         <li class="nav-item">
             <a class="nav-link" href="{{path("logout")}}">
@@ -67,6 +90,7 @@
 </div>
 {% block javascripts %}
     {{ encore_entry_script_tags('toggleMenu') }}
+    {{ encore_entry_script_tags('createSlug') }}
 {% endblock %}
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -22,7 +22,7 @@ class adminAccountController extends AbstractController
 {
 
     /**
-     * @Route("", name="admin.account.index")
+     * @Route("", name="admin_account_index")
      * @param UserRepository $userRepository
      * @param Request $request
      * @param EntityManagerInterface $em
