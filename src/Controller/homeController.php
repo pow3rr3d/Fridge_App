@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Page;
+use App\Entity\Slider;
 use App\Repository\PageRepository;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -47,13 +48,18 @@ class homeController extends AbstractController
             if($search)
             {
                 $page = $search['0'];
+                $pages = $this->em->getRepository(Page::class)->findBy(['isActive' => true]);
                 if($page->getIsActive() == true)
                 {
+                    $slider = $page->getSlider();
                     $section = $page->getSections();
                     return $this->render('front.html.twig',[
                         "sections" => $section,
-                        "page" => $page
+                        "page" => $page,
+                        "pages" => $pages,
+                        "slider" => $slider
                     ]);
+
                 }
                 else
                 {

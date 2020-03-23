@@ -14,7 +14,7 @@ class PageFixtures extends Fixture
     {
         $page = new Page();
         $page->setName('Home');
-        $page->setPath('');
+        $page->setPath(null);
         $page->setIsActive(true);
         
         $manager->persist($page);

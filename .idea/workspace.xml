@@ -10055,21 +10055,21 @@
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="category: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="product: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="section: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="slider: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="user_memo: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="user: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -10238,22 +10238,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tcket" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\Fridge_App\templates\admin" />
+      <recent name="C:\wamp\www\Fridge_App\src\Controller\admin" />
+      <recent name="$PROJECT_DIR$/src/Controller/admin" />
+      <recent name="$PROJECT_DIR$/templates/admin" />
+      <recent name="$PROJECT_DIR$/templates/user/conso" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/js" />
       <recent name="$PROJECT_DIR$/templates/user/product" />
       <recent name="$PROJECT_DIR$/src/Form" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Controller/admin" />
-      <recent name="$PROJECT_DIR$/templates/admin" />
-      <recent name="$PROJECT_DIR$/templates/user/conso" />
-      <recent name="$PROJECT_DIR$/templates/user" />
-      <recent name="$PROJECT_DIR$/src/Entity" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -10311,11 +10311,25 @@
       <workItem from="1584001489624" duration="3216000" />
       <workItem from="1584006092982" duration="12080000" />
       <workItem from="1584028054822" duration="8179000" />
+      <workItem from="1584116772093" duration="35000" />
+      <workItem from="1584351210617" duration="1087000" />
+      <workItem from="1584456301767" duration="7014000" />
+      <workItem from="1584628046172" duration="12910000" />
+      <workItem from="1584699803018" duration="3321000" />
+      <workItem from="1584960776728" duration="110000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../tcket/assets/js/ticket.d.ts" />
+        <option value="$PROJECT_DIR$/../tcket/assets/js/filter.d.ts" />
+        <option value="$PROJECT_DIR$/../tcket/assets/js/contract.d.ts" />
+        <option value="$PROJECT_DIR$/../tcket/assets/js/user.d.ts" />
+      </list>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="588" y="214" width="800" height="677" key="#Composer" timestamp="1580757664781">
@@ -10343,14 +10357,16 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="676" y="280" width="624" height="544" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1581198410490" />
-    <state x="599" y="27" width="769" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582296506286">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="551" y="0" width="769" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584630094365">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="551" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584630094365" />
     <state x="599" y="27" width="769" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582296506286" />
-    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584002662616">
+    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584633170108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584002662616" />
+    <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584633170108" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583509136396" />
     <state x="558" y="151" width="860" height="803" key="CommitChangelistDialog2" timestamp="1582297185096">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10360,9 +10376,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="254" height="195" key="DatabaseViewActions_Filter/67.27.1853.1053@67.27.1853.1053" timestamp="1582120019822" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582470256085">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="735" y="280" width="424" height="484" key="FileChooserDialogImpl" timestamp="1584960884903">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="735" y="280" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584960884903" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582470256085" />
     <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1583502671353">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10397,11 +10414,20 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1582109658933" />
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584028376479">
+    <state x="772" y="405" width="376" height="263" key="com.intellij.database.actions.DdlActions$CommentOnObjectAction$1" timestamp="1584461322585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584028376479" />
+    <state x="772" y="405" width="376" height="263" key="com.intellij.database.actions.DdlActions$CommentOnObjectAction$1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584461322585" />
+    <state x="804" y="251" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1584461437267">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="804" y="251" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584461437267" />
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584699802608">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584351701050" />
     <state x="603" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583934510204" />
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584699802608" />
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583507600198" />
     <state x="647" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580902056388">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10432,6 +10458,11 @@
           <url>file://$PROJECT_DIR$/templates/admin/product/index.html.twig</url>
           <line>3</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/home.html.twig</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -41,7 +41,7 @@ class userProductController extends AbstractController
     }
 
     /**
-     * @Route("", name="user.product.index")
+     * @Route("", name="user_product_index")
      * @param PaginatorInterface $paginator
      * @param Request $request
      * @return Response
@@ -88,7 +88,7 @@ class userProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user.product.index');
+            return $this->redirectToRoute('user_product_index');
         }
 
         return $this->render('user/product/new.html.twig', [
@@ -112,7 +112,7 @@ class userProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
             $this->addFlash('success', 'Modification success !');
-            return $this->redirectToRoute('user.product.index');
+            return $this->redirectToRoute('user_product_index');
         }
         return $this->render('user/product/edit.html.twig', [
             'product' => $userProduct,
@@ -134,7 +134,7 @@ class userProductController extends AbstractController
             $this->em->flush();
             $this->addFlash('success', 'Delete success !');
         }
-        return $this->redirectToRoute('user.product.index');
+        return $this->redirectToRoute('user_product_index');
     }
 
 

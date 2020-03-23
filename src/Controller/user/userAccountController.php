@@ -22,7 +22,7 @@ class userAccountController extends AbstractController
 {
 
     /**
-     * @Route("", name="user.account.index")
+     * @Route("", name="user_account_index")
      * @param UserRepository $userRepository
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -47,7 +47,7 @@ class userAccountController extends AbstractController
             $em->persist($user);
             $em->flush();
             $this->addFlash('success', 'Modify success !');
-            return $this->redirectToRoute('user.account.index');
+            return $this->redirectToRoute('user_account_index');
         }
 
         return $this->render("user/account/index.html.twig", [

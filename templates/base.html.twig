@@ -20,10 +20,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+
             <ul class="nav navbar-nav">
+                {%   for page in pages|filter(s => s.isActive) %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="{% if page.path == "" %}/{% else %}{{ page.path }}{% endif %}">{{ page.name }}</a>
                 </li>
+                {% endfor %}
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>

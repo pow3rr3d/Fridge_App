@@ -41,7 +41,7 @@ class userConsumptionController extends AbstractController
     }
 
     /**
-     * @Route("", name="user.conso.index")
+     * @Route("", name="user_conso_index")
      * @param EntityManagerInterface $em
      * @param PaginatorInterface $paginator
      * @param Request $request
@@ -63,7 +63,7 @@ class userConsumptionController extends AbstractController
     }
 
     /**
-     * @Route("/update/{id}", name="user.conso.update")
+     * @Route("/update/{id}", name="user_conso_update")
      * @param $id
      */
     public function edit($id)
@@ -86,7 +86,7 @@ class userConsumptionController extends AbstractController
         $product->setStockReel($stock - $nb);
         $entityManager->flush();
 
-        return $this->redirectToRoute('user.conso.index');
+        return $this->redirectToRoute('user_conso_index');
 
     }
 

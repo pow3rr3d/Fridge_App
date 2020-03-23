@@ -35,7 +35,7 @@
                     <h3 class="card-title">{{ product.product.name }}</h3>
                     <p class="card-text">Stock Réel: {{ product.stockReel }}</p>
                     <p class="card-text">Stock Opti: {{ product.stockOpti }}</p>
-                    <form method="post" action="{{ path("user.conso.update", {id: product.id})}}" class="form-group">
+                    <form method="post" action="{{ path("user_conso_update", {id: product.id})}}" class="form-group">
                         <div class="d-inline-flex p-2">
                             <input type="hidden" name="_method" value="update">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">

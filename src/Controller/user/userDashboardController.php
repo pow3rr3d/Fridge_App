@@ -41,7 +41,7 @@ class userDashboardController extends AbstractController
     }
 
     /**
-     * @Route("/user/dashboard", name="user.dashboard.index")
+     * @Route("/user/dashboard", name="user_dashboard_index")
      * @param UserInterface $user
      * @param PaginatorInterface $paginator
      * @param Request $request
@@ -78,7 +78,7 @@ class userDashboardController extends AbstractController
     }
 
     /**
-     * @Route("/user/memo", name="user.dashboard.memo")
+     * @Route("/user/memo", name="user_dashboard_memo")
      * @param Request $request
      * @return array
      */

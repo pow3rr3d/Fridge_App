@@ -39,6 +39,11 @@ class Page
      */
     private $sections;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Slider", mappedBy="page")
+     */
+    private $slider;
+
     public function __construct()
     {
         $this->sections = new ArrayCollection();
@@ -111,6 +116,24 @@ class Page
             if ($section->getPage() === $this) {
                 $section->setPage(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getSlider(): ?Slider
+    {
+        return $this->slider;
+    }
+
+    public function setSlider(?Slider $slider): self
+    {
+        $this->slider = $slider;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newPage = null === $slider ? null : $this;
+        if ($slider->getPage() !== $newPage) {
+            $slider->setPage($newPage);
         }
 
         return $this;
