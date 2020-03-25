@@ -7,6 +7,7 @@ use App\Entity\Section;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -34,7 +35,19 @@ class SectionType extends AbstractType
                     'toolbar' => 'full'
                 ]
             ])
-            ->add('isActive')
+            ->add('isActive', CheckboxType::class, [
+                'row_attr' => [
+                    'class' => 'custom-control custom-switch'
+                ],
+                'label_attr' => [
+                    'class' => 'custom-control-label',
+                    'for' => 'content_isActive'
+                ],
+                'attr' => [
+                    'class' => "custom-control-input",
+                    'id' => "customSwitch1"
+                ]
+            ])
             ->add('orderNb')
         ;
     }

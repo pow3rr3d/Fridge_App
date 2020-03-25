@@ -6,6 +6,7 @@ use App\Entity\Page;
 use App\Entity\Slider;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,16 +26,25 @@ class SliderType extends AbstractType
                 {
                     return $entity ? $entity->getId() : '';
                 }])
-            ->add('imageFile1', FileType::class, [
-                'required' => false
-            ] )
+            ->add('imageFile1', FileType::class)
             ->add('imageFile2', FileType::class, [
                 'required' => false
             ] )
             ->add('imageFile3', FileType::class, [
                 'required' => false
             ] )
-            ->add('isActive')
+            ->add('isActive', CheckboxType::class, [
+                'row_attr' => [
+                    'class' => 'custom-control custom-switch'
+                ],
+                'label_attr' => [
+                    'class' => 'custom-control-label',
+                    'for' => 'content_isActive'
+                ],
+                'attr' => [
+                    'class' => "custom-control-input",
+                ]
+            ])
         ;
     }
 
