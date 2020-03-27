@@ -29,6 +29,7 @@ Encore
     .addEntry('searchCard', './assets/js/searchCard.js')
     .addEntry('updateMemo', './assets/js/updateMemo.js')
     .addEntry('createSlug', './assets/js/createSlug.js')
+    .addEntry('frontModal', './assets/js/frontModal.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

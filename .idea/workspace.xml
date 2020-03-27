@@ -10243,17 +10243,17 @@
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/js" />
+      <recent name="$PROJECT_DIR$/templates/user/product" />
+      <recent name="$PROJECT_DIR$/src/Form" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp\www\Fridge_App\templates\admin" />
       <recent name="C:\wamp\www\Fridge_App\src\Controller\admin" />
       <recent name="$PROJECT_DIR$/src/Controller/admin" />
       <recent name="$PROJECT_DIR$/templates/admin" />
       <recent name="$PROJECT_DIR$/templates/user/conso" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/js" />
-      <recent name="$PROJECT_DIR$/templates/user/product" />
-      <recent name="$PROJECT_DIR$/src/Form" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -10317,6 +10317,7 @@
       <workItem from="1584628046172" duration="12910000" />
       <workItem from="1584699803018" duration="3321000" />
       <workItem from="1584960776728" duration="110000" />
+      <workItem from="1585314192305" duration="9380000" />
     </task>
     <servers />
   </component>
@@ -10422,12 +10423,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="251" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584461437267" />
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584699802608">
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1585314204774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584351701050" />
     <state x="603" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583934510204" />
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584699802608" />
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585314204774" />
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583507600198" />
     <state x="647" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580902056388">
       <screen x="67" y="27" width="1853" height="1053" />

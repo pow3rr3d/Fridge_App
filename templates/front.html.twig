@@ -61,4 +61,40 @@
                 <br>
             {% endfor %}
         </section>
+        <div class="modal fade bd-dark" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+             aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-sm">
+                <div id='modal' class="modal-content">
+                    <div class="m-5">
+                        <h3 class="text-center">It's Cookies Time! <i class="fas fa-cookie-bite"></i></h3>
+                        <br>
+                        <span class="text-justify">
+                            <p>
+                            L'application Fridge_App n'utilise pas de cookies dit "de tracking".
+                            </p>
+                            <p>
+                            Les seuls cookies présents servent au bon fonctionnement de l'application.
+                            Merci de les valider en intégralités avant de poursuivre.
+                            </p>
+                        </span>
+                        <br>
+                        <div class="d-flex justify-content-around">
+                            <button id="CookiesRefuse" class="btn btn-danger">Retour</button>
+                            <button id="CookiesValidation" class="btn btn-primary">Valider</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer font-small bg-secondary text-white mt-5">
+            <footer class="page-footer">
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-1 bg-dark text-muted">
+                    <span>Powered by Symfony 5</span>
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </div>
+        </div>
+        {{ encore_entry_script_tags('frontModal') }}
     {% endblock %}
