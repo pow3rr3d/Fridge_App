@@ -13,5 +13,9 @@ import '../css/app.css';
 
 import $ from 'jquery';
 import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/alert';
+
 
 console.log('WELCOME TO FRIDGE_APP V1.04');
