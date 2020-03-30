@@ -11,12 +11,14 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "dev-server-hot": "encore dev-server --hot --port 9000",
     "dev-server": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production --progress"
   },
   "dependencies": {
+    "a-color-picker": "^1.2.1",
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
     "js-cookie": "^2.2.1",

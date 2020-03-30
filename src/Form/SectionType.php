@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Page;
 use App\Entity\Section;
+use App\Form\Type\ColorPickerType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -27,8 +28,8 @@ class SectionType extends AbstractType
         {
             return $entity ? $entity->getId() : '';
         }])
-            ->add('color', ColorType::class,[
-                'label' => 'Background color'
+            ->add('color', ColorPickerType::class,[
+                'label' => 'Background color',
             ])
             ->add('content', CKEditorType::class, [
                 'config' => [

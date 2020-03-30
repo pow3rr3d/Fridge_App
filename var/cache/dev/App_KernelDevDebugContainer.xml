@@ -149,6 +149,7 @@
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>@FOSCKEditor/Form/ckeditor_widget.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
+      <parameter>form/colorPicker.html.twig</parameter>
       <parameter>@LiipImagine/Form/form_div_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">C:\wamp\www\Fridge_App/templates</parameter>
@@ -704,6 +705,9 @@
     <service id="App\Form\SliderType" class="App\Form\SliderType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\Type\ColorPickerType" class="App\Form\Type\ColorPickerType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -1187,6 +1191,7 @@
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
         <argument>App\Form</argument>
+        <argument>App\Form\Type</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
         <argument>Vich\UploaderBundle\Form\Type</argument>
         <argument>Liip\ImagineBundle\Form\Type</argument>
@@ -1203,6 +1208,7 @@
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\SectionType</argument>
         <argument>App\Form\SliderType</argument>
+        <argument>App\Form\Type\ColorPickerType</argument>
         <argument>App\Form\UserAccountType</argument>
         <argument>App\Form\UserMemoType</argument>
         <argument>App\Form\UserProductSearchType</argument>
@@ -1536,7 +1542,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.t8nrC1r"/>
+      <argument type="service" id=".service_locator.yUkPw2E"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6498,6 +6504,8 @@
     <service id=".abstract.instanceof.App\Form\SectionType" class="App\Form\SectionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SliderType" class="App\Form\SliderType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SliderType" class="App\Form\SliderType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Type\ColorPickerType" class="App\Form\Type\ColorPickerType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\Type\ColorPickerType" class="App\Form\Type\ColorPickerType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserAccountType" class="App\Form\UserAccountType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserMemoType" class="App\Form\UserMemoType" autowire="true" abstract="true"/>
@@ -6971,7 +6979,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.t8nrC1r" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.yUkPw2E" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorySearchType" type="service" id="App\Form\CategorySearchType"/>
@@ -6984,6 +6992,7 @@
         <argument key="App\Form\RegistrationFormType" type="service" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\SectionType" type="service" id="App\Form\SectionType"/>
         <argument key="App\Form\SliderType" type="service" id="App\Form\SliderType"/>
+        <argument key="App\Form\Type\ColorPickerType" type="service" id="App\Form\Type\ColorPickerType"/>
         <argument key="App\Form\UserAccountType" type="service" id="App\Form\UserAccountType"/>
         <argument key="App\Form\UserMemoType" type="service" id="App\Form\UserMemoType"/>
         <argument key="App\Form\UserProductSearchType" type="service" id="App\Form\UserProductSearchType"/>
