@@ -10055,7 +10055,21 @@
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="category: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="training" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="product: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="training" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="section: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -10221,6 +10235,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
 =======
       <path value="$PROJECT_DIR$/vendor/snilius/twig-sort-by-field" />
+<<<<<<< HEAD
+>>>>>>> Develop
+=======
+      <path value="$PROJECT_DIR$/vendor/league/csv" />
 >>>>>>> Develop
     </include_path>
   </component>
@@ -10242,23 +10260,27 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
 =======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tcket" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> Develop
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
 >>>>>>> Develop
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\Fridge_App\templates\admin\import\categories" />
       <recent name="C:\wamp\www\Fridge_App\templates\admin" />
       <recent name="C:\wamp\www\Fridge_App\src\Controller\admin" />
       <recent name="$PROJECT_DIR$/src/Controller/admin" />
       <recent name="$PROJECT_DIR$/templates/admin" />
-      <recent name="$PROJECT_DIR$/templates/user/conso" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/js" />
@@ -10266,11 +10288,14 @@
       <recent name="$PROJECT_DIR$/src/Form" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run build" />
     </option>
   </component>
+=======
+>>>>>>> Develop
   <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -10282,11 +10307,19 @@
       <envs />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="dev-server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev-server" />
+=======
+    <configuration name="dev-server-hot" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev-server-hot" />
+>>>>>>> Develop
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -10294,7 +10327,11 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="npm.dev-server" />
+=======
+        <item itemvalue="npm.dev-server-hot" />
+>>>>>>> Develop
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -10365,6 +10402,11 @@
       <workItem from="1584628046172" duration="12910000" />
       <workItem from="1584699803018" duration="3321000" />
       <workItem from="1584960776728" duration="110000" />
+<<<<<<< HEAD
+>>>>>>> Develop
+=======
+      <workItem from="1585314192305" duration="18294000" />
+      <workItem from="1585573101759" duration="11557000" />
 >>>>>>> Develop
     </task>
     <servers />
@@ -10411,11 +10453,11 @@
     </state>
     <state x="551" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584630094365" />
     <state x="599" y="27" width="769" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582296506286" />
-    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584633170108">
+    <state x="683" y="280" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585133660511">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584002662616" />
-    <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584633170108" />
+    <state x="683" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585133660511" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583509136396" />
     <state x="558" y="151" width="860" height="803" key="CommitChangelistDialog2" timestamp="1582297185096">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -10425,6 +10467,7 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="254" height="195" key="DatabaseViewActions_Filter/67.27.1853.1053@67.27.1853.1053" timestamp="1582120019822" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <state x="694" y="282" key="EnvironmentVariablesDialog" timestamp="1583768253733">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -10460,6 +10503,32 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583768370237" />
+=======
+    <state x="735" y="280" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585562891115">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="735" y="280" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585562891115" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582470256085" />
+    <state width="1877" height="211" key="GridCell.Tab.0.bottom" timestamp="1585561891407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="211" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585561891407" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1583502671353" />
+    <state width="1877" height="211" key="GridCell.Tab.0.center" timestamp="1585561891407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="211" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585561891407" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1583502671348" />
+    <state width="1877" height="211" key="GridCell.Tab.0.left" timestamp="1585561891407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="211" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585561891407" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1583502671345" />
+    <state width="1877" height="211" key="GridCell.Tab.0.right" timestamp="1585561891407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="211" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585561891407" />
+>>>>>>> Develop
     <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583502671350" />
     <state x="527" y="259" width="854" height="528" key="IDE.errors.dialog" timestamp="1583838384633">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -10471,11 +10540,18 @@
     </state>
     <state x="732" y="366" width="513" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1581258650859" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <state x="461" y="163" key="SettingsEditor" timestamp="1583768323649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583768323649" />
 =======
+=======
+    <state x="794" y="444" key="NewPhpFileDialog" timestamp="1585574112493">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="444" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585574112493" />
+>>>>>>> Develop
     <state x="461" y="163" key="SettingsEditor" timestamp="1584020380010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -10499,12 +10575,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="251" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584461437267" />
-    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584699802608">
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1585314204774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="603" y="349" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584351701050" />
     <state x="603" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583934510204" />
+<<<<<<< HEAD
     <state x="603" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584699802608" />
+>>>>>>> Develop
+=======
+    <state x="603" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585314204774" />
 >>>>>>> Develop
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583507600198" />
     <state x="647" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580902056388">
@@ -10520,10 +10600,11 @@
     </state>
     <state x="611" y="223" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583764016279" />
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580902710828" />
-    <state x="610" y="227" width="697" height="670" key="search.everywhere.popup" timestamp="1583836996922">
+    <state x="610" y="227" width="697" height="670" key="search.everywhere.popup" timestamp="1585329531933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="610" y="227" width="697" height="670" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583836996922" />
+    <state x="610" y="227" width="697" height="670" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585329531933" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583494805228" />
     <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1581071711295">
       <screen x="67" y="27" width="1853" height="1053" />

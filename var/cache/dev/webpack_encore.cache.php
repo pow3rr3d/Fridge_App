@@ -14,10 +14,13 @@ return [[
         'app' => [
             'js' => [
                 '/build/runtime.af19f1f9.js',
-                '/build/app.aa3a1d76.js',
+                '/build/2.c287341b.js',
+                '/build/3.5856ba1e.js',
+                '/build/app.86fdcb50.js',
             ],
             'css' => [
-                '/build/app.9a410a72.css',
+                '/build/3.e6b28ac1.css',
+                '/build/app.defac794.css',
             ],
         ],
         'search' => [
@@ -31,7 +34,7 @@ return [[
             'js' => [
                 '/build/runtime.af19f1f9.js',
                 '/build/1.2131949b.js',
-                '/build/toggleMenu.8bb70894.js',
+                '/build/toggleMenu.5d742bb9.js',
             ],
         ],
         'searchCard' => [
@@ -52,6 +55,20 @@ return [[
                 '/build/runtime.af19f1f9.js',
                 '/build/1.2131949b.js',
                 '/build/createSlug.a223d42c.js',
+            ],
+        ],
+        'frontModal' => [
+            'js' => [
+                '/build/runtime.af19f1f9.js',
+                '/build/2.c287341b.js',
+                '/build/frontModal.c7a32e5a.js',
+            ],
+        ],
+        'colorPicker' => [
+            'js' => [
+                '/build/runtime.af19f1f9.js',
+                '/build/4.6c6adbfa.js',
+                '/build/colorPicker.28bb6c06.js',
             ],
         ],
     ],

@@ -29,10 +29,8 @@ As a training project some errors could be found in the project. I did all my be
 ## Evolution
 In the future, some functionalites will be add: 
 
-- GDPR
 - French translations
 - multiple entry for product and categories
-- CMS for the front-end
 
 ## Known Issue
 The research bar for the product in the user interface is not working. I'm looking for patch this. 

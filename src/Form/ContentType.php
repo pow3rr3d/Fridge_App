@@ -20,7 +20,19 @@ class ContentType extends AbstractType
                     'toolbar' => 'full'
                 ]
             ])
-            ->add('isActive')
+            ->add('isActive', CheckboxType::class, [
+                'row_attr' => [
+                    'class' => 'custom-control custom-switch'
+                ],
+                'label_attr' => [
+                       'class' => 'custom-control-label',
+                        'for' => 'content_isActive'
+                ],
+                'attr' => [
+                    'class' => "custom-control-input",
+                    'id' => "customSwitch1"
+                ]
+            ])
         ;
     }
 

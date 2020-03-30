@@ -135,6 +135,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v5.1.1"
     },
+    "league/csv": {
+        "version": "9.6.0"
+    },
     "liip/imagine-bundle": {
         "version": "1.8",
         "recipe": {

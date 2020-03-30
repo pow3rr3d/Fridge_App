@@ -1,0 +1,10 @@
+{% block color_picker_widget %}
+    <input type="hidden" class="picker-data" name="section[color]">
+    <div
+         {{ block("widget_attributes") }}
+         acp-show-rgb="no"
+         acp-show-hsl="yes"
+         acp-show-hex="yes"
+         acp-show-alpha>
+    </div>
+{% endblock %}

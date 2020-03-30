@@ -130,6 +130,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
 =======
       <path value="$PROJECT_DIR$/vendor/snilius/twig-sort-by-field" />
+<<<<<<< HEAD
+>>>>>>> Develop
+=======
+      <path value="$PROJECT_DIR$/vendor/league/csv" />
 >>>>>>> Develop
     </include_path>
   </component>

@@ -70,7 +70,24 @@
             </div>
         </li>
     </ul>
-
+    <ul class="nav nav-item ml-auto mr-5">
+        <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <i class="fas fa-download"></i>
+                <span class="spanMenu"> Import </span>
+            </a>
+            <div class="dropdown-menu bg-dark">
+                <a class="nav-link ml-3" href="/admin/import/categories">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="spanMenu"> Categories </span>
+                </a>
+                <a class="nav-link ml-3" href="/admin/import/products">
+                    <i class="fas fa-carrot"></i>
+                    <span class="spanMenu"> Products </span>
+                </a>
+            </div>
+        </li>
+    </ul>
     {% if app.user %}
         <li class="nav-item">
             <a class="nav-link" href="{{path("logout")}}">
@@ -89,11 +106,12 @@
 <div id="container" class="container-fluid col-9">{% block body %}{% endblock %}
 </div>
 {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('colorPicker') }}
     {{ encore_entry_script_tags('toggleMenu') }}
-    {{ encore_entry_script_tags('createSlug') }}
 {% endblock %}
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/7bae4d8b24.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
