@@ -13,6 +13,13 @@ namespace PackageVersions;
 final class Versions
 {
     public const ROOT_PACKAGE_NAME = '__root__';
+    /**
+     * Array of all available composer packages.
+     * Dont read this array from your calling code, but use the \PackageVersions\Versions::getVersion() method instead.
+     *
+     * @var array<string, string>
+     * @internal
+     */
     public const VERSIONS          = array (
   'doctrine/annotations' => 'v1.8.0@904dca4eb10715b92569fbcd79e201d5c349b6bc',
   'doctrine/cache' => '1.10.0@382e7f4db9a12dc6c19431743a2b096041bcdd62',
@@ -38,6 +45,7 @@ final class Versions
   'jms/metadata' => '2.1.0@8d8958103485c2cbdd9a9684c3869312ebdaf73a',
   'knplabs/knp-components' => 'v2.3.3@5a89e60dfe93179f329e35f92ed9348d52143f7b',
   'knplabs/knp-paginator-bundle' => 'v5.1.1@086da9cd27262ba45bcaca3a6777e97068fce8de',
+  'league/csv' => '9.6.0@7351a74625601914409b42b32cabb91a93773b7b',
   'liip/imagine-bundle' => '2.3.0@06740a0a0e9c0054d3e0589472fd19b975784c52',
   'monolog/monolog' => '2.0.2@c861fcba2ca29404dc9e617eedd9eff4616986b8',
   'ocramius/package-versions' => '1.5.1@1d32342b8c1eb27353c8887c366147b4c2da673c',
@@ -153,6 +161,8 @@ final class Versions
 
     /**
      * @throws \OutOfBoundsException If a version cannot be located.
+     *
+     * @psalm-param key-of<self::VERSIONS> $packageName
      */
     public static function getVersion(string $packageName) : string
     {

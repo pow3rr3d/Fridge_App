@@ -104,6 +104,7 @@
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
+    <parameter key="categories_directory">C:\wamp\www\Fridge_App/public/uploads/categories/</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -557,6 +558,22 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminDashboardController"/>
       </call>
     </service>
+    <service id="App\Controller\admin\adminImportCategoriesController" class="App\Controller\admin\adminImportCategoriesController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminImportCategoriesController"/>
+      </call>
+    </service>
+    <service id="App\Controller\admin\adminImportProductsController" class="App\Controller\admin\adminImportProductsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminImportProductsController"/>
+      </call>
+    </service>
     <service id="App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -685,6 +702,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ImportCategoriesType" class="App\Form\ImportCategoriesType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\PageType" class="App\Form\PageType" autowire="true" autoconfigure="true">
@@ -1202,6 +1222,7 @@
         <argument>App\Form\CategoryType</argument>
         <argument>App\Form\ContactType</argument>
         <argument>App\Form\ContentType</argument>
+        <argument>App\Form\ImportCategoriesType</argument>
         <argument>App\Form\PageType</argument>
         <argument>App\Form\ProductSearchType</argument>
         <argument>App\Form\ProductType</argument>
@@ -1542,7 +1563,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.yUkPw2E"/>
+      <argument type="service" id=".service_locator.kDWR6dR"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6436,6 +6457,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminDashboardController" class="App\Controller\admin\adminDashboardController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminImportCategoriesController" class="App\Controller\admin\adminImportCategoriesController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminImportCategoriesController" class="App\Controller\admin\adminImportCategoriesController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminImportCategoriesController" class="App\Controller\admin\adminImportCategoriesController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminImportProductsController" class="App\Controller\admin\adminImportProductsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminImportProductsController" class="App\Controller\admin\adminImportProductsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminImportProductsController" class="App\Controller\admin\adminImportProductsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\admin\adminPageController" class="App\Controller\admin\adminPageController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6492,6 +6519,8 @@
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContentType" class="App\Form\ContentType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImportCategoriesType" class="App\Form\ImportCategoriesType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ImportCategoriesType" class="App\Form\ImportCategoriesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PageType" class="App\Form\PageType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PageType" class="App\Form\PageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductSearchType" class="App\Form\ProductSearchType" autowire="true" abstract="true"/>
@@ -6773,6 +6802,12 @@
         <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.OuI9cgh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="slugger" type="service" id="slugger"/>
+      </argument>
+    </service>
     <service id=".service_locator.QtzbAnb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6874,7 +6909,7 @@
         <argument key="userProduct" type="service" id=".errored..service_locator.4nhWbpP.App\Entity\UserProduct"/>
       </argument>
     </service>
-    <service id=".service_locator.y0I2L4C" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Sev_aQT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.iiu8BOO"/>
@@ -6889,6 +6924,8 @@
         <argument key="App\Controller\admin\adminContentController::index" type="service" id=".service_locator.Z0b7_X1"/>
         <argument key="App\Controller\admin\adminContentController::show" type="service" id=".service_locator.1x47IPt"/>
         <argument key="App\Controller\admin\adminDashboardController::index" type="service" id=".service_locator.TwZjFMQ"/>
+        <argument key="App\Controller\admin\adminImportCategoriesController::index" type="service" id=".service_locator.OuI9cgh"/>
+        <argument key="App\Controller\admin\adminImportProductsController::index" type="service" id=".service_locator.OuI9cgh"/>
         <argument key="App\Controller\admin\adminPageController::delete" type="service" id=".service_locator.STpZUTq"/>
         <argument key="App\Controller\admin\adminPageController::edit" type="service" id=".service_locator.STpZUTq"/>
         <argument key="App\Controller\admin\adminPageController::index" type="service" id=".service_locator.QtzbAnb"/>
@@ -6979,13 +7016,14 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.yUkPw2E" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.kDWR6dR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorySearchType" type="service" id="App\Form\CategorySearchType"/>
         <argument key="App\Form\CategoryType" type="service" id="App\Form\CategoryType"/>
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\ContentType" type="service" id="App\Form\ContentType"/>
+        <argument key="App\Form\ImportCategoriesType" type="service" id="App\Form\ImportCategoriesType"/>
         <argument key="App\Form\PageType" type="service" id="App\Form\PageType"/>
         <argument key="App\Form\ProductSearchType" type="service" id="App\Form\ProductSearchType"/>
         <argument key="App\Form\ProductType" type="service" id="App\Form\ProductType"/>
@@ -7266,6 +7304,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminImportCategoriesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminImportCategoriesController"/>
+      <argument>App\Controller\admin\adminImportCategoriesController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminImportProductsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminImportProductsController"/>
+      <argument>App\Controller\admin\adminImportProductsController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\admin\adminPageController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\admin\adminPageController"/>
       <argument>App\Controller\admin\adminPageController</argument>
@@ -7477,12 +7527,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.y0I2L4C"/>
+      <argument type="service" id=".service_locator.Sev_aQT"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.y0I2L4C"/>
+      <argument type="service" id=".service_locator.Sev_aQT"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7933,7 +7983,7 @@
     <service id="Liip\ImagineBundle\Imagine\Filter\FilterManager" alias="liip_imagine.filter.manager" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.y0I2L4C"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Sev_aQT"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

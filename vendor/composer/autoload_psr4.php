@@ -91,6 +91,7 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
     'Liip\\ImagineBundle\\' => array($vendorDir . '/liip/imagine-bundle'),
+    'League\\Csv\\' => array($vendorDir . '/league/csv/src'),
     'Knp\\Component\\' => array($vendorDir . '/knplabs/knp-components/src/Knp/Component'),
     'Knp\\Bundle\\PaginatorBundle\\' => array($vendorDir . '/knplabs/knp-paginator-bundle/src'),
     'Imagine\\' => array($vendorDir . '/imagine/imagine/src'),

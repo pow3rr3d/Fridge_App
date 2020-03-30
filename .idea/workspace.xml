@@ -10055,6 +10055,13 @@
         <item name="training" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="category: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="training" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="training: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="product: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
@@ -10226,6 +10233,7 @@
       <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
       <path value="$PROJECT_DIR$/vendor/snilius/twig-sort-by-field" />
+      <path value="$PROJECT_DIR$/vendor/league/csv" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XJI7AzTq6mcIu4JzOs1Qo5D6Pu" />
@@ -10245,25 +10253,25 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tcket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\Fridge_App\templates\admin\import\categories" />
+      <recent name="C:\wamp\www\Fridge_App\templates\admin" />
+      <recent name="C:\wamp\www\Fridge_App\src\Controller\admin" />
+      <recent name="$PROJECT_DIR$/src/Controller/admin" />
+      <recent name="$PROJECT_DIR$/templates/admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/js" />
       <recent name="$PROJECT_DIR$/templates/user/product" />
       <recent name="$PROJECT_DIR$/src/Form" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\Fridge_App\templates\admin" />
-      <recent name="C:\wamp\www\Fridge_App\src\Controller\admin" />
-      <recent name="$PROJECT_DIR$/src/Controller/admin" />
-      <recent name="$PROJECT_DIR$/templates/admin" />
-      <recent name="$PROJECT_DIR$/templates/user/conso" />
-    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -10353,6 +10361,7 @@
       <workItem from="1584699803018" duration="3321000" />
       <workItem from="1584960776728" duration="110000" />
       <workItem from="1585314192305" duration="18294000" />
+      <workItem from="1585573101759" duration="11557000" />
     </task>
     <servers />
   </component>
@@ -10446,10 +10455,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="732" y="366" width="513" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1581258650859" />
-    <state x="794" y="444" key="NewPhpFileDialog" timestamp="1585331532630">
+    <state x="794" y="444" key="NewPhpFileDialog" timestamp="1585574112493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="444" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585331532630" />
+    <state x="794" y="444" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585574112493" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1584020380010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

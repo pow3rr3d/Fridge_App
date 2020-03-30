@@ -70,7 +70,24 @@
             </div>
         </li>
     </ul>
-
+    <ul class="nav nav-item ml-auto mr-5">
+        <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <i class="fas fa-download"></i>
+                <span class="spanMenu"> Import </span>
+            </a>
+            <div class="dropdown-menu bg-dark">
+                <a class="nav-link ml-3" href="/admin/import/categories">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="spanMenu"> Categories </span>
+                </a>
+                <a class="nav-link ml-3" href="/admin/import/products">
+                    <i class="fas fa-carrot"></i>
+                    <span class="spanMenu"> Products </span>
+                </a>
+            </div>
+        </li>
+    </ul>
     {% if app.user %}
         <li class="nav-item">
             <a class="nav-link" href="{{path("logout")}}">

@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+    categories_directory: '%kernel.project_dir%/public/uploads/categories/'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -28,3 +30,6 @@ services:
     App\Listener\ImageCacheSubscriber:
         tags:
         - {name: doctrine.event_subcriber}
+
+
+
