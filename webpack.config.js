@@ -30,6 +30,7 @@ Encore
     .addEntry('updateMemo', './assets/js/updateMemo.js')
     .addEntry('createSlug', './assets/js/createSlug.js')
     .addEntry('frontModal', './assets/js/frontModal.js')
+    .addEntry('colorPicker', './assets/js/colorPicker.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
