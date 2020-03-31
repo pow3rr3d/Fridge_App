@@ -18,7 +18,7 @@ use League\Csv\Reader;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
- * @Route("/admin/import/products", name="admin_import_categories")
+ * @Route("/admin/import/products", name="admin_import_products")
  */
 class adminImportProductsController extends AbstractController
 {
@@ -30,7 +30,7 @@ class adminImportProductsController extends AbstractController
     }
 
     /**
-     * @Route("/", name="admin_import_categories_index")
+     * @Route("/", name="admin_import_products_index")
      * @param SluggerInterface $slugger
      * @param Request $request
      * @return Response

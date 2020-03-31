@@ -4,11 +4,10 @@
 
 return [[
 
+'_default' => 0,
 
 ], [
 
-<<<<<<< HEAD
-=======
 0 => [
     'entrypoints' => [
         'app' => [
@@ -73,6 +72,5 @@ return [[
         ],
     ],
 ],
->>>>>>> Develop
 
 ]];

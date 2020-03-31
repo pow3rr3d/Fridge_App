@@ -6,6 +6,7 @@ namespace App\Controller\admin;
 use App\Entity\Category;
 use App\Form\ImportCategoriesType;
 use Doctrine\ORM\EntityManagerInterface;
+use League\Csv\Exception as ExceptionAlias;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,6 +34,7 @@ class adminImportCategoriesController extends AbstractController
      * @param SluggerInterface $slugger
      * @param Request $request
      * @return Response
+     * @throws ExceptionAlias
      */
     public function index(SluggerInterface $slugger, Request $request)
     {
