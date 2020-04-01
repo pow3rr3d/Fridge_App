@@ -6,12 +6,14 @@
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "regenerator-runtime": "^0.13.5",
-    "webpack-notifier": "^1.6.0"
+    "webpack-notifier": "^1.6.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
   },
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev-server-hot": "encore dev-server --hot --port 9000",
+    "dev-server-hot": "encore dev-server --port 8080 --hot --disable-host-check",
     "dev-server": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",

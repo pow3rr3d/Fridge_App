@@ -6,7 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import '../css/app.css';
+import '../css/app.scss';
 
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
@@ -18,6 +18,6 @@ import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/alert';
 
 console.log(
-    '%cWELCOME TO FRIDGE_APP V1.04',
+    '%cWELCOME TO FRIDGE_APP V2.00',
     "color:royalblue;font-family:'Poppins', sans-serif;font-size:2rem;-webkit-text-stroke: 2px white;font-weight:bold"
     );

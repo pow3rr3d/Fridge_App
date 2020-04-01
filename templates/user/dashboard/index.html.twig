@@ -17,12 +17,12 @@
             </div>
             <br>
             <input id="userId" type="hidden" value="{{ user.id }}">
-           <div class="form-control h-75" contenteditable="true" id="memo">
+            <div class="form-control h-75" contenteditable="true" id="memo">
                 {% for memos in memo %}
-                   {{ memos.memo |raw }}
-               {%  endfor %}
-               <br>
-           </div>
+                    {{ memos.memo |raw }}
+                {% endfor %}
+                <br>
+            </div>
         </div>
 
         <div class="border-left my-3 mt-5 mr-5"></div>
@@ -76,7 +76,7 @@
     {% for content in contents %}
         {% if content.isActive == true %}
             <div class="card mb-5">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header text-white">
                     <div class="row">
                         <div class="col">
                             <b>

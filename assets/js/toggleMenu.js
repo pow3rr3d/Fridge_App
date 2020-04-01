@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
 var element = document.getElementById('toogleButton');
-var menu = document.getElementById('navbar');
+var menu = document.getElementById('navbarBack');
 var body = document.getElementById('container');
 var footer = document.getElementById('containerFooter');
 

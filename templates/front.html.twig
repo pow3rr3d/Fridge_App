@@ -53,8 +53,8 @@
         </section>
         <section>
             {% for section in sections|filter(s => s.isActive) %}
-                <div id="section" style="background-color: {{ section.color }}">
-                    <div class="row d-flex justify-content-around mr-5 ml-5">
+                <div id="section" class="container" style="background-color: {{ section.color }}">
+                    <div class="row d-flex justify-content-around ">
                         {{ section.content|raw }}
                     </div>
                 </div>
@@ -85,16 +85,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer font-small bg-secondary text-white mt-5">
-            <footer class="page-footer">
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-1 bg-dark text-muted">
-                    <span>Powered by Symfony 5</span>
-                </div>
-                <!-- Copyright -->
-            </footer>
-        </div>
         </div>
         {{ encore_entry_script_tags('frontModal') }}
     {% endblock %}

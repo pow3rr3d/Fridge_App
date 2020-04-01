@@ -31,6 +31,7 @@ Encore
     .addEntry('createSlug', './assets/js/createSlug.js')
     .addEntry('frontModal', './assets/js/frontModal.js')
     .addEntry('colorPicker', './assets/js/colorPicker.js')
+    .addEntry('onScroll', './assets/js/onScroll.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -61,7 +62,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

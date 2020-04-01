@@ -30,17 +30,18 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                <tr>
-                    <th> Product</th>
-                    <th> Description</th>
-                    <th> Category</th>
-                    <th> Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for product in products %}
+            <div class="row">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th> Product</th>
+                        <th> Description</th>
+                        <th> Category</th>
+                        <th> Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
                     <tr>
                         <td>
                             {{ product.name }}
@@ -50,43 +51,49 @@
                         </td>
                         <td>
                             {% if product.getCategory().getName() is defined %}
-                            {{ product.getCategory().getName() }}
+                                {{ product.getCategory().getName() }}
                             {% endif %}
                         </td>
                         <td>
                             <a href="{{ path('admin_product_edit', {id: product.id }) }}" class="btn btn-secondary">
                                 Editer</a>
-                            <button type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit{{product.id}}" class="btn btn-danger">
+                            <button type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal"
+                                    data-target="#confirm-submit{{ product.id }}" class="btn btn-danger">
                                 Delete
-                                <input class="button" type="hidden" value="{{product.id}}" name="id"/>
+                                <input class="button" type="hidden" value="{{ product.id }}" name="id"/>
                             </button>
                         </td>
                     </tr>
-                <div class="modal fade" id="confirm-submit{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                Confirm Submit
-                            </div>
-                            <div class="modal-body">
-                                <p class="text-left ">Are you sure you want to delete the following product?</p>
-                                <p class="text-left">Name:</p>
-                                <p class="text-left font-weight-bold">{{product.name}}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <form method="post" action="{{ path("admin_product_delete", {id: product.id}) }}"
-                                      style="display: inline-block">
-                                    <input type="hidden" name="_method" value="update">
-                                    <input type="hidden" name="_token" data-toggle="modal" data-target="#confirm-submit{{product.id}}" value="{{ csrf_token('delete' ~ product.id) }}">
-                                    <button class="btn btn-danger">Delete</button>
-                                </form>
+                    <div class="modal fade" id="confirm-submit{{ product.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Confirm Submit
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-left ">Are you sure you want to delete the following product?</p>
+                                    <p class="text-left">Name:</p>
+                                    <p class="text-left font-weight-bold">{{ product.name }}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    <form method="post" action="{{ path("admin_product_delete", {id: product.id}) }}"
+                                          style="display: inline-block">
+                                        <input type="hidden" name="_method" value="update">
+                                        <input type="hidden" name="_token" data-toggle="modal"
+                                               data-target="#confirm-submit{{ product.id }}"
+                                               value="{{ csrf_token('delete' ~ product.id) }}">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <br>
         <div class="row justify-content-end">
