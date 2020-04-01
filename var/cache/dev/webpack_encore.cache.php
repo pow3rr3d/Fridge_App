@@ -12,62 +12,82 @@ return [[
     'entrypoints' => [
         'app' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/2.c287341b.js',
-                '/build/3.5856ba1e.js',
-                '/build/app.86fdcb50.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~app~frontModal.js',
+                'http://localhost:8080/build/vendors~app.js',
+                'http://localhost:8080/build/app.js',
             ],
             'css' => [
-                '/build/3.e6b28ac1.css',
-                '/build/app.defac794.css',
+                'http://localhost:8080/build/vendors~app.css',
+                'http://localhost:8080/build/app.css',
             ],
         ],
         'search' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/0.264d7ee1.js',
-                '/build/search.7fd568cc.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~createSlug~frontModal~search~searchCard~toggleMenu.js',
+                'http://localhost:8080/build/vendors~search~searchCard.js',
+                'http://localhost:8080/build/search.js',
             ],
         ],
         'toggleMenu' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/1.2131949b.js',
-                '/build/toggleMenu.5d742bb9.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~createSlug~frontModal~search~searchCard~toggleMenu.js',
+                'http://localhost:8080/build/vendors~createSlug~toggleMenu.js',
+                'http://localhost:8080/build/toggleMenu.js',
             ],
         ],
         'searchCard' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/0.264d7ee1.js',
-                '/build/searchCard.e469f61f.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~createSlug~frontModal~search~searchCard~toggleMenu.js',
+                'http://localhost:8080/build/vendors~search~searchCard.js',
+                'http://localhost:8080/build/searchCard.js',
             ],
         ],
         'updateMemo' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/updateMemo.2e95819a.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/updateMemo.js',
             ],
         ],
         'createSlug' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/1.2131949b.js',
-                '/build/createSlug.a223d42c.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~createSlug~frontModal~search~searchCard~toggleMenu.js',
+                'http://localhost:8080/build/vendors~createSlug~toggleMenu.js',
+                'http://localhost:8080/build/createSlug.js',
             ],
         ],
         'frontModal' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/2.c287341b.js',
-                '/build/frontModal.c7a32e5a.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~createSlug~frontModal~search~searchCard~toggleMenu.js',
+                'http://localhost:8080/build/vendors~app~frontModal.js',
+                'http://localhost:8080/build/frontModal.js',
             ],
         ],
         'colorPicker' => [
             'js' => [
-                '/build/runtime.af19f1f9.js',
-                '/build/4.6c6adbfa.js',
-                '/build/colorPicker.28bb6c06.js',
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/vendors~colorPicker.js',
+                'http://localhost:8080/build/colorPicker.js',
+            ],
+        ],
+        'onScroll' => [
+            'js' => [
+                'http://localhost:8080/build/runtime.js',
+                'http://localhost:8080/build/vendors~app~colorPicker~createSlug~frontModal~onScroll~search~searchCard~toggleMenu~updateMemo.js',
+                'http://localhost:8080/build/onScroll.js',
             ],
         ],
     ],

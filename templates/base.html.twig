@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="extensions/filter-control/bootstrap-table-filter-control.css">
     <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 
     <title>
@@ -16,15 +17,16 @@
     </title>
     {% block stylesheets %}{% endblock %}
 </head>
-<body>
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav id="frontNav" class="navbar navbar-expand-lg navbar-light ml-auto">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon my-toggler"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-
+            <a class="navbar-brand" href="/">
+                <img src="/media/logo.png" alt="">
+            </a>
             <ul class="nav navbar-nav">
                 {% for page in pages|filter(s => s.isActive) %}
                     <li class="nav-item">
@@ -41,9 +43,9 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         Account
                     </a>
-                    <div class="dropdown-menu bg-secondary ">
-                        <a class="nav-link text-white" href="/register"><i class="fas fa-user-plus"></i> Sign Up</a>
-                        <a class="nav-link text-white" href="/user/dashboard"><i class="fas fa-sign-in-alt"></i>
+                    <div class="dropdown-menu shadow ">
+                        <a id="secondLink" class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Sign Up</a>
+                        <a id="secondLink" class="nav-link" href="/user/dashboard"><i class="fas fa-sign-in-alt"></i>
                             Login</a>
                     </div>
                 </li>
@@ -51,25 +53,73 @@
         </div>
     </nav>
 {% endblock %}
-
-
+<body>
 {% block body %}
 {% endblock %}
+<div class="footer font-small mt-5">
+    <div class="container">
+        <footer class="page-footer row justify-content-around">
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <span class="text-left">Plan du site:
+                        {% for page in pages|filter(s => s.isActive) %}
+                            <a class="nav-link" href="{% if page.path == "" %}/{% else %}{{ page.path }}{% endif %}">
+                                    {{ page.name }}
+                                </a>
+                        {% endfor %}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <span class="text-left">Accès au repository public:
+                        <a class="nav-link" href="https://github.com/pow3rr3d/Fridge_App">Fridge_App</a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <span class="text-left">
+                        <a class="nav-link" href="https://symfony.com/releases/5.0">Symfony 5</a>
+                        <a class="nav-link" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">BootStrap 4</a>
+                        <a class="nav-link" href="https://www.npmjs.com/">npm 6</a>
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+</div>
 
-<script src="https://kit.fontawesome.com/7bae4d8b24.js"crossorigin="anonymous"></script>
+<div class="hidden" id="return-to-top"><i class="fas fa-chevron-up"></i></div>
+
+<script src="https://kit.fontawesome.com/7bae4d8b24.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://unpkg.com/@popperjs/core@2"></script>
 {% block javascripts %}
-    <script src="{{ asset('build/app.js') }}"></script>
-{% endblock %}
 
+{% endblock %}
+<script src="{{ asset('build/app.js') }}"></script>
+{{ encore_entry_script_tags('onScroll') }}
 </body>
 </html>

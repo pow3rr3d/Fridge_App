@@ -4,10 +4,6 @@
     "require": {
         "php": "^7.2.5",
         "ext-ctype": "*",
-<<<<<<< HEAD
-
-=======
->>>>>>> Develop
         "ext-iconv": "*",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
         "fzaninotto/faker": "^1.9",
