@@ -39,7 +39,7 @@
                         <div class="d-inline-flex p-2">
                             <input type="hidden" name="_method" value="update">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-                            <input name="nb" type="number" min="0"/>
+                            <input id="consoNb" name="nb" type="number" min="0"/>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-minus"></i>
                             </button>

@@ -18,6 +18,6 @@ import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/alert';
 
 console.log(
-    '%cWELCOME TO FRIDGE_APP V1.04',
+    '%cWELCOME TO FRIDGE_APP V2.00',
     "color:royalblue;font-family:'Poppins', sans-serif;font-size:2rem;-webkit-text-stroke: 2px white;font-weight:bold"
     );
