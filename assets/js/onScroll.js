@@ -8,10 +8,12 @@ window.onscroll = function(){
     {
         button.classList.remove("hidden");
         menu.classList.add("shadow");
+        menu.classList.add("white");
     }
     else{
         menu.classList.remove("shadow");
         button.classList.add("hidden");
+        menu.classList.remove("white");
     }
 
 };
