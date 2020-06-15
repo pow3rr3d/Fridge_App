@@ -35,7 +35,6 @@ class UserProductRepository extends ServiceEntityRepository
             $qb = $qb->where("prod.name LIKE :name");
             $qb->setParameter(":name" , '%'.$search->getName().'%');
         }
-        dump($search);
         return $qb->getQuery();
     }
 

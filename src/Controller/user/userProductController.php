@@ -83,7 +83,6 @@ class userProductController extends AbstractController
         $form = $this->createForm(UserProductType::class, $product);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($product);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();

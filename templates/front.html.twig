@@ -51,16 +51,16 @@
 
             {% endif %}
         </section>
-        <section>
             {% for section in sections|filter(s => s.isActive) %}
-                <div id="section" class="container" style="background-color: {{ section.color }}">
-                    <div class="row d-flex justify-content-around ">
+                <section style="background-color: {{ section.color }}">
+                <div id="section" class="container">
+{#                    <div class="row d-flex justify-content-around ">#}
                         {{ section.content|raw }}
-                    </div>
+{#                    </div>#}
                 </div>
                 <br>
+                </section>
             {% endfor %}
-        </section>
         <div class="modal fade bd-dark" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
              aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-sm">
