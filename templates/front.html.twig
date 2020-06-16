@@ -51,40 +51,15 @@
 
             {% endif %}
         </section>
-            {% for section in sections|filter(s => s.isActive) %}
-                <section style="background-color: {{ section.color }}">
+        {% for section in sections|filter(s => s.isActive) %}
+            <section style="background-color: {{ section.color }}">
                 <div id="section" class="container">
-{#                    <div class="row d-flex justify-content-around ">#}
-                        {{ section.content|raw }}
-{#                    </div>#}
+                    {#                    <div class="row d-flex justify-content-around ">#}
+                    {{ section.content|raw }}
+                    {#                    </div>#}
                 </div>
                 <br>
-                </section>
-            {% endfor %}
-        <div class="modal fade bd-dark" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-             aria-hidden="true" data-backdrop="static">
-            <div class="modal-dialog modal-sm">
-                <div id='modal' class="modal-content">
-                    <div class="m-5">
-                        <h3 class="text-center">It's Cookies Time! <i class="fas fa-cookie-bite"></i></h3>
-                        <br>
-                        <span class="text-justify">
-                            <p>
-                            L'application Fridge_App n'utilise pas de cookies dit "de tracking".
-                            </p>
-                            <p>
-                            Les seuls cookies présents servent au bon fonctionnement de l'application.
-                            Merci de les valider en intégralités avant de poursuivre.
-                            </p>
-                        </span>
-                        <br>
-                        <div class="d-flex justify-content-around">
-                            <button id="CookiesRefuse" class="btn btn-danger">Retour</button>
-                            <button id="CookiesValidation" class="btn btn-primary">Valider</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{ encore_entry_script_tags('frontModal') }}
+            </section>
+        {% endfor %}
+
     {% endblock %}

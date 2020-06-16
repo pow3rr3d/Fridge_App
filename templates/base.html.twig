@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="extensions/filter-control/bootstrap-table-filter-control.css">
-    <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+    {{ encore_entry_link_tags('app') }}
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
 
     <title>
-        {% block title %}Welcome!
+        {% block title %}Welcome on Fridge_App!
         {% endblock %}
     </title>
     {% block stylesheets %}{% endblock %}
@@ -43,8 +40,9 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         Account
                     </a>
-                    <div class="dropdown-menu shadow ">
-                        <a id="secondLink" class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Sign Up</a>
+                    <div class="dropdown-menu">
+                        <a id="secondLink" class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Sign
+                            Up</a>
                         <a id="secondLink" class="nav-link" href="/user/dashboard"><i class="fas fa-sign-in-alt"></i>
                             Login</a>
                     </div>
@@ -89,37 +87,39 @@
         </footer>
     </div>
 </div>
+<div class="modal fade bd-dark" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div id='modal' class="modal-content">
+            <div class="m-5">
+                <h3 class="text-center">It's Cookies Time! <i class="fas fa-cookie-bite"></i></h3>
+                <br>
+                <span class="text-justify">
+                            <p>
+                            L'application Fridge_App n'utilise pas de cookies dit "de tracking".
+                            </p>
+                            <p>
+                            Les seuls cookies présents servent au bon fonctionnement de l'application.
+                            Merci de les valider en intégralités avant de poursuivre.
+                            </p>
+                        </span>
+                <br>
+                <div class="d-flex justify-content-around">
+                    <button id="CookiesRefuse" class="btn btn-danger">Retour</button>
+                    <button id="CookiesValidation" class="btn btn-primary">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div class="hidden" id="return-to-top"><i class="fas fa-chevron-up"></i></div>
 
-<script src="https://kit.fontawesome.com/7bae4d8b24.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://unpkg.com/@popperjs/core@2"></script>
 {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('onScroll') }}
 
 {% endblock %}
-<script src="{{ asset('build/app.js') }}"></script>
-{{ encore_entry_script_tags('onScroll') }}
+{{ encore_entry_script_tags('frontModal') }}
 </body>
+
 </html>
