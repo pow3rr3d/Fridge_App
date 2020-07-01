@@ -9,6 +9,37 @@ $breakpoint-tablet: 1050px;
     background-color: white;
     margin-top: 10%;
 
+    #topBar {
+      position: fixed;
+      top: 0;
+      width: auto;
+      height: 5%;
+      background-color: #212f3c;
+      color: white;
+      box-shadow: 1px 1px 10px #212f3c;
+
+      #userDropdown {
+        z-index: 1000;
+        color: white;
+        border: 0px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: 1px 1px 10px #212f3c;
+        position: fixed;
+        right: 0px;
+
+        .dropdown-menu
+        {
+          background-color: #212f3c;
+          color: white;
+          padding-left: 10px;
+          box-shadow: 1px 1px 10px #212f3c;
+          border: none;
+        }
+
+      }
+    }
+
     .card-header {
       background-color: #212f3c;
     }
@@ -172,7 +203,7 @@ $breakpoint-tablet: 1050px;
       height: 100%;
       box-shadow: 1px 1px 10px #212f3c;
       position: fixed;
-      top: 0;
+      top: 5%;
 
       #navbarNav {
         position: fixed;
@@ -183,7 +214,7 @@ $breakpoint-tablet: 1050px;
           display: flex;
           margin-left: 15px;
           position: fixed;
-          top: 0;
+          top: 5%;
           left: 0;
           flex-direction: column;
 
