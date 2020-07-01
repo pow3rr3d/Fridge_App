@@ -30,10 +30,14 @@ As a training project some errors could be found in the project. I did all my be
 In the future, some functionalites will be add: 
 
 - French translations
-- multiple entry for product and categories
+- multiple entry for products and categories
+- Switch Light/Dark mode
+- Adding a cron to send the shopping list based on the user preset.
+
+In a second time, a 
 
 ## Known Issue
-The research bar for the product in the user interface is not working. I'm looking for patch this. 
+
 
 ## Contributing
 Pull requests are welcome.
