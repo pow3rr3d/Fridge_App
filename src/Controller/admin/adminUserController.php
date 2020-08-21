@@ -96,6 +96,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
          */
     public function edit(Request $request, User $user,UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em): Response
     {
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -111,8 +112,25 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
             return $this->redirectToRoute('user_index');
         }
+
+        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutAdmin")
+        {
+            $user = $em->getRepository(User::class)->find($_POST['inputAdmin']);
+            $user->setRoles("ROLE_ADMIN");
+            $em->flush();
+            return $this->redirectToRoute('user_index');
+        }
+        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutUser")
+        {
+            $user = $em->getRepository(User::class)->find($_POST['inputAdmin']);
+            $user->setRoles("ROLE_USER");
+            $em->flush();
+            return $this->redirectToRoute('user_index');
+        }
+//        dd($user);
+
         return $this->render('admin/user/edit.html.twig', [
-            'user' => $user,
+            'account' => $user,
             'form' => $form->createView(),
         ]);
     }
@@ -134,27 +152,29 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
         return $this->redirectToRoute('user_index');
     }
 
-        /**
-         * * @Route("/admin/{id}", name="user_admin")
-         * @param EntityManager $entityManager
-         * @throws ORMException
-         * @throws OptimisticLockException
-         */
-        public function admin(EntityManagerInterface $entityManager)
-    {
-        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutAdmin")
-        {
-            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
-            $user->setRoles("ROLE_ADMIN");
-            $entityManager->flush();
-            return $this->redirectToRoute('user_index');
-        }
-        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutUser")
-        {
-            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
-            $user->setRoles("ROLE_USER");
-            $entityManager->flush();
-            return $this->redirectToRoute('user_index');
-        }
-    }
+//        /**
+//         * @Route("/admin/{id}", name="user_admin", methods={"GET","POST"})
+//         * @param EntityManager $entityManager
+//         * @throws ORMException
+//         * @throws OptimisticLockException
+//         */
+//        public function admin(EntityManagerInterface $entityManager, User $user)
+//    {
+//        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutAdmin")
+//        {
+//            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
+//            $user->setRoles("ROLE_ADMIN");
+//            dd($user);
+//            $entityManager->flush();
+//            return $this->redirectToRoute('user_index');
+//        }
+//        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutUser")
+//        {
+//            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
+//            $user->setRoles("ROLE_USER");
+//            dd($user);
+//            $entityManager->flush();
+//            return $this->redirectToRoute('user_index');
+//        }
+//    }
 }

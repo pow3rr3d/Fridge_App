@@ -3,37 +3,42 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
+    <div class="text-center">
+        <h1>Edit User</h1>
+        <div class="mt-4">
+            <div class="text-right">
+                <div class="d-inline-block ">
+                    <a href="{{ path('user_index') }}" class="btn btn-primary">Back to list</a>
+                </div>
+                <div class="d-inline-block ">
+                    {{ include('admin/user/_delete_form.html.twig') }}
+                </div>
+                <div class="d-inline-block ">
+                    {% if user.id != account.id %}
+                        {% for r in account.role %}
+                            {% if r is same as ("ROLE_USER") %}
+                                <form method="post" action="{{ path('user_edit', {'id': account.id}) }}"
+                                      onsubmit="return confirm('Are you sure you want to put this user Admin?');">
+                                    <input name="inputAdmin" type="hidden" value="{{ account.id }}">
+                                    <input name="submitAdmin" type="submit" value="PutAdmin" class="btn btn-danger">
+                                </form>
+                            {% endif %}
+                            {% if r is same as ("ROLE_ADMIN") %}
+                                <form method="post" action="{{ path('user_edit', {'id': account.id}) }}"
+                                      onsubmit="return confirm('Are you sure you want to put this user as User?');">
+                                    <input name="inputAdmin" type="hidden" value="{{ account.id }}">
+                                    <input name="submitAdmin" type="submit" value="PutUser" class="btn btn-danger">
+                                </form>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            <div class="text-left">
+                {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}
 
-<div class="text-center">
-    <h1>Edit User</h1>
-    <div class="mt-4">
-        <div class="text-right">
-            <div class="d-inline-block ">
-                <a href="{{ path('user_index') }}" class="btn btn-primary">Back to list</a>
-            </div>
-            <div class="d-inline-block ">
-                {{ include('admin/user/_delete_form.html.twig') }}
-            </div>
-            <div class="d-inline-block ">
-                {% for r in user.role %}
-                {%  if r is same as ("ROLE_USER") %}
-                <form method="post" action="{{ path('user_admin', {'id': user.id})}}" onsubmit="return confirm('Are you sure you want to put this user Admin?');">
-                    <input name="inputAdmin" type="hidden" value="{{ user.id }}">
-                    <input name="submitAdmin" type="submit" value="PutAdmin" class="btn btn-danger">
-                </form>
-                {%  endif %}
-                    {%  if r is same as ("ROLE_ADMIN") %}
-                    <form method="post" action="{{ path('user_admin', {'id': user.id})}}" onsubmit="return confirm('Are you sure you want to put this user as User?');">
-                        <input name="inputAdmin" type="hidden" value="{{ user.id }}">
-                        <input name="submitAdmin" type="submit" value="PutUser" class="btn btn-danger">
-                    </form>
-                    {%  endif %}
-                {% endfor %}
             </div>
         </div>
-        <br>
-        <div class="text-left">
-            {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}
-
-        </div>
-        {% endblock %}
+    </div>
+{% endblock %}
