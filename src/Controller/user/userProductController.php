@@ -33,6 +33,8 @@ class userProductController extends AbstractController
      */
     private $em;
 
+    private $user;
+
     public function __construct(UserProductRepository $repository, EntityManagerInterface $em)
     {
 
@@ -49,6 +51,7 @@ class userProductController extends AbstractController
     public function index(PaginatorInterface $paginator, Request $request):Response
     {
 
+        $user = $this->getUser();
         $search = new UserProductSearch();
         $form = $this->createForm(UserProductSearchType::class, $search);
         $form->handleRequest($request);
@@ -63,7 +66,8 @@ class userProductController extends AbstractController
         return $this->render('user/product/index.html.twig', [
             'products' => $products,
             'pagination' => $paginator,
-            'form' =>$form->createView()
+            'form' =>$form->createView(),
+            'user' => $user
         ]);
 
 
@@ -77,6 +81,7 @@ class userProductController extends AbstractController
      */
     public function new(UserInterface $user, Request $request): Response
     {
+        $user = $this->getUser();
         $product = new UserProduct();
         $user = $this->getUser();
         $product->setUser($user);
@@ -91,7 +96,8 @@ class userProductController extends AbstractController
         }
 
         return $this->render('user/product/new.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 
@@ -105,6 +111,7 @@ class userProductController extends AbstractController
 
     public function edit(UserProduct $userProduct, Request $request)
     {
+        $user = $this->getUser();
         $form = $this->createForm(UserProductType::class, $userProduct);
         $form->handleRequest($request);
 
@@ -115,7 +122,8 @@ class userProductController extends AbstractController
         }
         return $this->render('user/product/edit.html.twig', [
             'product' => $userProduct,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 

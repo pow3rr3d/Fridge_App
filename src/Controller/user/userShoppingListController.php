@@ -33,12 +33,12 @@ class userShoppingListController extends AbstractController
     private $em;
 
 
-
     public function __construct(UserProductRepository $repository, EntityManagerInterface $em)
     {
 
         $this->repository = $repository;
         $this->em = $em;
+
     }
 
 
@@ -51,6 +51,7 @@ class userShoppingListController extends AbstractController
 
     public function index(PaginatorInterface $paginator, Request $request)
     {
+        $user = $this->getUser();
         $search = new ProductSearch();
         $form = $this->createForm(ProductSearchType::class, $search);
         $form->handleRequest($request);
@@ -64,7 +65,8 @@ class userShoppingListController extends AbstractController
         return $this->render('user/list/index.html.twig', [
             'products' => $products,
             'pagination' => $paginator,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 

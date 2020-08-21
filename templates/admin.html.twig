@@ -14,8 +14,35 @@
         {% endblock %}
     </title>
     {% block stylesheets %}{% endblock %}
+    {% set user = app.user %}
 </head>
 <body>
+<div class="w-100" id="topBar">
+    <li class="nav-item" id="toogleButton">
+        <a class="nav-link" href="#">
+            <i id="arrow" class="fas fa-arrow-left"></i>
+            <span class="spanMenu">Toggle Menu</span>
+        </a>
+    </li>
+    <ul class="nav navbar-nav ml-auto mr-3" id="userDropdown">
+        <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <i class="far fa-user-circle"></i> {{ user.surname }}
+            </a>
+            <div class="dropdown-menu">
+                <a class="nav-link" href="/admin/account">
+                    <i class="fas fa-id-card"></i>
+                    <span class="spanMenu">Account</span>
+                </a>
+                <a class="nav-link" href="{{ path("logout") }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="spanMenu">Déconnexion</span>
+                </a>
+
+            </div>
+        </li>
+    </ul>
+</div>
 <div class="row">
     <nav class="nav navbar flex-column navbar-expand-lg navbar-light notHidden" id="navbarBack">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -52,12 +79,6 @@
                     <a class="nav-link" href="/admin/news/">
                         <i class="fas fa-newspaper"></i>
                         <span class="spanMenu">Actu</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/account">
-                        <i class="fas fa-id-card"></i>
-                        <span class="spanMenu">Account</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -104,30 +125,17 @@
                     </li>
                 </ul>
                 </li>
-                {% if app.user %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("logout") }}">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="spanMenu">Déconnexion</span>
-                        </a>
-                    </li>
-                {% endif %}
-                <li class="nav-item" id="toogleButton">
-                    <a class="nav-link" href="#">
-                        <i id="arrow" class="fas fa-arrow-left"></i>
-                        <span class="spanMenu">Toggle Menu</span>
-                    </a>
-                </li>
             </ul>
         </div>
     </nav>
-    <div id="container" class="container-fluid col-9">
+    <div id="container" class="container-fluid col-9 mt-5">
         {% block body %}{% endblock %}
     </div>
 </div>
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
     {{ encore_entry_script_tags('colorPicker') }}
+    {{ encore_entry_script_tags('labelColor') }}
     {{ encore_entry_script_tags('toggleMenu') }}
 {% endblock %}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

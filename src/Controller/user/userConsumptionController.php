@@ -50,6 +50,7 @@ class userConsumptionController extends AbstractController
     public function index(EntityManagerInterface $em, PaginatorInterface $paginator, Request $request)
     {
 
+        $user = $this->getUser();
         $list = new UserProductSearch();
         $form = $this->createForm(UserProductSearchType::class, $list);
         $form->handleRequest($request);
@@ -58,7 +59,8 @@ class userConsumptionController extends AbstractController
         return $this->render('user/conso/index.html.twig', [
             'products' => $products,
             'pagination' => $paginator,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 

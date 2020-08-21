@@ -51,7 +51,8 @@ class userAccountController extends AbstractController
         }
 
         return $this->render("user/account/index.html.twig", [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
 
 

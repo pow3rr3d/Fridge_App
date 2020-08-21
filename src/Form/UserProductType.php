@@ -20,32 +20,34 @@ class UserProductType extends AbstractType
     {
         $builder
             ->add('product', EntityType::class, [
+                'attr' => [
+                    'class' => 'consoNb '
+                ],
                 'label' => 'Product Name',
                 'class' => Product::class,
                 'choice_label' => 'name',
                 'multiple' => false,
-                'choice_value' => function (Product $entity = null)
-                {
-                return $entity ? $entity->getId() : '';
+                'choice_value' => function (Product $entity = null) {
+                    return $entity ? $entity->getId() : '';
                 }])
             ->add('stockReel', IntegerType::class, [
                 'label' => 'Stock Réel',
                 'empty_data' => 0,
-                'attr'  => [
+                'attr' => [
                     'step' => 1,
-                    'min'  => 0,
+                    'min' => 0,
+                    'class' => 'consoNb '
                 ]
             ])
-            ->add('stockOpti', IntegerType::class,[
+            ->add('stockOpti', IntegerType::class, [
                 'label' => 'Stock Optimal',
                 'required' => true,
-                'attr'  => [
+                'attr' => [
                     'step' => 1,
-                    'min'  => 0,
+                    'min' => 0,
+                    'class' => 'consoNb '
                 ]
-            ])
-
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
