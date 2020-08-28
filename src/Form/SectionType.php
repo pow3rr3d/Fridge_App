@@ -19,15 +19,7 @@ class SectionType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('page', EntityType::class, [
-                'label' => 'Page Name',
-                'class' => Page::class,
-                'choice_label' => 'name',
-                'multiple' => false,
-                'choice_value' => function (Page $entity = null)
-        {
-            return $entity ? $entity->getId() : '';
-        }])
+
             ->add('color', ColorPickerType::class,[
                 'label' => 'Background color',
             ])
@@ -49,7 +41,6 @@ class SectionType extends AbstractType
                     'id' => "customSwitch1"
                 ]
             ])
-            ->add('orderNb')
         ;
     }
 

@@ -35,7 +35,7 @@ class Page
 
     /**
      * @ORM\OrderBy({"orderNb" = "ASC"})
-     * @ORM\OneToMany(targetEntity="App\Entity\Section", mappedBy="page")
+     * @ORM\OneToMany(targetEntity="App\Entity\Section", mappedBy="page", cascade={"persist"})
      */
     private $sections;
 

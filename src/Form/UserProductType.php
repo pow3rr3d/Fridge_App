@@ -21,7 +21,7 @@ class UserProductType extends AbstractType
         $builder
             ->add('product', EntityType::class, [
                 'attr' => [
-                    'class' => 'consoNb '
+                    'class' => 'consoNb custom-select'
                 ],
                 'label' => 'Product Name',
                 'class' => Product::class,

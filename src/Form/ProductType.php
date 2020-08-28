@@ -20,7 +20,10 @@ class ProductType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
-                'multiple' => false
+                'multiple' => false,
+                'attr' => [
+                    'class' => 'custom-select'
+                ]
             ])
             ->add('imagefile', FileType::class, [
                 'required' => false
