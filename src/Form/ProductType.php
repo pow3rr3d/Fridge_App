@@ -19,11 +19,13 @@ class ProductType extends AbstractType
             ->add('description')
             ->add('category', EntityType::class, [
                 'class' => Category::class,
+                'placeholder' => false,
                 'choice_label' => 'name',
                 'multiple' => false,
                 'attr' => [
                     'class' => 'custom-select'
-                ]
+                ],
+                'choice_attr' => function () { return array('id' => 'custom-option'); },
             ])
             ->add('imagefile', FileType::class, [
                 'required' => false

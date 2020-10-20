@@ -110,7 +110,7 @@
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="kernel.error_controller">error_controller</parameter>
     <parameter key="debug.file_link_format">null</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
@@ -697,6 +697,9 @@
     <service id="App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\Extension\TextareaTypeExtension" class="App\Form\Extension\TextareaTypeExtension" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+    </service>
     <service id="App\Form\ImportCategoriesType" class="App\Form\ImportCategoriesType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -807,7 +810,7 @@
       <tag name="container.hot_path"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="request_stack"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router.default" on-invalid="ignore"/>
     </service>
     <service id="validate_request_listener" class="Symfony\Component\HttpKernel\EventListener\ValidateRequestListener" public="false">
@@ -983,7 +986,7 @@
     </service>
     <service id="slugger" class="Symfony\Component\String\Slugger\AsciiSlugger" public="false">
       <tag name="kernel.locale_aware"/>
-      <argument>en</argument>
+      <argument>fr</argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler" public="false">
       <argument type="service" id=".service_locator._cmka45"/>
@@ -1171,7 +1174,7 @@
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument>C:\wamp\www\Fridge_App/translations</argument>
       <argument>C:\wamp\www\Fridge_App/templates</argument>
       <argument type="collection">
@@ -1240,6 +1243,7 @@
         <argument>FOS\CKEditorBundle\Form\Type\CKEditorType</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\Extension\TextareaTypeExtension</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
         <argument>Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension</argument>
@@ -1559,6 +1563,9 @@
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
       <argument type="service" id=".service_locator.kDWR6dR"/>
       <argument type="collection">
+        <argument key="Symfony\Component\Form\Extension\Core\Type\TextareaType" type="iterator">
+          <argument type="service" id="App\Form\Extension\TextareaTypeExtension"/>
+        </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -1890,7 +1897,7 @@
       <tag name="kernel.locale_aware"/>
       <argument type="service" id=".service_locator.V.o0zE7"/>
       <argument type="service" id="translator.formatter.default"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection">
         <argument key="translation.loader.php" type="collection">
           <argument>php</argument>
@@ -2034,6 +2041,7 @@
             <argument>C:\wamp\www\Fridge_App\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
             <argument>C:\wamp\www\Fridge_App\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
             <argument>C:\wamp\www\Fridge_App\vendor\vich\uploader-bundle/translations\VichUploaderBundle.fr.yml</argument>
+            <argument>C:\wamp\www\Fridge_App/translations\KnpPaginatorBundle.fr.yaml</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\wamp\www\Fridge_App\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
@@ -3318,7 +3326,7 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="parameter_bag" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
@@ -3649,6 +3657,9 @@
         <argument type="service" id="twig.extension.security"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="twig.extension.string"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
       <call method="addExtension">
@@ -3937,6 +3948,9 @@
       <argument type="service" id="twig"/>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor" public="false"/>
+    <service id="twig.extension.string" class="Twig\Extra\String\StringExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
     <service id=".2_HtmlDumper~TPyX0Fs" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
       <argument>null</argument>
       <argument>UTF-8</argument>
@@ -6512,6 +6526,8 @@
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContentType" class="App\Form\ContentType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContentType" class="App\Form\ContentType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.App\Form\Extension\TextareaTypeExtension" class="App\Form\Extension\TextareaTypeExtension" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\Extension\TextareaTypeExtension" class="App\Form\Extension\TextareaTypeExtension" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImportCategoriesType" class="App\Form\ImportCategoriesType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ImportCategoriesType" class="App\Form\ImportCategoriesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PageType" class="App\Form\PageType" autowire="true" abstract="true"/>

@@ -17,26 +17,38 @@ Sortable.create(div, {
 
 //déclaration de la fonction
 let reorderingSections = () => {
-    let i = -1
-    let j = -1
+
 
     const p = document.querySelector('#page_sections').querySelectorAll('input');
     const t = document.querySelector('#page_sections').querySelectorAll('textarea');
     const d = document.querySelector('#page_sections').querySelectorAll('.picker');
 
-    const all = [p + t + d]
 
-    all.map(e => {
-        i++
-        j += (i % 3 === 0) ? 1 : 0;
+    // Array.from(p).map(e => {
+    //     let i = -1
+    //     let j = -1
+    //     i++
+    //     j += (i % 2n   === 0) ? 1 : 0;
+    //
+    //     e.name = e.name.replace(/\[([0-9]+)\]/, '[' + j + ']')
+    //     // e.name.replace(/\[([0-9]+)\]/, '[' + j + ']')
+    //
+    //
+    // })
 
-        e.forEach(el => {
 
-            el.name.replace(/\[([0-9]+)\]/, '[' + j + ']')
 
-        })
+    // all.map(e => {
+    //     i++
+    //     j += (i % 3 === 0) ? 1 : 0;
+    //
+    //     e.forEach(el => {
+    //
+    //         el.name.replace(/\[([0-9]+)\]/, '[' + j + ']')
+    //
+    //     })
 
-    })
+    // })
 
 
     // Array.from(p).map(e => {

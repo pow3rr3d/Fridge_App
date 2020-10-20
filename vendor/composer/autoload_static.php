@@ -41,6 +41,7 @@ class ComposerStaticInitaeefeb82e50c0ba1d38b4649cd574c83
         'T' => 
         array (
             'Twig\\Extra\\TwigExtraBundle\\' => 27,
+            'Twig\\Extra\\String\\' => 18,
             'Twig\\' => 5,
         ),
         'S' => 
@@ -204,6 +205,10 @@ class ComposerStaticInitaeefeb82e50c0ba1d38b4649cd574c83
         'Twig\\Extra\\TwigExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/extra-bundle/src',
+        ),
+        'Twig\\Extra\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/string-extra/src',
         ),
         'Twig\\' => 
         array (

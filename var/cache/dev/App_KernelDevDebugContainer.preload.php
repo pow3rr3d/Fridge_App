@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/ContainerU9fvwQc/App_KernelDevDebugContainer.php';
+require __DIR__.'/Container1D1zuI4/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'App\Kernel';
@@ -102,6 +102,7 @@ $classes[] = 'Symfony\Bridge\Twig\Extension\FormExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\DumpExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\LogoutUrlExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\SecurityExtension';
+$classes[] = 'Twig\Extra\String\StringExtension';
 $classes[] = 'Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension';
 $classes[] = 'Symfony\Component\VarDumper\Dumper\HtmlDumper';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension';

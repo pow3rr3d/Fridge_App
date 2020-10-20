@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
           integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <title>
-        {% block title %}Welcome!
+        Fridge_App :
+        {% block title %}
         {% endblock %}
     </title>
     {% block stylesheets %}{% endblock %}
@@ -83,7 +84,6 @@
 {% block javascripts %}
     {{ encore_entry_script_tags('toggleMenu') }}
     {{ encore_entry_script_tags('app') }}
-    {{ encore_entry_script_tags('labelColor') }}
 
 {% endblock %}
 

@@ -49,7 +49,7 @@ class adminProductController extends AbstractController
         $products = $paginator->paginate(
             $this->getDoctrine()->getManager()->getRepository(Product::class)->getAllQuery($search),
             $request->query->getInt('page', 1),
-            12
+            10
         );
         return $this->render('admin/product/index.html.twig', [
             'products' => $products,

@@ -20,6 +20,8 @@
     "build": "encore production --progress"
   },
   "dependencies": {
+    "@a2lix/symfony-collection": "^0.4.0",
+    "@ckeditor/ckeditor5-build-classic": "^23.0.0",
     "a-color-picker": "^1.2.1",
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",

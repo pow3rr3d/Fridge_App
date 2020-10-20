@@ -1,14 +1,80 @@
 $breakpoint-tablet: 1050px;
 $lightBlue: #00baf5;
+$grey: #212f3c;
+$blue: #0069d9;
 
 * {
   font-family: 'Poppins';
 }
 
 @media (min-width: 1050px) {
+  .jumbotron {
+    background-color: white !important;
+    margin-bottom: -5% !important;
+  }
+  .modal-header {
+    background-color: $grey !important;
+    color: white;
+  }
   body {
     background-color: white;
     margin-top: 10%;
+
+    #product-th-action {
+      width: 40px;
+    }
+    #product-td-action {
+      #delete{
+        color: red;
+      }
+    }
+
+    width: auto;
+    .pagination{
+      margin-right: 5%;
+    }
+    .page-item {
+      &.disabled {
+        display: none !important;
+      }
+      :last-child{
+        border-radius: 0px !important;
+        width: auto !important;
+      }
+      :first-child{
+        border-radius: 0px !important;
+      }
+      .page-link {
+        background-color: white !important;
+        color: $grey;
+        margin: 0 5px 0 5px;
+        height: 30px;
+        width: 30px;
+        line-height: .75 !important;
+      }
+
+      &.active {
+        .page-link {
+          background-color: $grey !important;
+          border-color: white !important;
+        }
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #product_category option {
+      background-color: $grey;
+      color: white;
+      padding-left: 10px;
+      box-shadow: 1px 1px 10px $grey;
+      border: none;
+      position: relative;
+    }
+
 
     #topBar {
       position: fixed;
@@ -16,12 +82,13 @@ $lightBlue: #00baf5;
       top: 0;
       width: auto;
       height: 5%;
-      background-color: #212f3c;
+      background-color: $grey;
       color: white;
-      box-shadow: 1px 1px 10px #212f3c;
+      box-shadow: 1px 1px 10px $grey;
 
       #toogleButton {
         width: 160px;
+        display: flex;
 
         a {
           color: white;
@@ -33,7 +100,7 @@ $lightBlue: #00baf5;
         border: 0px;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
-        box-shadow: 1px 1px 10px #212f3c;
+        box-shadow: 1px 1px 10px $grey;
         //z-index: 1000;
         position: fixed;
         right: 0px;
@@ -44,10 +111,10 @@ $lightBlue: #00baf5;
         }
 
         .dropdown-menu {
-          background-color: #212f3c;
+          background-color: $grey;
           color: white;
           padding-left: 10px;
-          box-shadow: 1px 1px 10px #212f3c;
+          box-shadow: 1px 1px 10px $grey;
           border: none;
           position: relative;
 
@@ -75,7 +142,6 @@ $lightBlue: #00baf5;
       &:focus {
         border-bottom-color: $lightBlue;
         border-bottom: 1px solid;
-        color: $lightBlue;
         box-shadow: none;
         transition-duration: 0.5s;
       }
@@ -87,7 +153,7 @@ $lightBlue: #00baf5;
     }
 
     .card-header {
-      background-color: #212f3c;
+      background-color: $grey;
     }
 
     #frontNav {
@@ -240,13 +306,13 @@ $lightBlue: #00baf5;
     }
 
     #navbarBack {
-      background-color: #212f3c;
+      background-color: $grey;
       transition-property: rotate, width;
       transition-duration: 0.5s;
       white-space: nowrap;
       width: 250px;
       height: 100%;
-      box-shadow: 1px 1px 10px #212f3c;
+      box-shadow: 1px 1px 10px $grey;
       position: fixed;
       top: 5%;
 
@@ -271,7 +337,7 @@ $lightBlue: #00baf5;
 
               > li {
                 > #dropdownDiv {
-                  background-color: #212f3c;
+                  background-color: $grey;
                   transition-duration: 0.5s;
                   position: relative;
                   border: none;
@@ -361,7 +427,7 @@ $lightBlue: #00baf5;
         border-radius: 1px;
 
         th {
-          background-color: #212f3c;
+          background-color: $grey;
           border: none;
         }
       }

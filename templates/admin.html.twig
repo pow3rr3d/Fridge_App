@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>
-        {% block title %}Welcome!
+        Fridge_App :
+        {% block title %}
         {% endblock %}
     </title>
     {% block stylesheets %}{% endblock %}
@@ -131,7 +132,6 @@
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
     {{ encore_entry_script_tags('colorPicker') }}
-    {{ encore_entry_script_tags('labelColor') }}
     {{ encore_entry_script_tags('toggleMenu') }}
 {% endblock %}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

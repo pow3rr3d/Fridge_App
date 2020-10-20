@@ -5,63 +5,75 @@
 {% endblock %}
 
 {% block body %}
-    <div class="text-center">
-        <h1> Product list </h1>
-        <div class="mt-4">
-            <div class="text-right">
-                <a href="{{ path('admin_product_new') }}" class="btn btn-primary"> Create Product</a>
-            </div>
-            <br>
-            <div class="jumbotron">
-                {{ form_start(form) }}
-                <div class="form-row">
-                    <div class="col">
-                        {{ form_row(form.name) }}
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-primary">Search</button>
-                    </div>
+<div class="text-center">
+    <h1> Product list </h1>
+        <div class="jumbotron mb-4">
+            {{ form_start(form) }}
+            <div class="form-row">
+                <div class="col">
+                    {{ form_row(form.name) }}
                 </div>
-                {{ form_end(form) }}
-            </div>
-            <br>
-            {% for message in app.flashes('success') %}
-                <div class="div alert alert-success">
-                    {{ message }}
+                <div class="col-2">
+                    <button class="btn btn-primary">Search</button>
                 </div>
-            {% endfor %}
-            <div class="row">
-                <table class="table table-hover">
-                    <thead class="thead-dark">
+            </div>
+            {{ form_end(form) }}
+        </div>
+        {% for message in app.flashes('success') %}
+            <div class="div alert alert-success mt-5">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="row mt-4">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th id="product-th-action">
+                        <a href="{{ path('admin_product_new') }}">
+                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
+                                    title="Add a new Product">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                    </th>
+                    <th class="align-middle"> Product</th>
+                    <th class="align-middle"> Description</th>
+                    <th class="align-middle"> Category</th>
+                    <th class="align-middle"> Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
                     <tr>
-                        <th> Product</th>
-                        <th> Description</th>
-                        <th> Category</th>
-                        <th> Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for product in products %}
-                    <tr>
+                        <td></td>
                         <td>
                             {{ product.name }}
                         </td>
                         <td>
-                            {{ product.description }}
+                            {{ product.description|striptags|trim|u.truncate(20, '...')  }}
                         </td>
                         <td>
                             {% if product.getCategory().getName() is defined %}
                                 {{ product.getCategory().getName() }}
                             {% endif %}
                         </td>
-                        <td>
-                            <a href="{{ path('admin_product_edit', {id: product.id }) }}" class="btn btn-secondary">
-                                Editer</a>
-                            <button type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal"
-                                    data-target="#confirm-submit{{ product.id }}" class="btn btn-danger">
-                                Delete
+                        <td id="product-td-action">
+                            <a href="{{ path('admin_product_edit', {id: product.id }) }}">
+                                <button id="edit" type="button" class="btn" data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="Edit the product">
+                                    <i class="far fa-edit"></i>
+                                </button>
+                            </a>
+                            <span data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete the product">
+                            <button id="delete" type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal"
+                                    data-target="#confirm-submit{{ product.id }}" class="btn">
+                                <i class="far fa-trash-alt"></i>
                                 <input class="button" type="hidden" value="{{ product.id }}" name="id"/>
                             </button>
+                                </span>
                         </td>
                     </tr>
                     <div class="modal fade" id="confirm-submit{{ product.id }}" tabindex="-1" role="dialog"
@@ -69,12 +81,19 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    Confirm Submit
+                                    Confirm Delete
                                 </div>
                                 <div class="modal-body">
                                     <p class="text-left ">Are you sure you want to delete the following product?</p>
-                                    <p class="text-left">Name:</p>
-                                    <p class="text-left font-weight-bold">{{ product.name }}</p>
+                                    {% if product.filename %}
+                                        <img src="{{ vich_uploader_asset(product, "imageFile") | imagine_filter('thumb') }}"
+                                             alt="">
+                                    {% else %}
+                                        <img src="{{ "/images/products/empty.jpg" | imagine_filter('thumb') }}" alt="">
+                                    {% endif %}
+                                    <p class="text-left">Name: <b>{{ product.name }}</b></p>
+                                    <p class="text-left">Description: {{ product.description|raw }}</p>
+                                    <p class="text-left">Category: <b>{{ product.category.name }}</b></p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -89,18 +108,16 @@
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
-                    </tbody>
-                </table>
-            </div>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
-        <br>
-        <div class="row justify-content-end">
+        <div class="row justify-content-end mt-3">
             <div class="pagination">
                 {{ knp_pagination_render(products) }}
             </div>
         </div>
     </div>
+    {% endblock %}
 
-{% endblock %}

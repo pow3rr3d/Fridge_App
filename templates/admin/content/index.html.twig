@@ -29,8 +29,8 @@
                 <td>{{ content.isActive ? 'Yes' : 'No' }}</td>
                 <td>{{ content.createdAt ? content.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('content_show', {'id': content.id}) }}" class="btn btn-primary">show</a>
-                    <a href="{{ path('content_edit', {'id': content.id}) }}" class="btn btn-secondary">edit</a>
+                    <a href="{{ path('content_show', {'id': content.id}) }}" class="btn btn-secondary"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('content_edit', {'id': content.id}) }}" class="btn btn-secondary"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
