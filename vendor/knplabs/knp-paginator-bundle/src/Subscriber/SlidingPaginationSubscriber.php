@@ -28,7 +28,7 @@ final class SlidingPaginationSubscriber implements EventSubscriberInterface
         $request = $event->getRequest();
 
         $this->route = $request->attributes->get('_route');
-        $this->params = \array_merge($request->query->all(), $request->attributes->get('_route_params', []));
+        $this->params = \array_replace($request->query->all(), $request->attributes->get('_route_params', []));
         foreach ($this->params as $key => $param) {
             if ('_' == \substr($key, 0, 1)) {
                 unset($this->params[$key]);
@@ -49,6 +49,22 @@ final class SlidingPaginationSubscriber implements EventSubscriberInterface
             $this->params[$eventOptions['sortDirectionParameterName']] = $eventOptions['defaultSortDirection'];
         }
 
+        // remove default sort params from pagination links
+        if (isset($eventOptions['removeDefaultSortParams']) && true === $eventOptions['removeDefaultSortParams']) {
+            $defaultSortFieldName = $eventOptions['defaultSortFieldName'];
+            $sortFieldParameterName = $this->params[$eventOptions['sortFieldParameterName']];
+            $isFieldEqual = $defaultSortFieldName === $sortFieldParameterName;
+            $defaultSortDirection = $eventOptions['defaultSortDirection'];
+            $sortDirectionParameterName = $this->params[$eventOptions['sortDirectionParameterName']];
+            $isDirectionEqual = $defaultSortDirection === $sortDirectionParameterName;
+
+            if (isset($defaultSortFieldName) && isset($sortFieldParameterName) && $isFieldEqual
+                && isset($defaultSortDirection) && isset($sortDirectionParameterName) && $isDirectionEqual) {
+                unset($this->params[$eventOptions['sortFieldParameterName']]);
+                unset($this->params[$eventOptions['sortDirectionParameterName']]);
+            }
+        }
+
         $pagination = new SlidingPagination($this->params);
 
         $pagination->setUsedRoute($this->route);
@@ -56,6 +72,7 @@ final class SlidingPaginationSubscriber implements EventSubscriberInterface
         $pagination->setSortableTemplate($this->options['defaultSortableTemplate']);
         $pagination->setFiltrationTemplate($this->options['defaultFiltrationTemplate']);
         $pagination->setPageRange($this->options['defaultPageRange']);
+        $pagination->setPageLimit($this->options['defaultPageLimit']);
 
         $event->setPagination($pagination);
         $event->stopPropagation();

@@ -51,6 +51,8 @@ return [
     'user_show' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
     'user_edit' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
     'user_delete' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
+    'user_admin' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::setAdmin'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
+    'user_user' => [['id'], ['_controller' => 'App\\Controller\\admin\\adminUserController::setUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user/user']], [], []],
     'contact' => [[], ['_controller' => 'App\\Controller\\contactController::show'], [], [['text', '/contact']], [], []],
     'front' => [[], ['_controller' => 'App\\Controller\\homeController::index'], [], [['text', '/']], [], []],
     'front_slug' => [['slug'], ['slug' => null, '_controller' => 'App\\Controller\\homeController::index'], ['slug' => '[a-z]+'], [['variable', '/', '[a-z]+', 'slug', true]], [], []],

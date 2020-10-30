@@ -17,18 +17,10 @@
                     {% if user.id != account.id %}
                         {% for r in account.role %}
                             {% if r is same as ("ROLE_USER") %}
-                                <form method="post" action="{{ path('user_edit', {'id': account.id}) }}"
-                                      onsubmit="return confirm('Are you sure you want to put this user Admin?');">
-                                    <input name="inputAdmin" type="hidden" value="{{ account.id }}">
-                                    <input name="submitAdmin" type="submit" value="PutAdmin" class="btn btn-danger">
-                                </form>
+                                {{ include('admin/user/_admin_form.html.twig') }}
                             {% endif %}
                             {% if r is same as ("ROLE_ADMIN") %}
-                                <form method="post" action="{{ path('user_edit', {'id': account.id}) }}"
-                                      onsubmit="return confirm('Are you sure you want to put this user as User?');">
-                                    <input name="inputAdmin" type="hidden" value="{{ account.id }}">
-                                    <input name="submitAdmin" type="submit" value="PutUser" class="btn btn-danger">
-                                </form>
+                                {{ include('admin/user/_user_form.html.twig') }}
                             {% endif %}
                         {% endfor %}
                     {% endif %}
@@ -37,8 +29,10 @@
             <br>
             <div class="text-left">
                 {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}
-
             </div>
         </div>
     </div>
+    {{ include('admin/user/_modal_delete.html.twig') }}
+    {{ include('admin/user/_modal_admin.html.twig') }}
+    {{ include('admin/user/_modal_user.html.twig') }}
 {% endblock %}

@@ -255,7 +255,7 @@ class Command
             $statusCode = $this->execute($input, $output);
 
             if (!\is_int($statusCode)) {
-                throw new \TypeError(sprintf('Return value of "%s::execute()" must be of the type int, %s returned.', static::class, \gettype($statusCode)));
+                throw new \TypeError(sprintf('Return value of "%s::execute()" must be of the type int, "%s" returned.', static::class, \gettype($statusCode)));
             }
         }
 
@@ -426,8 +426,6 @@ class Command
      *
      * This feature should be used only when creating a long process command,
      * like a daemon.
-     *
-     * PHP 5.5+ or the proctitle PECL library is required
      *
      * @return $this
      */

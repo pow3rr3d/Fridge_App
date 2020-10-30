@@ -1,16 +1,17 @@
 $breakpoint-tablet: 1050px;
 $lightBlue: #00baf5;
 $grey: #212f3c;
-$blue: #0069d9;
+$hovergrey: #2a3c4c;
+$orange: #f06261;
 
 * {
   font-family: 'Poppins';
 }
 
 @media (min-width: 1050px) {
-  .jumbotron {
-    background-color: white !important;
-    margin-bottom: -5% !important;
+  .btn-submit {
+    background-color: $grey;
+    color: white;
   }
   .modal-header {
     background-color: $grey !important;
@@ -23,27 +24,33 @@ $blue: #0069d9;
     #product-th-action {
       width: 40px;
     }
+
     #product-td-action {
-      #delete{
+      #delete {
         color: red;
       }
     }
 
     width: auto;
-    .pagination{
+
+    .pagination {
       margin-right: 5%;
     }
+
     .page-item {
       &.disabled {
         display: none !important;
       }
-      :last-child{
+
+      :last-child {
         border-radius: 0px !important;
         width: auto !important;
       }
-      :first-child{
+
+      :first-child {
         border-radius: 0px !important;
       }
+
       .page-link {
         background-color: white !important;
         color: $grey;
@@ -55,7 +62,7 @@ $blue: #0069d9;
 
       &.active {
         .page-link {
-          background-color: $grey !important;
+          background-color: $orange !important;
           border-color: white !important;
         }
       }
@@ -78,16 +85,22 @@ $blue: #0069d9;
 
     #topBar {
       position: fixed;
-      z-index: 1000;
+      z-index: 100;
       top: 0;
       width: auto;
-      height: 5%;
-      background-color: $grey;
+      height: 65px;
+      background-color: $orange;
       color: white;
-      box-shadow: 1px 1px 10px $grey;
+      font-size: 1.5em;
+
+      li {
+        margin-top: 5%;
+        margin-right: 35px;
+      }
 
       #toogleButton {
-        width: 160px;
+        margin-left: 10%;
+        width: 250px;
         display: flex;
 
         a {
@@ -96,38 +109,30 @@ $blue: #0069d9;
       }
 
       #userDropdown {
-        color: white;
         border: 0px;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: 1px 1px 10px $grey;
-        //z-index: 1000;
         position: fixed;
         right: 0px;
         top: 0px;
+        display: flex !important;
+        flex-direction: initial;
 
-        a {
+        #navbardrop {
           color: white;
         }
 
+        #dropdownlink {
+          color: $grey;
+        }
+
         .dropdown-menu {
-          background-color: $grey;
-          color: white;
           padding-left: 10px;
-          box-shadow: 1px 1px 10px $grey;
           border: none;
           position: relative;
-
+          box-shadow: 1px 1px 10px lightgrey;
         }
 
       }
     }
-
-    .blue {
-      color: $lightBlue;
-      transition-duration: 0.5s;
-    }
-
 
     .form-control {
       margin-right: 10px;
@@ -310,11 +315,24 @@ $blue: #0069d9;
       transition-property: rotate, width;
       transition-duration: 0.5s;
       white-space: nowrap;
-      width: 250px;
+      width: 300px;
       height: 100%;
-      box-shadow: 1px 1px 10px $grey;
       position: fixed;
-      top: 5%;
+      top: 0;
+      z-index: 200;
+
+      a {
+        font-size: 2em;
+
+        &:hover {
+        }
+
+        color: white;
+      }
+
+      #arrow {
+        transition-duration: 0.5s;
+      }
 
       #navbarNav {
         position: fixed;
@@ -323,13 +341,25 @@ $blue: #0069d9;
 
         > ul {
           display: flex;
-          margin-left: 15px;
           position: fixed;
-          top: 5%;
+          top: 65px;
           left: 0;
           flex-direction: column;
+          font-size: 1.5em;
 
           > li {
+            border-bottom: 1px solid #474646;
+            width: 285px;
+            transition-duration: 0.5s;
+
+            &:first-child {
+              border-top: 1px solid #474646;
+            }
+
+            &:hover {
+              background-color: $hovergrey;
+            }
+
             > ul {
               display: flex;
               margin-left: 10px;
@@ -339,6 +369,7 @@ $blue: #0069d9;
                 > #dropdownDiv {
                   background-color: $grey;
                   transition-duration: 0.5s;
+                  width: 280px;
                   position: relative;
                   border: none;
 
@@ -356,8 +387,9 @@ $blue: #0069d9;
                 > a {
                   color: white;
                   font-size: 1.5em;
-                  margin-left: -5px;
                   transition-duration: 0.5s;
+                  width: 300px;
+
                 }
               }
             }
@@ -365,7 +397,6 @@ $blue: #0069d9;
             > a {
               color: white;
               font-size: 1.5em;
-              margin-left: -5px;
               transition-duration: 0.5s;
             }
           }
@@ -376,25 +407,40 @@ $blue: #0069d9;
         transition-duration: 2s;
       }
 
-      &.hidden .spanMenu {
-        display: none;
-        transition-duration: 0.5s;
-      }
-
       &.hidden {
         width: 100px;
         transition-property: rotate, width;
         transition-duration: 0.5s;
+
+        #navbarNav ul li:hover {
+          width: 300px;
+
+          .spanMenu {
+            display: initial;
+            transition-duration: 0.5s;
+          }
+        }
+
+        #arrow {
+          transform: rotate(180deg);
+          transition-duration: 0.5s;
+        }
+
+        .spanMenu {
+          display: none;
+          transition-duration: 0.5s;
+        }
+
+        #navbarNav {
+          > ul {
+            > li {
+              width: 85px;
+              transition-duration: 0.5s;
+            }
+          }
+        }
       }
 
-      &.hidden #arrow {
-        transform: rotate(180deg);
-        transition-duration: 0.5s;
-      }
-
-      #arrow {
-        transition-duration: 0.5s;
-      }
     }
 
     #container {
@@ -420,6 +466,14 @@ $blue: #0069d9;
       padding-top: 10px;
       padding-bottom: 25px;
       margin-bottom: -25px;
+    }
+
+    .tableTitle {
+      background-color: $grey;
+      padding-left: 1%;
+      font-size: 1.5em;
+      width: 100%;
+      color: white;
     }
 
     .table {
@@ -495,9 +549,6 @@ $blue: #0069d9;
 
     .dropdown-menu {
       border: 0px;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
     }
 
   }

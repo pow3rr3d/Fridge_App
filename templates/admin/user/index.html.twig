@@ -3,35 +3,37 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-
-<div class="text-center">
-    <h1>User index</h1>
-    <div class="mt-4">
-        {% for message in app.flashes('success') %}
-            <div class="div alert alert-success">
-                {{ message }}
-            </div>
-        {% endfor %}
-        <div class="text-right">
-            <a href="{{ path('user_new') }}" class="btn btn-primary">Create new</a>
+<div class="mt-3">
+    {{ form_start(form) }}
+    <div class="form-row">
+        <div class="col-11">
+            {{ form_row(form.name) }}
         </div>
-        <br>
-        <div class="jumbotron">
-            {{ form_start(form) }}
-            <div class="form-row">
-                <div class="col">
-                    {{ form_row(form.name) }}
-                </div>
-                <div class="col-2">
-                    <button class="btn btn-primary">Search</button>
-                </div>
-            </div>
-            {{ form_end(form) }}
+        <div class="col-1">
+            <button class="btn btn-submit">Search</button>
         </div>
-        <div class="d-flex justify-content-center">
-                    <table class="table table-hover">
+    </div>
+    {{ form_end(form) }}
+    {% for message in app.flashes('success') %}
+        <div class="div alert alert-success mt-5">
+            {{ message }}
+        </div>
+    {% endfor %}
+        <div class="row mt-4">
+            <div class="tableTitle">
+                <b class="text-center"> Users list </b>
+            </div>
+            <table class="table table-striped">
                         <thead class="thead-dark">
                         <tr>
+                            <th id="product-th-action">
+                                <a href="{{ path('user_new') }}">
+                                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
+                                            title="Add a new User">
+                                        <i class="fas fa-plus-square"></i>
+                                    </button>
+                                </a>
+                            </th>
                             <th>Id</th>
                             <th>Username</th>
                             <th>Role</th>
@@ -41,21 +43,25 @@
                         <tbody>
                         {% for user in users %}
                             <tr>
+                                <td></td>
                                 <td>{{ user.id }}</td>
                                 <td>{{ user.Username }}</td>
                                 <td>{{ user.getRolesData }}</td>
-                                <td>
-                                    <div class="small-text-center">
-                                        <div class="d-inline-block">
-                                            <a href="{{ path('user_show', {'id': user.id}) }}"
-                                               class="btn btn-secondary"><i class="far fa-eye"></i></a>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <a href="{{ path('user_edit', {'id': user.id}) }}"
-                                               class="btn btn-secondary"><i class="far fa-edit"></i></a>
-                                        </div>
-                                    </div>
-
+                                <td id="product-td-action">
+                                    <a href="{{ path('user_edit', {'id': user.id}) }}">
+                                        <button id="edit" type="button" class="btn" data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Edit the user">
+                                            <i class="far fa-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a href="{{ path('user_show', {'id': user.id}) }}">
+                                        <button id="edit" type="button" class="btn" data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Show the user">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         {% else %}

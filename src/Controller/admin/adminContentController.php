@@ -6,6 +6,7 @@ use App\Entity\Content;
 use App\Form\ContentType;
 use App\Repository\ContentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,10 +31,10 @@ class adminContentController extends AbstractController
     /**
      * @Route("/new", name="content_new", methods={"GET","POST"})
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse|Response
      * @throws \Exception
      */
-    public function new(Request $request): Response
+    public function new(Request $request)
     {
         $content = new Content();
         $form = $this->createForm(ContentType::class, $content);
@@ -100,7 +101,7 @@ class adminContentController extends AbstractController
      */
     public function delete(Request $request, Content $content): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$content->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $content->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($content);
             $entityManager->flush();

@@ -195,7 +195,7 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
 
         foreach ($stack as $attribute => $attributeValue) {
             if (!$this->serializer instanceof NormalizerInterface) {
-                throw new LogicException(sprintf('Cannot normalize attribute "%s" because the injected serializer is not a normalizer', $attribute));
+                throw new LogicException(sprintf('Cannot normalize attribute "%s" because the injected serializer is not a normalizer.', $attribute));
             }
 
             $data = $this->updateData($data, $attribute, $this->serializer->normalize($attributeValue, $format, $this->createChildContext($context, $attribute, $format)), $class, $format, $context);
@@ -215,16 +215,17 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
     {
         if ($this->classDiscriminatorResolver && $mapping = $this->classDiscriminatorResolver->getMappingForClass($class)) {
             if (!isset($data[$mapping->getTypeProperty()])) {
-                throw new RuntimeException(sprintf('Type property "%s" not found for the abstract object "%s"', $mapping->getTypeProperty(), $class));
+                throw new RuntimeException(sprintf('Type property "%s" not found for the abstract object "%s".', $mapping->getTypeProperty(), $class));
             }
 
             $type = $data[$mapping->getTypeProperty()];
             if (null === ($mappedClass = $mapping->getClassForType($type))) {
-                throw new RuntimeException(sprintf('The type "%s" has no mapped class for the abstract object "%s"', $type, $class));
+                throw new RuntimeException(sprintf('The type "%s" has no mapped class for the abstract object "%s".', $type, $class));
             }
 
-            $class = $mappedClass;
-            $reflectionClass = new \ReflectionClass($class);
+            if ($mappedClass !== $class) {
+                return $this->instantiateObject($data, $mappedClass, $context, new \ReflectionClass($mappedClass), $allowedAttributes, $format);
+            }
         }
 
         return parent::instantiateObject($data, $class, $context, $reflectionClass, $allowedAttributes, $format);
@@ -237,7 +238,7 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
      *
      * @return string[]
      */
-    protected function getAttributes($object, string $format = null, array $context)
+    protected function getAttributes($object, ?string $format, array $context)
     {
         $class = $this->objectClassResolver ? ($this->objectClassResolver)($object) : \get_class($object);
         $key = $class.'-'.$context['cache_key'];
@@ -332,7 +333,7 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
             try {
                 $this->setAttributeValue($object, $attribute, $value, $format, $context);
             } catch (InvalidArgumentException $e) {
-                throw new NotNormalizableValueException(sprintf('Failed to denormalize attribute "%s" value for class "%s": %s.', $attribute, $type, $e->getMessage()), $e->getCode(), $e);
+                throw new NotNormalizableValueException(sprintf('Failed to denormalize attribute "%s" value for class "%s": ', $attribute, $type).$e->getMessage(), $e->getCode(), $e);
             }
         }
 
@@ -414,7 +415,7 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
 
             if (Type::BUILTIN_TYPE_OBJECT === $builtinType) {
                 if (!$this->serializer instanceof DenormalizerInterface) {
-                    throw new LogicException(sprintf('Cannot denormalize attribute "%s" for class "%s" because injected serializer is not a denormalizer', $attribute, $class));
+                    throw new LogicException(sprintf('Cannot denormalize attribute "%s" for class "%s" because injected serializer is not a denormalizer.', $attribute, $class));
                 }
 
                 $childContext = $this->createChildContext($context, $attribute, $format);
@@ -450,7 +451,7 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
      */
     protected function denormalizeParameter(\ReflectionClass $class, \ReflectionParameter $parameter, string $parameterName, $parameterData, array $context, string $format = null)
     {
-        if (null === $this->propertyTypeExtractor || null === $types = $this->propertyTypeExtractor->getTypes($class->getName(), $parameterName)) {
+        if (null === $this->propertyTypeExtractor || null === $this->propertyTypeExtractor->getTypes($class->getName(), $parameterName)) {
             return parent::denormalizeParameter($class, $parameter, $parameterName, $parameterData, $context, $format);
         }
 
@@ -576,6 +577,7 @@ abstract class AbstractObjectNormalizer extends AbstractNormalizer
             unset($context[$key]);
         }
         unset($context[self::EXCLUDE_FROM_CACHE_KEY]);
+        unset($context[self::OBJECT_TO_POPULATE]);
         unset($context['cache_key']); // avoid artificially different keys
 
         try {
