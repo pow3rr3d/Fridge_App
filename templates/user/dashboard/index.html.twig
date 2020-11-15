@@ -19,7 +19,7 @@
             <input id="userId" type="hidden" value="{{ user.id }}">
             <div class="form-control h-75" contenteditable="true" id="memo">
                 {% for memos in memo %}
-                    {{ memos.memo |raw }}
+                    {{ memos.memo|raw }}
                 {% endfor %}
                 <br>
             </div>
@@ -84,13 +84,13 @@
                             </b>
                         </div>
                         <div class="col text-right">
-                            {{ content.createdAt.date | date }}
+                            {{ content.createdAt|date }}
                         </div>
                     </div>
 
                 </div>
                 <div class="ml-4 mr-4 text-justify">
-                    <p class="card-text ">{{ content.content | raw }}</p>
+                    <p class="card-text ">{{ content.content|raw }}</p>
                 </div>
             </div>
         {% endif %}

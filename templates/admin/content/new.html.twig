@@ -10,7 +10,7 @@
     <a href="{{ path('content_index') }}" class="btn btn-primary">back to list</a>
     </div>
     <div class="mt-5">
-        {{ include('admin/content/_form.html.twig') }}
+        {{ include('admin/content/_form.html.twig', {'button_label': 'Create'}) }}
     </div>
 
 {% endblock %}

@@ -15,6 +15,9 @@ final class SlidingPagination extends AbstractPagination implements SlidingPagin
     /** @var int */
     private $pageRange = 5;
 
+    /** @var int|null */
+    private $pageLimit = null;
+
     /** @var string|null */
     private $template;
 
@@ -84,6 +87,11 @@ final class SlidingPagination extends AbstractPagination implements SlidingPagin
         $this->pageRange = \abs($range);
     }
 
+    public function setPageLimit(?int $limit): void
+    {
+        $this->pageLimit = $limit;
+    }
+
     /**
      * Get url query with all parameters.
      *
@@ -94,7 +102,10 @@ final class SlidingPagination extends AbstractPagination implements SlidingPagin
         return \array_merge($this->params, $additionalQueryParams);
     }
 
-    public function isSorted(?string $key = null, array $params = []): bool
+    /**
+     * @param string[]|string|null $key
+     */
+    public function isSorted($key = null, array $params = []): bool
     {
         $params = \array_merge($this->params, $params);
 
@@ -212,7 +223,13 @@ final class SlidingPagination extends AbstractPagination implements SlidingPagin
 
     public function getPageCount(): int
     {
-        return \ceil($this->totalCount / $this->numItemsPerPage);
+        $count = \ceil($this->totalCount / $this->numItemsPerPage);
+
+        if (null !== $this->pageLimit) {
+            return \min($count, $this->pageLimit);
+        }
+
+        return $count;
     }
 
     public function getPaginatorOptions(): ?array

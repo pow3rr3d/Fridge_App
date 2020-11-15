@@ -142,8 +142,10 @@ abstract class AbstractUnicodeString extends AbstractString
             } elseif (ICONV_IMPL === 'glibc') {
                 $s = iconv('UTF-8', 'ASCII//TRANSLIT', $s);
             } else {
-                $s = preg_replace_callback('/[^\x00-\x7F]/u', static function ($c) {
-                    $c = iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', $c[0]);
+                $s = @preg_replace_callback('/[^\x00-\x7F]/u', static function ($c) {
+                    if ('' === $c = (string) iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', $c[0])) {
+                        throw new \LogicException(sprintf('"%s" requires a translit-able iconv implementation, try installing "gnu-libiconv" if you\'re using Alpine Linux.', static::class));
+                    }
 
                     return 1 < \strlen($c) ? ltrim($c, '\'`"^~') : (\strlen($c) ? $c : '?');
                 }, $s);
@@ -309,7 +311,7 @@ abstract class AbstractUnicodeString extends AbstractString
 
         if (\is_array($to) || $to instanceof \Closure) {
             if (!\is_callable($to)) {
-                throw new \TypeError(sprintf('Argument 2 passed to %s::replaceMatches() must be callable, array given.', static::class));
+                throw new \TypeError(sprintf('Argument 2 passed to "%s::replaceMatches()" must be callable, array given.', static::class));
             }
 
             $replace = 'preg_replace_callback';

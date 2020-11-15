@@ -10,18 +10,51 @@
     <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>
-        {% block title %}Welcome!
+        Fridge_App :
+        {% block title %}
         {% endblock %}
     </title>
     {% block stylesheets %}{% endblock %}
+    {% set user = app.user %}
 </head>
 <body>
+<div class="w-100" id="topBar">
+    <ul class="nav navbar-nav ml-auto mr-3" id="userDropdown">
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="far fa-bell"></i>
+            </a>
+        </li>
+        <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <i class="far fa-user-circle"></i> {{ user.surname }}
+            </a>
+            <div class="dropdown-menu">
+                <a class="nav-link" id="dropdownlink" href="/admin/account">
+                    <i class="fas fa-id-card"></i>
+                    <span class="spanMenu">Account</span>
+                </a>
+                <a class="nav-link" id="dropdownlink" href="#">
+                    <i class="fas fa-cogs"></i>
+                    <span class="spanMenu">Settings</span>
+                </a>
+                <a class="nav-link" id="dropdownlink" href="{{ path("logout") }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="spanMenu">Déconnexion</span>
+                </a>
+
+            </div>
+        </li>
+    </ul>
+</div>
 <div class="row">
     <nav class="nav navbar flex-column navbar-expand-lg navbar-light notHidden" id="navbarBack">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon my-toggler"></span>
-        </button>
+        <li class="nav-item" id="toogleButton">
+            <a class="nav-link" href="#">
+                <i id="arrow" class="fas fa-arrow-left"></i>
+                <span class="spanMenu">Toggle Menu</span>
+            </a>
+        </li>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav">
                 <li class="nav-item">
@@ -55,68 +88,44 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/account">
-                        <i class="fas fa-id-card"></i>
-                        <span class="spanMenu">Account</span>
-                    </a>
+                    <ul class="nav nav-item ml-auto mr-5">
+                        <li class="nav-item dropdown mr-5">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                <i class="fas fa-file"></i>
+                                <span class="spanMenu">CMS</span>
+                            </a>
+                            <div id="dropdownDiv" class="dropdown-menu">
+                                <a class="nav-link ml-3" href="/admin/page">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span class="underSpanMenu">Page</span>
+                                </a>
+                                <a class="nav-link ml-3" href="/admin/slider/">
+                                    <i class="fas fa-images"></i>
+                                    <span class="underSpanMenu">Slider</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                <ul class="nav nav-item ml-auto mr-5">
-                    <li class="nav-item dropdown mr-5">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            <i class="fas fa-file"></i>
-                            <span class="spanMenu"> CMS </span>
-                        </a>
-                        <div id="dropdownDiv" class="dropdown-menu">
-                            <a class="nav-link ml-3" href="/admin/page">
-                                <i class="fas fa-file-alt"></i>
-                                <span class="underSpanMenu"> Page</span>
+                    <ul class="nav nav-item ml-auto mr-5">
+                        <li class="nav-item dropdown mr-5">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                <i class="fas fa-download"></i>
+                                <span class="spanMenu">Import</span>
                             </a>
-                            <a class="nav-link ml-3" href="/admin/section">
-                                <i class="fas fa-th"></i>
-                                <span class="underSpanMenu"> Section</span>
-                            </a>
-                            <a class="nav-link ml-3" href="/admin/slider/">
-                                <i class="fas fa-images"></i>
-                                <span class="underSpanMenu"> Slider</span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                <ul class="nav nav-item ml-auto mr-5">
-                    <li class="nav-item dropdown mr-5">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            <i class="fas fa-download"></i>
-                            <span class="spanMenu"> Import </span>
-                        </a>
-                        <div id="dropdownDiv" class="dropdown-menu">
-                            <a class="nav-link ml-3" href="/admin/import/categories">
-                                <i class="fas fa-folder-open"></i>
-                                <span class="underSpanMenu"> Categories </span>
-                            </a>
-                            <a class="nav-link ml-3" href="/admin/import/products">
-                                <i class="fas fa-carrot"></i>
-                                <span class="underSpanMenu"> Products </span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-                </li>
-                {% if app.user %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("logout") }}">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="spanMenu">Déconnexion</span>
-                        </a>
-                    </li>
-                {% endif %}
-                <li class="nav-item" id="toogleButton">
-                    <a class="nav-link" href="#">
-                        <i id="arrow" class="fas fa-arrow-left"></i>
-                        <span class="spanMenu">Toggle Menu</span>
-                    </a>
+                            <div id="dropdownDiv" class="dropdown-menu">
+                                <a class="nav-link ml-3" href="/admin/import/categories">
+                                    <i class="fas fa-folder-open"></i>
+                                    <span class="underSpanMenu">Categories</span>
+                                </a>
+                                <a class="nav-link ml-3" href="/admin/import/products">
+                                    <i class="fas fa-carrot"></i>
+                                    <span class="underSpanMenu">Products</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

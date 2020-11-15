@@ -5,11 +5,11 @@ namespace App\Form;
 use App\Entity\Page;
 use App\Entity\Section;
 use App\Form\Type\ColorPickerType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,23 +19,11 @@ class SectionType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('page', EntityType::class, [
-                'label' => 'Page Name',
-                'class' => Page::class,
-                'choice_label' => 'name',
-                'multiple' => false,
-                'choice_value' => function (Page $entity = null)
-        {
-            return $entity ? $entity->getId() : '';
-        }])
+
             ->add('color', ColorPickerType::class,[
                 'label' => 'Background color',
             ])
-            ->add('content', CKEditorType::class, [
-                'config' => [
-                    'toolbar' => 'full'
-                ]
-            ])
+            ->add('content', TextareaType::class)
             ->add('isActive', CheckboxType::class, [
                 'row_attr' => [
                     'class' => 'custom-control custom-switch'
@@ -49,7 +37,6 @@ class SectionType extends AbstractType
                     'id' => "customSwitch1"
                 ]
             ])
-            ->add('orderNb')
         ;
     }
 

@@ -28,8 +28,6 @@ return [
         '/admin/page/new' => [[['_route' => 'admin_page_new', '_controller' => 'App\\Controller\\admin\\adminPageController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/product' => [[['_route' => 'admin_product_index', '_controller' => 'App\\Controller\\admin\\adminProductController::index'], null, null, null, false, false, null]],
         '/admin/product/create' => [[['_route' => 'admin_product_new', '_controller' => 'App\\Controller\\admin\\adminProductController::new'], null, null, null, false, false, null]],
-        '/admin/section' => [[['_route' => 'admin_section_index', '_controller' => 'App\\Controller\\admin\\adminSectionController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/admin/section/new' => [[['_route' => 'admin_section_new', '_controller' => 'App\\Controller\\admin\\adminSectionController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/slider' => [[['_route' => 'admin_slider_index', '_controller' => 'App\\Controller\\admin\\adminSliderController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/slider/new' => [[['_route' => 'admin_slider_new', '_controller' => 'App\\Controller\\admin\\adminSliderController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/user' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\admin\\adminUserController::index'], null, ['GET' => 0], null, true, false, null]],
@@ -75,51 +73,47 @@ return [
                         .'|delete/([^/]++)(*:285)'
                     .')'
                     .'|p(?'
-                        .'|age/([^/]++)(?'
-                            .'|(*:313)'
-                            .'|/edit(*:326)'
-                            .'|(*:334)'
+                        .'|age/(?'
+                            .'|([^/]++)(?'
+                                .'|(*:316)'
+                                .'|/edit(*:329)'
+                                .'|(*:337)'
+                            .')'
+                            .'|preview/([^/]++)(*:362)'
                         .')'
                         .'|roduct/(?'
-                            .'|edit/([^/]++)(*:366)'
-                            .'|delete/([^/]++)(*:389)'
+                            .'|edit/([^/]++)(*:394)'
+                            .'|delete/([^/]++)(*:417)'
                         .')'
                     .')'
-                    .'|s(?'
-                        .'|ection/([^/]++)(?'
-                            .'|(*:421)'
-                            .'|/edit(*:434)'
-                            .'|(*:442)'
-                        .')'
-                        .'|lider/([^/]++)(?'
-                            .'|(*:468)'
-                            .'|/edit(*:481)'
-                            .'|(*:489)'
-                        .')'
+                    .'|slider/([^/]++)(?'
+                        .'|(*:445)'
+                        .'|/edit(*:458)'
+                        .'|(*:466)'
                     .')'
                     .'|user/(?'
                         .'|([^/]++)(?'
-                            .'|(*:518)'
-                            .'|/edit(*:531)'
-                            .'|(*:539)'
+                            .'|(*:494)'
+                            .'|/edit(*:507)'
+                            .'|(*:515)'
                         .')'
-                        .'|admin/([^/]++)(*:562)'
+                        .'|user/([^/]++)(*:537)'
                     .')'
                 .')'
-                .'|/([a-z]+)?(*:582)'
+                .'|/([a-z]+)?(*:557)'
                 .'|/user/(?'
-                    .'|conso/update/([^/]++)(*:620)'
+                    .'|conso/update/([^/]++)(*:595)'
                     .'|product/(?'
-                        .'|edit/([^/]++)(*:652)'
-                        .'|delete/([^/]++)(*:675)'
+                        .'|edit/([^/]++)(*:627)'
+                        .'|delete/([^/]++)(*:650)'
                     .')'
-                    .'|list/update/([^/]++)(*:704)'
+                    .'|list/update/([^/]++)(*:679)'
                 .')'
                 .'|/media/cache/resolve/(?'
-                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:767)'
-                    .'|([A-z0-9_-]*)/(.+)(*:793)'
+                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:742)'
+                    .'|([A-z0-9_-]*)/(.+)(*:768)'
                 .')'
-                .'|/logout(*:809)'
+                .'|/logout(*:784)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -136,29 +130,30 @@ return [
         248 => [[['_route' => 'content_show', '_controller' => 'App\\Controller\\admin\\adminContentController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         261 => [[['_route' => 'content_edit', '_controller' => 'App\\Controller\\admin\\adminContentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         285 => [[['_route' => 'content_delete', '_controller' => 'App\\Controller\\admin\\adminContentController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        313 => [[['_route' => 'admin_page_show', '_controller' => 'App\\Controller\\admin\\adminPageController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        326 => [[['_route' => 'admin_page_edit', '_controller' => 'App\\Controller\\admin\\adminPageController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        334 => [[['_route' => 'admin_page_delete', '_controller' => 'App\\Controller\\admin\\adminPageController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        366 => [[['_route' => 'admin_product_edit', '_controller' => 'App\\Controller\\admin\\adminProductController::edit'], ['id'], null, null, false, true, null]],
-        389 => [[['_route' => 'admin_product_delete', '_controller' => 'App\\Controller\\admin\\adminProductController::delete'], ['id'], null, null, false, true, null]],
-        421 => [[['_route' => 'admin_section_show', '_controller' => 'App\\Controller\\admin\\adminSectionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        434 => [[['_route' => 'admin_section_edit', '_controller' => 'App\\Controller\\admin\\adminSectionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        442 => [[['_route' => 'admin_section_delete', '_controller' => 'App\\Controller\\admin\\adminSectionController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        468 => [[['_route' => 'admin_slider_show', '_controller' => 'App\\Controller\\admin\\adminSliderController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        481 => [[['_route' => 'admin_slider_edit', '_controller' => 'App\\Controller\\admin\\adminSliderController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        489 => [[['_route' => 'admin_slider_delete', '_controller' => 'App\\Controller\\admin\\adminSliderController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        518 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\admin\\adminUserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        531 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\admin\\adminUserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        539 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\admin\\adminUserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        562 => [[['_route' => 'user_admin', '_controller' => 'App\\Controller\\admin\\adminUserController::admin'], ['id'], null, null, false, true, null]],
-        582 => [[['_route' => 'front_slug', 'slug' => null, '_controller' => 'App\\Controller\\homeController::index'], ['slug'], null, null, false, true, null]],
-        620 => [[['_route' => 'user_conso_update', '_controller' => 'App\\Controller\\user\\userConsumptionController::edit'], ['id'], null, null, false, true, null]],
-        652 => [[['_route' => 'app_user_userproduct_edit', '_controller' => 'App\\Controller\\user\\userProductController::edit'], ['id'], null, null, false, true, null]],
-        675 => [[['_route' => 'user.product.delete', '_controller' => 'App\\Controller\\user\\userProductController::delete'], ['id'], null, null, false, true, null]],
-        704 => [[['_route' => 'user_list_update', '_controller' => 'App\\Controller\\user\\userShoppingListController::edit'], ['id'], null, null, false, true, null]],
-        767 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
-        793 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
-        809 => [
+        316 => [[['_route' => 'admin_page_show', '_controller' => 'App\\Controller\\admin\\adminPageController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        329 => [[['_route' => 'admin_page_edit', '_controller' => 'App\\Controller\\admin\\adminPageController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        337 => [[['_route' => 'admin_page_delete', '_controller' => 'App\\Controller\\admin\\adminPageController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        362 => [[['_route' => 'admin_page_preview', '_controller' => 'App\\Controller\\admin\\adminPageController::preview'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        394 => [[['_route' => 'admin_product_edit', '_controller' => 'App\\Controller\\admin\\adminProductController::edit'], ['id'], null, null, false, true, null]],
+        417 => [[['_route' => 'admin_product_delete', '_controller' => 'App\\Controller\\admin\\adminProductController::delete'], ['id'], null, null, false, true, null]],
+        445 => [[['_route' => 'admin_slider_show', '_controller' => 'App\\Controller\\admin\\adminSliderController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        458 => [[['_route' => 'admin_slider_edit', '_controller' => 'App\\Controller\\admin\\adminSliderController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        466 => [[['_route' => 'admin_slider_delete', '_controller' => 'App\\Controller\\admin\\adminSliderController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        494 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\admin\\adminUserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        507 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\admin\\adminUserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        515 => [
+            [['_route' => 'user_delete', '_controller' => 'App\\Controller\\admin\\adminUserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
+            [['_route' => 'user_admin', '_controller' => 'App\\Controller\\admin\\adminUserController::setAdmin'], ['id'], ['PUT' => 0], null, false, true, null],
+        ],
+        537 => [[['_route' => 'user_user', '_controller' => 'App\\Controller\\admin\\adminUserController::setUser'], ['id'], ['PUT' => 0], null, false, true, null]],
+        557 => [[['_route' => 'front_slug', 'slug' => null, '_controller' => 'App\\Controller\\homeController::index'], ['slug'], null, null, false, true, null]],
+        595 => [[['_route' => 'user_conso_update', '_controller' => 'App\\Controller\\user\\userConsumptionController::edit'], ['id'], null, null, false, true, null]],
+        627 => [[['_route' => 'app_user_userproduct_edit', '_controller' => 'App\\Controller\\user\\userProductController::edit'], ['id'], null, null, false, true, null]],
+        650 => [[['_route' => 'user.product.delete', '_controller' => 'App\\Controller\\user\\userProductController::delete'], ['id'], null, null, false, true, null]],
+        679 => [[['_route' => 'user_list_update', '_controller' => 'App\\Controller\\user\\userShoppingListController::edit'], ['id'], null, null, false, true, null]],
+        742 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        768 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
+        784 => [
             [['_route' => 'logout'], [], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

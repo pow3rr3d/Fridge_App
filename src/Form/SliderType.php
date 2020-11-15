@@ -22,10 +22,14 @@ class SliderType extends AbstractType
                 'class' => Page::class,
                 'choice_label' => 'name',
                 'multiple' => false,
+                'attr' => [
+                    'class' => 'custom-select'
+                ],
                 'choice_value' => function (Page $entity = null)
                 {
                     return $entity ? $entity->getId() : '';
                 }])
+
             ->add('imageFile1', FileType::class)
             ->add('imageFile2', FileType::class, [
                 'required' => false

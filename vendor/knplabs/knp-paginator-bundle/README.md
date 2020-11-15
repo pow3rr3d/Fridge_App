@@ -107,7 +107,7 @@ That could be used out of the box in `knp_paginator.template.sortable` key:
 
 * `@KnpPaginator/Pagination/sortable_link.html.twig` (by default)
 * `@KnpPaginator/Pagination/twitter_bootstrap_v3_sortable_link.html.twig`
-* `@KnpPaginator/Pagination/font_awesome_sortable_link.html.twig`
+* `@KnpPaginator/Pagination/twitter_bootstrap_v4_font_awesome_sortable_link.html.twig`
 * `@KnpPaginator/Pagination/semantic_ui_sortable_link.html.twig`
 
 ## Usage examples:
@@ -157,8 +157,12 @@ public function listAction(EntityManagerInterface $em, PaginatorInterface $pagin
     <tr>
         {# sorting of properties based on query components #}
         <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
-        <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>
-        <th>{{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}</th>
+        <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}
+        </th>
+        <th{% if pagination.isSorted(['a.date', 'a.time']) %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}
+        </th>
     </tr>
 
     {# table body #}
@@ -232,7 +236,7 @@ For more information about lazy services, consult the [Symfony documentation on 
 </container>
 ```
 
-[knp_component_pager]: https://github.com/KnpLabs/knp-components/blob/master/doc/pager/intro.md "Knp Pager component introduction"
+[knp_component_pager]: https://github.com/KnpLabs/knp-components/blob/master/docs/pager/intro.md "Knp Pager component introduction"
 [doc_custom_pagination_subscriber]: https://github.com/KnpLabs/KnpPaginatorBundle/tree/master/docs/custom_pagination_subscribers.md "Custom pagination subscribers"
 [doc_templates]: https://github.com/KnpLabs/KnpPaginatorBundle/tree/master/docs/templates.md "Customizing Pagination templates"
 

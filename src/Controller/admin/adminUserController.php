@@ -21,14 +21,14 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 /**
  * @Route("/admin/user")
  */
-    class adminUserController extends AbstractController
+class adminUserController extends AbstractController
 {
-        /**
-         * @Route("/", name="user_index", methods={"GET"})
-         * @param PaginatorInterface $paginator
-         * @param UserRepository $userRepository
-         * @return Response
-         */
+    /**
+     * @Route("/", name="user_index", methods={"GET"})
+     * @param PaginatorInterface $paginator
+     * @param UserRepository $userRepository
+     * @return Response
+     */
     public function index(PaginatorInterface $paginator, UserRepository $userRepository, Request $request): Response
     {
         $search = new UserSearch();
@@ -43,7 +43,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
         return $this->render('admin/user/index.html.twig', [
             'users' => $user,
             'pagination' => $paginator,
-            'form' =>$form->createView()
+            'form' => $form->createView()
         ]);
 
     }
@@ -86,16 +86,17 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
         ]);
     }
 
-        /**
-         * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
-         * @param Request $request
-         * @param User $user
-         * @param UserPasswordEncoderInterface $passwordEncoder
-         * @param EntityManagerInterface $em
-         * @return Response
-         */
-    public function edit(Request $request, User $user,UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em): Response
+    /**
+     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param User $user
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function edit(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em): Response
     {
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -111,8 +112,25 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
             return $this->redirectToRoute('user_index');
         }
+
+//        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutAdmin")
+//        {
+//            $user = $em->getRepository(User::class)->find($_POST['inputAdmin']);
+//            $user->setRoles("ROLE_ADMIN");
+//            $em->flush();
+//            return $this->redirectToRoute('user_index');
+//        }
+//        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutUser")
+//        {
+//            $user = $em->getRepository(User::class)->find($_POST['inputAdmin']);
+//            $user->setRoles("ROLE_USER");
+//            $em->flush();
+//            return $this->redirectToRoute('user_index');
+//        }
+//        dd($user);
+
         return $this->render('admin/user/edit.html.twig', [
-            'user' => $user,
+            'account' => $user,
             'form' => $form->createView(),
         ]);
     }
@@ -125,7 +143,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
      */
     public function delete(Request $request, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
@@ -134,27 +152,33 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
         return $this->redirectToRoute('user_index');
     }
 
-        /**
-         * * @Route("/admin/{id}", name="user_admin")
-         * @param EntityManager $entityManager
-         * @throws ORMException
-         * @throws OptimisticLockException
-         */
-        public function admin(EntityManagerInterface $entityManager)
+    /**
+     * @Route("/{id}", name="user_admin", methods={"PUT"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     */
+    public function setAdmin(Request $request, User $user, EntityManagerInterface $em)
     {
-        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutAdmin")
-        {
-            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
+        if ($this->isCsrfTokenValid('update' . $user->getId(), $request->request->get('_token'))) {
             $user->setRoles("ROLE_ADMIN");
-            $entityManager->flush();
-            return $this->redirectToRoute('user_index');
+            $em->flush();
         }
-        if(!empty($_POST['inputAdmin']) && $_POST['submitAdmin'] === "PutUser")
-        {
-            $user = $entityManager->getRepository(User::class)->find($_POST['inputAdmin']);
+            return $this->redirectToRoute('user_index');
+    }
+
+    /**
+     * @Route("/user/{id}", name="user_user", methods={"PUT"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     */
+    public function setUser(Request $request, User $user, EntityManagerInterface $em)
+    {
+        if ($this->isCsrfTokenValid('update' . $user->getId(), $request->request->get('_token'))) {
             $user->setRoles("ROLE_USER");
-            $entityManager->flush();
-            return $this->redirectToRoute('user_index');
+            $em->flush();
         }
+            return $this->redirectToRoute('user_index');
     }
 }

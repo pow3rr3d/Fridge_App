@@ -33,6 +33,7 @@ final class KnpPaginatorExtension extends Extension
         $container->setParameter('knp_paginator.template.filtration', $config['template']['filtration']);
         $container->setParameter('knp_paginator.template.sortable', $config['template']['sortable']);
         $container->setParameter('knp_paginator.page_range', $config['page_range']);
+        $container->setParameter('knp_paginator.page_limit', $config['page_limit']);
 
         $paginatorDef = $container->getDefinition('knp_paginator');
         $paginatorDef->addMethodCall('setDefaultPaginatorOptions', [[
@@ -42,6 +43,8 @@ final class KnpPaginatorExtension extends Extension
             'filterFieldParameterName' => $config['default_options']['filter_field_name'],
             'filterValueParameterName' => $config['default_options']['filter_value_name'],
             'distinct' => $config['default_options']['distinct'],
+            'pageOutOfRange' => $config['default_options']['page_out_of_range'],
+            'defaultLimit' => $config['default_options']['default_limit'],
         ]]);
 
         $paginatorDef->setLazy(true);

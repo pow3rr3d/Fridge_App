@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="extensions/filter-control/bootstrap-table-filter-control.css">
-    <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+    {{ encore_entry_link_tags('app') }}
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <title>
-        {% block title %}Welcome!
+        Fridge_App :
+        {% block title %}
         {% endblock %}
     </title>
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+<div class="w-100" id="topBar">
+    <li class="nav-item" id="toogleButton">
+        <a class="nav-link" href="#">
+            <i id="arrow" class="fas fa-arrow-left"></i>
+            <span class="spanMenu">Toggle Menu</span>
+        </a>
+    </li>
+    <ul class="nav navbar-nav ml-auto mr-3" id="userDropdown">
+        <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <i class="far fa-user-circle"></i> {{ user.surname }}
+            </a>
+            <div class="dropdown-menu">
+                <a class="nav-link" href="/user/account">
+                    <i class="fas fa-id-card"></i>
+                    <span class="spanMenu">Account</span>
+                </a>
+                <a class="nav-link" href="{{ path("logout") }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="spanMenu">Déconnexion</span>
+                </a>
+
+            </div>
+        </li>
+    </ul>
+</div>
 <div class="row">
     <nav class="nav navbar flex-column navbar-expand-lg navbar-light notHidden" id="navbarBack">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -48,59 +73,20 @@
                         <span class="spanMenu">List</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user/account">
-                        <i class="fas fa-id-card"></i>
-                        <span class="spanMenu">Account</span>
-                    </a>
-                </li>
-                {% if app.user %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("logout") }}">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="spanMenu">Déconnexion</span>
-                        </a>
-                    </li>
-                {% endif %}
-                <li class="nav-item" id="toogleButton">
-                    <a class="nav-link" href="#">
-                        <i id="arrow" class="fas fa-arrow-left"></i>
-                        <span class="spanMenu">Toggle Menu</span>
-                    </a>
-                </li>
             </ul>
+        </div>
     </nav>
 </div>
-<div id="container" class="container-fluid col-10">
+<div id="container" class="container-fluid col-10 mt-5">
     {% block body %}{% endblock %}
 </div>
 </div>
 {% block javascripts %}
     {{ encore_entry_script_tags('toggleMenu') }}
+    {{ encore_entry_script_tags('app') }}
+
 {% endblock %}
-<script src="https://kit.fontawesome.com/7bae4d8b24.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://unpkg.com/@popperjs/core@2"></script>
+
 
 </body>
 </html>
