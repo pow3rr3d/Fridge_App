@@ -17,9 +17,6 @@ User :
 - demo@email.fr
 - demo
 
-Admin: 
-- greg@brainfucker.fr
-- 123456789
 
 
 ## Disclamer
